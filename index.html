@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>病理学総論 過去問クイズ</title>
+<style>
+/* === Moodle Boost Theme === */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans','Meiryo',sans-serif;background:#f8f9fa;font-size:14px;color:#343a40;line-height:1.5}
+
+/* Navbar */
+.navbar{background:#fff;border-bottom:1px solid #dee2e6;padding:0 20px;height:56px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 4px rgba(0,0,0,.06)}
+.navbar-brand{font-size:1.1rem;font-weight:700;color:#343a40;text-decoration:none;flex-shrink:0}
+.navbar-nav{display:flex;gap:4px}
+.nav-link{padding:6px 12px;color:#1177d1;text-decoration:none;border-radius:4px;font-size:14px}
+.nav-link:hover{background:#e8f1fb;color:#0a5ba8}
+.navbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.user-pill{background:#e8f1fb;color:#1177d1;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:600}
+
+/* Breadcrumb */
+.moodle-breadcrumb{background:#fff;border-bottom:1px solid #dee2e6;padding:8px 20px;font-size:13px;color:#6c757d}
+.moodle-breadcrumb a{color:#1177d1;text-decoration:none}
+.moodle-breadcrumb a:hover{text-decoration:underline}
+.moodle-breadcrumb .sep{margin:0 6px;color:#adb5bd}
+
+/* Page header */
+.page-header{background:#fff;border-bottom:1px solid #dee2e6;padding:16px 20px 0}
+.page-title-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.activity-icon{width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.activity-icon.quiz-p{background:#cce5ff;color:#004085}
+.activity-icon.quiz-e{background:#d4edda;color:#155724}
+.page-header h1{font-size:1.3rem;font-weight:700;color:#343a40}
+.page-tabs{display:flex;border-top:none;margin-top:0;gap:0}
+.page-tab{padding:10px 20px;font-size:13px;color:#6c757d;border-bottom:3px solid transparent;cursor:default}
+.page-tab.active{color:#1177d1;border-bottom-color:#1177d1;font-weight:600}
+
+/* Layout */
+.page-wrapper{max-width:1200px;margin:0 auto;padding:0}
+.layout{display:grid;grid-template-columns:220px 1fr 240px;min-height:calc(100vh - 120px);gap:0}
+.lp{background:#fff;border-right:1px solid #dee2e6;padding:16px}
+.rp{background:#fff;border-left:1px solid #dee2e6;padding:16px}
+.main{padding:20px;background:#f8f9fa}
+
+/* Left panel */
+.back-btn{width:100%;padding:7px 12px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:4px;cursor:pointer;font-size:13px;margin-bottom:14px;text-align:left;color:#495057}
+.back-btn:hover{background:#e9ecef}
+.qlabel{font-weight:700;font-size:14px;margin-bottom:2px;color:#343a40}
+.qstat{font-size:12px;color:#6c757d;margin-bottom:2px}
+.qscore{font-size:12px;color:#6c757d;margin-bottom:12px}
+.mode-badge{display:inline-block;font-size:11px;padding:2px 10px;border-radius:12px;font-weight:600;color:#fff}
+.mode-badge.p{background:#0f6fc6}
+.mode-badge.e{background:#198754}
+
+/* Question box */
+.qbox{background:#fff;border:1px solid #dee2e6;border-radius:4px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.qbox.p{border-top:4px solid #0f6fc6}
+.qbox.e{border-top:4px solid #198754}
+.qtopic{font-size:11px;color:#6c757d;margin-bottom:6px;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.qtext{font-size:14px;font-weight:600;color:#212529;margin-bottom:18px;line-height:1.6;white-space:pre-wrap}
+.opts{display:flex;flex-direction:column;gap:6px}
+.orow{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:8px 10px;border:1px solid #dee2e6;border-radius:4px;background:#fff;transition:background .1s,border-color .1s}
+.orow:hover{background:#f8f9fa;border-color:#adb5bd}
+.orow input{margin-top:2px;cursor:pointer;accent-color:#0f6fc6}
+.olbl{font-size:13px;line-height:1.5;cursor:pointer;color:#343a40}
+.olbl.ok{color:#155724;font-weight:600}
+.olbl.ng{color:#721c24}
+.multi-note{font-size:11px;color:#6c757d;margin-bottom:8px;padding:4px 8px;background:#fff3cd;border-radius:3px;border:1px solid #ffc107}
+
+/* Buttons */
+.chk-btn{margin-top:16px;padding:8px 20px;background:#0f6fc6;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;color:#fff}
+.chk-btn:hover{background:#0a5ba8}
+.next-btn{padding:8px 20px;background:#0f6fc6;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600}
+.next-btn:hover{background:#0a5ba8}
+.submit-btn{padding:8px 20px;background:#198754;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600}
+.submit-btn:hover{background:#146c43}
+.save-link{font-size:12px;color:#1177d1;cursor:pointer;text-decoration:underline}
+
+/* Feedback */
+.fb{margin-top:14px;padding:12px 16px;border-radius:4px;font-size:13px;line-height:1.6;display:none;border:1px solid}
+.fb.ok{background:#d1e7dd;border-color:#a3cfbb;color:#0a3622}
+.fb.ng{background:#fff3cd;border-color:#ffc107;color:#664d03}
+
+.bnav{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+
+/* Right nav panel */
+.navtitle{font-size:13px;font-weight:700;margin-bottom:8px;color:#343a40;border-bottom:1px solid #dee2e6;padding-bottom:6px}
+.exam-progress{font-size:11px;color:#6c757d;margin-bottom:8px}
+.ngrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:12px}
+.nc{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid #dee2e6;border-radius:3px;font-size:11px;font-weight:500;background:#fff;color:#495057;cursor:pointer}
+.nc:hover{border-color:#0f6fc6;color:#0f6fc6}
+.nc.cur{border:2px solid #0f6fc6;color:#0f6fc6;font-weight:700;background:#e8f1fb}
+.nc.dok{background:#198754;color:#fff;border-color:#198754}
+.nc.dng{background:#dc3545;color:#fff;border-color:#dc3545}
+.nc.ans{background:#cfe2ff;border-color:#9ec5fe;color:#084298}
+.endlink{color:#dc3545;font-size:12px;cursor:pointer;text-decoration:underline;margin-top:8px;display:block}
+
+/* Home page */
+#home{max-width:860px;margin:0 auto;padding:20px}
+.hcard{background:#fff;border:1px solid #dee2e6;border-radius:4px;padding:20px;margin-bottom:16px}
+.hcard h2{font-size:1rem;font-weight:700;color:#343a40;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #dee2e6}
+
+/* Course sections */
+.section-header{display:flex;align-items:center;gap:8px;padding:10px 0;margin-bottom:12px}
+.section-toggle{background:#e9ecef;border:1px solid #dee2e6;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#6c757d;cursor:pointer;flex-shrink:0}
+.section-name{font-weight:700;font-size:15px;color:#343a40}
+
+/* Year selector (styled like Moodle tabs) */
+.year-sel{display:flex;gap:2px;margin-bottom:20px;background:#e9ecef;padding:4px;border-radius:6px}
+.ybtn{flex:1;padding:8px 10px;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;background:transparent;text-align:center;transition:all .15s;color:#6c757d}
+.ybtn:hover{background:#fff;color:#343a40}
+.ybtn.sel{background:#fff;color:#0f6fc6;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.ybadge{display:block;font-size:10px;margin-top:2px;font-weight:400;color:inherit;opacity:.75}
+
+/* Mode grid - styled like Moodle activity list */
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mcard{border:1px solid #dee2e6;border-radius:4px;padding:16px;transition:box-shadow .15s;background:#fff}
+.mcard:hover{box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.mcard.w{border-left:4px solid #dc3545}
+.mcard h3{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.mcard h3.p{color:#0f6fc6}
+.mcard h3.e{color:#198754}
+.mcard h3.w{color:#dc3545}
+.mcard p{font-size:12px;color:#6c757d;line-height:1.5}
+.mcard .mstart{margin-top:12px;padding:7px 16px;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:5px}
+.mstart.p{background:#0f6fc6}.mstart.p:hover{background:#0a5ba8}
+.mstart.e{background:#198754}.mstart.e:hover{background:#146c43}
+.mstart.w{background:#dc3545}.mstart.w:hover{background:#b02a37}
+
+/* Resume card */
+.rinfo{background:#cfe2ff;border-radius:4px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#084298;line-height:1.7;border:1px solid #9ec5fe}
+.rinfo.e{background:#d1e7dd;color:#0a3622;border-color:#a3cfbb}
+.hbtns{display:flex;gap:8px;flex-wrap:wrap}
+.bblu{padding:8px 18px;background:#0f6fc6;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600}
+.bpur{padding:8px 18px;background:#198754;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600}
+.bgry{padding:8px 18px;background:#f8f9fa;color:#495057;border:1px solid #dee2e6;border-radius:4px;cursor:pointer;font-size:13px}
+.bgry:hover{background:#e9ecef}
+.bred{padding:5px 12px;background:#fff;color:#dc3545;border:1px solid #dc3545;border-radius:4px;cursor:pointer;font-size:12px}
+.bred:hover{background:#dc3545;color:#fff}
+
+/* History table */
+.htbl{width:100%;border-collapse:collapse;font-size:13px}
+.htbl th{background:#f8f9fa;padding:8px 10px;text-align:left;font-weight:600;color:#6c757d;border-bottom:2px solid #dee2e6;font-size:12px}
+.htbl td{padding:8px 10px;border-bottom:1px solid #f1f3f5;vertical-align:middle}
+.htbl tr:hover td{background:#f8f9fa}
+.bdg{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600}
+.bdg-p{background:#d1e7dd;color:#0a3622}
+.bdg-g{background:#cfe2ff;color:#084298}
+.bdg-o{background:#f8d7da;color:#842029}
+.nohist{color:#adb5bd;text-align:center;padding:24px;font-size:13px}
+.rev-hist-btn{background:#0f6fc6;color:#fff;border:none;border-radius:4px;padding:3px 10px;cursor:pointer;font-size:12px}
+.rev-hist-btn:hover{background:#0a5ba8}
+
+/* Completion page */
+#comp{max-width:720px;margin:30px auto;padding:0 20px;text-align:center}
+.ccard{background:#fff;border:1px solid #dee2e6;border-radius:4px;padding:32px;margin-bottom:16px}
+.ccard h2{font-size:1.4rem;margin-bottom:20px;color:#343a40;font-weight:700}
+.srow{display:flex;justify-content:center;gap:40px;margin-bottom:20px}
+.sbox .n{font-size:2rem;font-weight:700;color:#0f6fc6}
+.sbox .l{font-size:12px;color:#6c757d;margin-top:4px}
+.rev-list{text-align:left;margin-top:20px}
+.rev-item{background:#f8f9fa;border:1px solid #dee2e6;border-radius:4px;padding:12px 14px;margin-bottom:8px;border-left:4px solid #dee2e6}
+.rev-item.ng{border-left-color:#dc3545}
+.rev-q{font-size:13px;font-weight:600;color:#343a40;margin-bottom:4px}
+.rev-ans{font-size:12px;color:#6c757d;margin-bottom:2px}
+.rev-exp{font-size:12px;color:#6c757d;line-height:1.5;margin-top:4px;padding-top:4px;border-top:1px solid #dee2e6}
+
+/* History review modal */
+.hrev-header{display:flex;align-items:center;justify-content:space-between;font-size:14px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #dee2e6;flex-wrap:wrap;gap:8px;font-weight:600}
+.hrev-close{background:#dc3545;color:#fff;border:none;border-radius:4px;padding:4px 12px;cursor:pointer;font-size:13px}
+
+/* Icons */
+.ico{color:#fff;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:bold}
+.ico.p{background:#0f6fc6}
+.ico.e{background:#198754}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <span class="navbar-brand">chibamed</span>
+  <nav class="navbar-nav">
+    <a class="nav-link" href="#" onclick="goHome();return false">Home</a>
+    <a class="nav-link" href="#">ダッシュボード</a>
+    <a class="nav-link" href="#">マイコース</a>
+  </nav>
+  <div class="navbar-right">
+    <span class="user-pill">病理学総論</span>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="home">
+  <div class="hcard">
+    <h2>🔬 病理学総論 過去問クイズ</h2>
+    <div class="year-sel">
+      <div class="ybtn y19" id="ybtn-19" onclick="selYear('19')">
+        <div>19M</div>
+        <div class="ybadge y19">2021年度 39問</div>
+      </div>
+      <div class="ybtn y21" id="ybtn-21" onclick="selYear('21')">
+        <div>21M</div>
+        <div class="ybadge y21">2023年度 30問</div>
+      </div>
+      <div class="ybtn y23" id="ybtn-23" onclick="selYear('23')">
+        <div>23M</div>
+        <div class="ybadge y23">2025年度 26問</div>
+      </div>
+      <div class="ybtn yall" id="ybtn-all" onclick="selYear('all')">
+        <div>全年度</div>
+        <div class="ybadge yall">全95問</div>
+      </div>
+    </div>
+    <div class="mode-grid">
+      <div class="mcard p">
+        <h3 class="p">📖 練習モード</h3>
+        <p>1問ずつ解いて即座にフィードバック。間違えた問題はキューの最後に追加され、全問正解で終了。</p>
+        <button class="mstart p" onclick="startPractice()">スタート</button>
+      </div>
+      <div class="mcard e">
+        <h3 class="e">📝 試験モード</h3>
+        <p>全問を解いてから一括提出。問題間を自由に行き来できます。本番の試験に近い形式。</p>
+        <button class="mstart e" onclick="startExam()">スタート</button>
+      </div>
+      <div class="mcard w" id="wrong-mcard">
+        <h3 class="w">🔴 苦手問題モード</h3>
+        <p id="wrong-mcard-desc">過去に1回でも間違えた問題だけを練習。年度問わず全履歴から集計。</p>
+        <button class="mstart w" id="wrong-start-btn" onclick="startWrongPractice()">スタート</button>
+      </div>
+    </div>
+  </div>
+  <div class="hcard" id="resume-card" style="display:none">
+    <h2 id="resume-title">▶ 前回の続き</h2>
+    <div class="rinfo" id="resume-info"></div>
+    <div class="hbtns">
+      <button id="btn-resume-p" class="bblu" style="display:none" onclick="resumePractice()">練習を再開</button>
+      <button id="btn-resume-e" class="bpur" style="display:none" onclick="resumeExam()">試験を再開</button>
+      <button class="bgry" onclick="discardSaved()">破棄して新規</button>
+    </div>
+  </div>
+  <div class="hcard">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <h2 style="margin:0">📊 過去の結果</h2>
+      <button class="bred" id="btn-clrhist" style="display:none" onclick="clearHistory()">履歴を削除</button>
+    </div>
+    <div id="hist-area"></div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" style="display:none">
+  <div class="moodle-breadcrumb">
+    <a href="#" onclick="goHome();return false">病理学総論</a>
+    <span class="sep">›</span>
+    <span id="hdr-title">過去問</span>
+  </div>
+  <div class="page-header">
+    <div class="page-title-row">
+      <div class="activity-icon" id="mode-ico">📝</div>
+      <h1 id="hdr-h1">病理学総論 過去問</h1>
+    </div>
+    <div class="page-tabs">
+      <div class="page-tab active" id="mode-tab">モード</div>
+    </div>
+  </div>
+  <div class="layout">
+    <div class="lp">
+      <button class="back-btn" onclick="saveAndExit()">◀ 戻る</button>
+      <div class="qlabel" id="qlabel">問題 1</div>
+      <div class="qstat" id="qstat">未回答</div>
+      <div class="qscore">全 <span id="total-lbl">0</span> 問</div>
+      <br>
+      <span class="mode-badge" id="mode-badge">モード</span>
+    </div>
+    <div class="main">
+      <div class="qbox" id="qbox">
+        <div class="qtopic" id="qtopic"></div>
+        <div class="qtext" id="qtext"></div>
+        <div class="opts" id="opts"></div>
+        <button class="chk-btn" id="chk-btn" onclick="doCheck()" style="display:none">チェック</button>
+        <div class="fb" id="fb"></div>
+      </div>
+      <div class="bnav">
+        <span class="save-link" onclick="saveAndExit()">💾 保存して終了</span>
+        <div style="display:flex;gap:10px">
+          <button class="next-btn" id="prev-btn" onclick="prevQ()" style="display:none;background:#888">◀ 前へ</button>
+          <button class="next-btn" id="nxt-btn" style="display:none" onclick="nextQ()">次のページ</button>
+          <button class="submit-btn" id="submit-btn" style="display:none" onclick="submitExam()">✔ 提出する</button>
+        </div>
+      </div>
+    </div>
+    <div class="rp">
+      <div class="navtitle">ナビゲーション</div>
+      <div class="exam-progress" id="nav-progress"></div>
+      <div class="ngrid" id="ngrid"></div>
+      <div class="endlink" onclick="saveAndExit()">テストを終了する</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPLETE -->
+<div id="comp" style="display:none">
+  <div class="ccard">
+    <h2 id="comp-title">🎉 完了！</h2>
+    <div class="srow">
+      <div class="sbox"><div class="n" id="st-score"></div><div class="l">正解数</div></div>
+      <div class="sbox"><div class="n" id="st-time"></div><div class="l">所要時間</div></div>
+      <div class="sbox"><div class="n" id="st-acc"></div><div class="l">正答率</div></div>
+    </div>
+    <div id="st-extra" style="font-size:13px;color:#888"></div>
+    <div class="rev-list" id="rev-list"></div>
+  </div>
+  <div style="display:flex;gap:12px;justify-content:center">
+    <button class="bblu" onclick="goHome()">🏠 トップに戻る</button>
+  </div>
+</div>
+
+<script>
+var Q_b19M=
+[
+  {
+    "t": "壊死の種類",
+    "q": "心筋の貧血性梗塞の際に見られる壊死はどれか。",
+    "o": [
+      "a. 融解壊死",
+      "b. 出血壊死",
+      "c. 凝固壊死",
+      "d. 乾酪壊死"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "凝固壊死はタンパク質の変性・凝固により起こり、梗塞病変で一般に見られる。脳など脂肪の多い組織では融解壊死。結核では乾酪壊死（凝固壊死の一種）。"
+  },
+  {
+    "t": "ウィルヒョウの三要素",
+    "q": "血管内血栓症を引き起こす重要な異常（ウィルヒョウの3要素）とは、（　　）、血流異常、内皮細胞傷害である。",
+    "o": [
+      "a. 血小板増加",
+      "b. 血液凝固能亢進",
+      "c. 赤血球減少",
+      "d. 白血球減少"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "ウィルヒョウの三要素：①血液凝固能亢進、②血流異常（うっ滞）、③内皮細胞傷害。"
+  },
+  {
+    "t": "止血の三要素",
+    "q": "止血の3要素は、血小板、凝固因子、あとひとつは何か？",
+    "o": [
+      "a. ワルファリン",
+      "b. プラスミン",
+      "c. 内皮細胞",
+      "d. 顆粒球"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "止血の三要素：血小板・凝固因子・内皮細胞。"
+  },
+  {
+    "t": "ショックの分類",
+    "q": "（　　）ショックの代表的な原因としては心筋梗塞、弁膜症、不整脈が挙げられる。",
+    "o": [
+      "a. 心原性",
+      "b. 循環血液量減少性",
+      "c. 血液分布異常性",
+      "d. 心外閉塞・拘束性"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "心原性ショック→心筋梗塞・弁膜症・不整脈。循環血液量減少性→出血・脱水。血液分布異常性→アナフィラキシー・敗血症。"
+  },
+  {
+    "t": "塞栓症",
+    "q": "塞栓症の原因として一番頻度が高いのは（　　）である。",
+    "o": [
+      "a. 悪性腫瘍",
+      "b. 血栓",
+      "c. 脂肪",
+      "d. 寄生虫"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "塞栓の多くは遊離した血栓（血栓塞栓症）。"
+  },
+  {
+    "t": "Nutmeg liver",
+    "q": "肝臓の慢性うっ血の際の肉眼像は何と呼ばれるか。",
+    "o": [
+      "a. nutmeg liver",
+      "b. garlic liver",
+      "c. coconut liver",
+      "d. gamma-gandy結節"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "Nutmeg liver（ニクズク肝）：慢性うっ血性肝障害で、肝小葉中心部が暗赤色、辺縁部が黄色化し、ナツメグに似た外観を呈する。"
+  },
+  {
+    "t": "悪性腫瘍（誤りの組み合わせ）",
+    "q": "悪性腫瘍について、誤っているものの組み合わせを選びなさい。\n(4) TNM分類のNは血行性転移や播種の指標となる。\n(5) 悪性腫瘍は必ず腫瘤を形成する。",
+    "o": [
+      "a. (1),(3)",
+      "b. (2),(5)",
+      "c. (3),(4)",
+      "d. (3),(5)",
+      "e. (4),(5)"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "(4)NはリンパNの転移指標、血行性転移・播種はM。(5)白血病などは塊を形成しない悪性腫瘍の例。"
+  },
+  {
+    "t": "心筋梗塞の経時変化",
+    "q": "心筋梗塞発症後24〜48時間後に現れる組織学的変化として適切なものはどれか。",
+    "o": [
+      "a. マクロファージの出現",
+      "b. 梗塞部心筋線維の消失",
+      "c. 血管増生",
+      "d. 高度な心筋細胞の好酸化"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "24〜48h：高度な心筋細胞の好酸化。1wk：マクロファージ出現・毛細血管増殖。2〜6wks：梗塞部心筋線維の消失。"
+  },
+  {
+    "t": "浮腫液の分類",
+    "q": "浮腫とは水分が血管内から間質組織に移動する現象であるが、浮腫液のタンパク質濃度が低いものを（　　）という。",
+    "o": [
+      "a. 生食液",
+      "b. 電解液",
+      "c. 滲出液",
+      "d. 漏出液"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "漏出液→タンパク質濃度低い（非炎症性）。滲出液→タンパク質濃度高い（炎症性）。"
+  },
+  {
+    "t": "腫瘍の分類",
+    "q": "上皮性細胞由来でないものはどれか。",
+    "o": [
+      "a. 線維腫",
+      "b. 扁平上皮性癌",
+      "c. 乳頭腫",
+      "d. 腺腫"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "線維腫は良性非上皮性腫瘍（間葉系由来）。扁平上皮性癌・乳頭腫・腺腫は上皮性腫瘍。"
+  },
+  {
+    "t": "がん遺伝子異常（誤り）",
+    "q": "がんにおける遺伝子異常について誤っているものの組み合わせを選びなさい。\n(2) epigenetic な異常はDNA塩基配列の変化を伴う異常のことを指す。\n(3) genetic な異常は塩基配列の変化はないが、DNAの修飾因子の変化により遺伝子発現が変化することで発がんに寄与する。",
+    "o": [
+      "a. (1)(3)",
+      "b. (2)(3)",
+      "c. (3)(4)",
+      "d. (3)(5)",
+      "e. (4)(5)"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "epigenetic異常→塩基配列の変化なし、修飾因子の変化。genetic異常→DNA塩基配列の変化を伴う。(2)(3)の記述が逆。"
+  },
+  {
+    "t": "がん遺伝子（正しい組み合わせ）",
+    "q": "がんにおける遺伝子異常について正しいものの組み合わせを選びなさい。\n(1) 発がんの原因となりうる遺伝子をパッセンジャー遺伝子という。\n(2) 発がんの原因となる遺伝子は大きくがん遺伝子とがん抑制遺伝子に分けられる。\n(3) がん遺伝子は車のブレーキにたとえられる。\n(4) がん抑制遺伝子は車のアクセルにたとえられる。\n(5) がん抑制遺伝子は遺伝子が失活することにより発がんに寄与する。",
+    "o": [
+      "a. (1)(3)",
+      "b. (2)(5)",
+      "c. (3)(4)",
+      "d. (3)(5)",
+      "e. (4)(5)"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "発がん原因遺伝子→ドライバー遺伝子。がん遺伝子→アクセル（活性化で増殖促進）。がん抑制遺伝子→ブレーキ（失活で発がん）。"
+  },
+  {
+    "t": "腫瘍の特徴（誤り）",
+    "q": "腫瘍の特徴として誤りの組み合わせを選べ。\n(1) 良性腫瘍は悪性化することはないので放置しても命に別状はない。\n(4) 腫瘍は栄養がなくても増殖する能力を獲得しており、一般に血流は乏しい。",
+    "o": [
+      "a. (1)(2)",
+      "b. (2)(5)",
+      "c. (3)(4)",
+      "d. (3)(5)",
+      "e. (1)(4)"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "(1)大腸腺腫が腺癌になるなど、良性腫瘍から悪性化するケースもある。(4)悪性腫瘍は血管新生が行われ血流は確保される。"
+  },
+  {
+    "t": "免疫組織化学",
+    "q": "免疫組織化学（免疫染色）に用いられない抗体はどれか。",
+    "o": [
+      "a. PAS",
+      "b. PD-L1",
+      "c. AFP（α-fetoprotein）",
+      "d. vimentin"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "PAS染色は糖を検出する化学的染色で抗体を使わない。免疫染色はPD-L1、AFP、vimentinなど抗原を標的とする抗体を使用する。"
+  },
+  {
+    "t": "炎症細胞",
+    "q": "炎症に関わる細胞の組み合わせとして正しいものを選べ（全て選べ）。\n① 好中球 ② 好酸球 ③ 組織球 ④ 形質細胞",
+    "o": [
+      "a. ①②",
+      "b. ②③",
+      "c. ④",
+      "d. ①③④",
+      "e. ①②③④"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "急性炎症前期は①〜③（自然免疫系）が活性化。慢性炎症では④（形質細胞など獲得免疫系）が主体となる。"
+  },
+  {
+    "t": "炎症の4徴候",
+    "q": "「炎症の4徴候」に含まれないものを選べ。",
+    "o": [
+      "a. 発熱",
+      "b. 発赤",
+      "c. 腫脹",
+      "d. 疼痛",
+      "e. うっ血"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "炎症の4徴候：発熱・発赤・腫脹・疼痛。5徴候では「機能低下」が加わる。うっ血は炎症の徴候ではない。"
+  },
+  {
+    "t": "器質化・肉芽組織",
+    "q": "器質化とは、組織の（　　）への置換である。（　　）は線維芽細胞を主成分とし、Mφなどの炎症細胞や新生血管が混在して形成される。",
+    "o": [
+      "a. 肉芽組織",
+      "b. 肉芽腫",
+      "c. 瘢痕",
+      "d. 膿瘍"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "肉芽組織は創傷治癒の際の一時的補填物（線維芽細胞・炎症細胞・新生血管）。肉芽腫は慢性炎症の一形態で別物。"
+  },
+  {
+    "t": "I型アレルギー",
+    "q": "I型アレルギーによる疾患を1つ選べ。",
+    "o": [
+      "a. 接触性皮膚炎",
+      "b. アレルギー性鼻炎",
+      "c. Goodpasture症候群",
+      "d. Basedow病",
+      "e. 尋常性天疱瘡"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "I型（即時型）→アレルギー性鼻炎・気管支喘息。IV型→接触性皮膚炎。II型→Goodpasture症候群・尋常性天疱瘡。"
+  },
+  {
+    "t": "シェーグレン症候群",
+    "q": "シェーグレン症候群の症状として正しいものを1つ選べ。",
+    "o": [
+      "a. ヘリオトロープ疹",
+      "b. Gottron徴候",
+      "c. 角膜炎",
+      "d. 口内炎"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "シェーグレン症候群→外分泌腺障害（唾液腺・涙腺）→口腔乾燥・口内炎・ドライアイ。ヘリオトロープ疹・Gottron徴候は皮膚筋炎の症状。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "肉芽腫について正しいものを選べ。",
+    "o": [
+      "a. 膠原線維が豊富で炎症細胞に乏しい",
+      "b. 毛細血管が豊富で出血しやすい",
+      "c. 軽度の核異形を伴う上皮細胞による過形成の結節が見られる",
+      "d. 組織球が結節状に集まり多核巨細胞が形成されることがある"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "肉芽腫はMφ（組織球）が刺激物質に反応して形成する慢性炎症反応。ラングハンス型巨細胞などの多核巨細胞を伴う。腫瘍ではない。"
+  },
+  {
+    "t": "高血圧と心筋変化",
+    "q": "高血圧が長年治療されないままであった場合、心筋に出現する可能性が最も高い細胞変化はどれか。",
+    "o": [
+      "a. Apoptosis",
+      "b. Dysplasia（異形成）",
+      "c. Fatty change",
+      "d. Hemosiderosis",
+      "e. Hyperplasia（過形成）",
+      "f. Hypertrophy（肥大）",
+      "g. Metaplasia（化生）"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "高血圧による圧力負荷→既存の心筋線維の筋フィラメント増加→細胞肥大（Hypertrophy）。心筋細胞は増殖能を持たないのでHyperplasiaは起こらない。"
+  },
+  {
+    "t": "心筋梗塞1ヶ月後",
+    "q": "血清CK 600U/L、左心室4cm梗塞確認後1ヶ月後に左心室病変に見られる可能性が最も高い病理所見はどれか。",
+    "o": [
+      "a. 慢性炎症",
+      "b. 凝固壊死",
+      "c. 治癒",
+      "d. 線維瘢痕",
+      "e. 再生結節"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "凝固壊死は発生後約2〜6週で消失し瘢痕化する。1ヶ月後は線維瘢痕（fibrous scar）が形成されている。"
+  },
+  {
+    "t": "脳梗塞と壊死の種類",
+    "q": "68歳女性が突然意識を失い1時間後に回復。発話不可・右腕麻痺。CTで左脳に障害。最も正しい記述はどれか。",
+    "o": [
+      "a. 左中大脳動脈支配域の核融解",
+      "b. 左中大脳動脈支配域の凝固壊死",
+      "c. 左中大脳動脈支配域の融解壊死",
+      "d. 左前大脳動脈支配域の脂肪壊死",
+      "e. 左前大脳動脈支配域の融解壊死"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "言語障害・右腕麻痺→左中大脳動脈（MCA）領域。脳はタンパク質少なく脂肪多い→融解壊死。"
+  },
+  {
+    "t": "脂肪壊死",
+    "q": "30歳女性が右胸に受傷。3週間以内に皮膚挫傷は解消したが1ヶ月後に深部に固くて痛みのないしこりが残った。最も可能性の高い診断はどれか。",
+    "o": [
+      "a. 膿瘍",
+      "b. 脂肪壊死",
+      "c. 線維腺腫",
+      "d. 炎症性乳がん",
+      "e. 硬化性腺症"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "外傷後の乳房に固い無痛性しこり→脂肪壊死。脂肪組織の壊死後に石灰化や線維化が起こる。"
+  },
+  {
+    "t": "神経芽細胞腫",
+    "q": "生後6か月男児、右副腎5.5cm腫瘤、尿中HVA・VMA上昇。この病変の予後不良に関連している可能性が最も高いものはどれか。",
+    "o": [
+      "a. 年齢が1歳未満であること",
+      "b. 高二倍性（Hyperdiploidy）",
+      "c. 腎奇形",
+      "d. MYCN（NMYC）癌遺伝子の増幅",
+      "e. 多数の神経節細胞の存在"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "神経芽細胞腫の予後不良因子：2歳以上・N-MYC遺伝子増幅・血清NSE高値・2n型核型。"
+  },
+  {
+    "t": "Tay-Sachs病",
+    "q": "1〜2歳で失明・神経発達遅滞、眼底黄斑部にcherry-red spotを持つ子供。欠乏している酵素はどれか。",
+    "o": [
+      "a. α-L-Iduronidase",
+      "b. Galactosylceramidase",
+      "c. Glucocerebrosidase",
+      "d. Hexosaminidase A",
+      "e. Lysosomal glucosidase"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "Cherry-red spot→Tay-Sachs病（GM2ガングリオシドーシス）。Hexosaminidase A欠乏。α-L-Iduronidase→Hurler症候群。Gaucher病→Glucocerebrosidase欠乏。"
+  },
+  {
+    "t": "逆流性食道炎",
+    "q": "1年以上食後に灼熱の心窩部痛を持つ57歳女性。下部食道粘膜に発赤、基底帯扁平上皮過形成・固有層乳頭の伸長・好酸球を認める。最も可能性の高い診断はどれか。",
+    "o": [
+      "a. Barrett食道",
+      "b. 食道静脈瘤",
+      "c. 鉄欠乏状態",
+      "d. 逆流性食道炎",
+      "e. 全身性硬化症"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "食後心窩部痛・食道粘膜発赤・扁平上皮過形成・好酸球浸潤→逆流性食道炎（GERD）。Barrett食道は胃粘膜化生で症状が必ずしも伴わない。"
+  },
+  {
+    "t": "乳がんとBRCA1",
+    "q": "25歳女性、右胸に2cmの固くて動かない塊。家族歴（母・母方叔母・母方祖母に同様の病変）。妹に見つかる変異遺伝子として最も可能性が高いものはどれか。",
+    "o": [
+      "a. BRCA1",
+      "b. Estrogen receptor（ER）",
+      "c. HER2/neu",
+      "d. TP53",
+      "e. Progesterone receptor（PR）",
+      "f. RB1"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "若年性乳がん＋強い家族歴→BRCA1/2変異（がん抑制遺伝子）。ER・PRは治療反応性の指標。HER2は予後不良の指標。"
+  },
+  {
+    "t": "Niemann-Pick病",
+    "q": "22歳女性の子供が4歳までに重度の神経機能低下。著明な肝脾腫、骨髄で多数の泡沫状空胞化マクロファージ。診断に最も有用な分析はどれか。",
+    "o": [
+      "a. α1-antitrypsinの血清値",
+      "b. 肝細胞のglucose-6-phosphatase活性",
+      "c. 脾マクロファージのsphingomyelinase活性",
+      "d. 肝細胞のLDL受容体数",
+      "e. 皮膚線維芽細胞のコラーゲン合成速度"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "神経症状＋肝脾腫＋泡沫状マクロファージ→ニーマン・ピック病A型（sphingomyelinase欠乏）。リソソーム蓄積症。"
+  },
+  {
+    "t": "von Gierke病",
+    "q": "2歳の子供、成長障害・肝腫大・低血糖（31mg/dL）・皮膚の斑状出血。肝生検でグリコーゲン陽性空胞が充満した細胞。最も適する疾患はどれか。",
+    "o": [
+      "a. Hurler症候群",
+      "b. McArdle病",
+      "c. Pompe病",
+      "d. Tay-Sachs病",
+      "e. von Gierke病"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "肝グリコーゲン蓄積＋重度低血糖＋成長障害→von Gierke病（糖原病Ia型：glucose-6-phosphatase欠損）。"
+  },
+  {
+    "t": "新生児RDS",
+    "q": "妊娠28週で出産した女児が呼吸困難・チアノーゼ・すりガラス様陰影を呈し死亡。剖検で肺胞を好酸性の肥厚した硝子膜が覆っていた。最も可能性の高い原因はどれか。",
+    "o": [
+      "a. 先天性トキソプラズマ症",
+      "b. 肺の未熟性",
+      "c. 重度の胎児性貧血",
+      "d. 母親の妊娠毒血症",
+      "e. 羊水過少"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "28週早産→肺サーファクタント不足→新生児呼吸促迫症候群（RDS）。硝子膜病。34週以前はサーファクタント不十分。"
+  },
+  {
+    "t": "ビタミンB12欠乏",
+    "q": "74歳女性、10年前に胃全摘歴。労作時息切れ・舌の腫れと痛み・汎血球減少。骨髄穿刺で巨赤芽球像を認めた。欠乏しているビタミンはどれか。",
+    "o": [
+      "a. ビタミンA",
+      "b. ビタミンB12",
+      "c. ビタミンC",
+      "d. ビタミンD",
+      "e. ビタミンE"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "胃全摘→内因子（intrinsic factor）喪失→ビタミンB12吸収障害→悪性貧血（巨赤芽球性貧血）。"
+  },
+  {
+    "t": "鉄欠乏性貧血",
+    "q": "28歳女性事務員（身長158cm・体重42kg）。月経過多・疲労感。手足の爪が匙状に変形（スプーンネイル）。不足している生体金属はどれか。",
+    "o": [
+      "a. 鉄",
+      "b. 亜鉛",
+      "c. マグネシウム",
+      "d. 銅",
+      "e. ヒ素"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "匙状爪甲（koilonychia）は鉄欠乏性貧血の特徴的所見。月経過多による慢性失血が原因。"
+  },
+  {
+    "t": "ビタミンA欠乏",
+    "q": "貧困コミュニティの子供たちで気道感染症が増加。成人すると角膜軟化症・尿路結石・丘疹性皮膚症の発生率が増加。不足するビタミンとして最も可能性が高いのはどれか。",
+    "o": [
+      "a. ビタミンA",
+      "b. ビタミンB1",
+      "c. ビタミンD",
+      "d. ビタミンE",
+      "e. ビタミンK"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ビタミンA欠乏→呼吸器上皮の扁平上皮化生→感染症リスク増加・角膜軟化症・夜盲症。"
+  },
+  {
+    "t": "壊血病（Scurvy）",
+    "q": "南極探検から帰還できなかった隊員の遺体で角化性丘疹状発疹・斑状出血・重度の歯肉腫脹・出血が認められた。最も可能性の高い死因はどれか。",
+    "o": [
+      "a. Beriberi（脚気）",
+      "b. Kwashiorkor",
+      "c. Pellagra",
+      "d. Pernicious anemia",
+      "e. Rickets",
+      "f. Scurvy（壊血病）"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "壊血病→ビタミンC欠乏→コラーゲン合成障害→血管壁脆弱化・歯肉出血・斑状出血。長期の新鮮食料不足で発症。"
+  },
+  {
+    "t": "前立腺肥大症",
+    "q": "71歳男性、5年間の排尿困難。前立腺が通常の2倍に肥大。経尿道的前立腺切除術で間質の介在する腺組織の結節性増生を確認。最も可能性が高い変化はどれか。",
+    "o": [
+      "a. apoptosis",
+      "b. Dysplasia",
+      "c. Fatty change",
+      "d. Hyperplasia",
+      "e. Hypertrophy",
+      "f. Metaplasia"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "前立腺の結節性過形成（BPH）→腺上皮と間質の過形成（Hyperplasia）。前立腺がんとは無関係。内腺（移行域）に好発。"
+  },
+  {
+    "t": "ビタミンD欠乏と骨折",
+    "q": "48歳女性、階段から転落し骨折。X線で顕著な骨減少。次のうち骨折の原因に最も関係する可能性が高い基礎疾患はどれか。",
+    "o": [
+      "a. 萎縮性胃炎",
+      "b. 慢性リンパ性白血病",
+      "c. 冠状動脈硬化症",
+      "d. 原発性胆汁性肝硬変",
+      "e. 肺気腫"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "原発性胆汁性肝硬変→慢性胆汁うっ滞→脂肪吸収障害→脂溶性ビタミン（D）欠乏→骨軟化症・骨減少。"
+  },
+  {
+    "t": "電気的損傷",
+    "q": "20歳男性、120V 10Aの交流電流に接触。この電気的損傷の結果として生じる可能性が高いのはどれか。",
+    "o": [
+      "a. Bronchoconstriction（気管支収縮）",
+      "b. Cerebral artery thrombosis（脳血管血栓）",
+      "c. Laceration（裂傷）",
+      "d. Gastric hemorrhage（胃出血）",
+      "e. Ventricular fibrillation（心室細動）"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "交流電流は心臓の刺激伝導系に干渉し、心室細動を引き起こすリスクがある。"
+  },
+  {
+    "t": "関節リウマチ（誤り×2）",
+    "q": "関節リウマチについて、誤った記述を二つ選べ。",
+    "o": [
+      "a. 左右非対称に発現する",
+      "b. リウマトイド因子は変性したIgG抗体のFc部分に作用する",
+      "c. 遠位指節間関節（DIP）に好発する",
+      "d. 滑膜の慢性活動性炎症により絨毛状増殖が見られる",
+      "e. 関節以外の症状として間質性肺炎がある"
+    ],
+    "a": [
+      "A",
+      "C"
+    ],
+    "m": true,
+    "e": "関節リウマチは左右対称に発現。PIP（近位指節間関節）やMCP（中手指節関節）に好発し、DIPは障害されにくい。"
+  }
+]
+;
+var Q_b21M=
+[
+  {
+    "t": "アポトーシス（誤り）",
+    "q": "アポトーシスについて誤っているものを一つ選べ。",
+    "o": [
+      "a. 放射線によるDNA損傷は内在経路を引き起こす",
+      "b. アポトーシスでは細胞は小さくなる",
+      "c. 膜小胞はアポトーシスでもネクローシスでも見られる",
+      "d. 剪断細胞質はネクローシスでのみ見られる",
+      "e. 折りたたみタンパク質の蓄積によるERストレスは内在経路を起こす"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "断片化された細胞はアポトーシスでも見られる。アポトーシスでは細胞が収縮・断片化し、マクロファージに吸収される。"
+  },
+  {
+    "t": "前立腺肥大症（誤り）",
+    "q": "前立腺肥大症について誤っているものを一つ選べ。",
+    "o": [
+      "a. 前立腺肥大症は前立腺がんの前がん病変である",
+      "b. 前立腺の結節性過形成は尿道狭窄の原因になる",
+      "c. 間質増生が主体のこともある",
+      "d. 腺上皮の過形成が見られる",
+      "e. 間質細胞の過形成が見られる"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "BPHと前立腺がんの間に直接的な相関はなく、前がん病変ではない。BPHは内腺（移行域）に発生しやすく、前立腺がんは外腺に発生しやすい。"
+  },
+  {
+    "t": "重症筋無力症（誤り）",
+    "q": "重症筋無力症について誤っているものを一つ選べ。",
+    "o": [
+      "a. 50〜70%に胸腺過形成または胸腺腫が見られる",
+      "b. アセチルコリン受容体抗体が産生されることが原因である",
+      "c. 治療は胸腺摘出・抗コリンエステラーゼ薬・副腎皮質ステロイドなどがある",
+      "d. 胚中心を伴わないリンパ濾胞を形成する",
+      "e. 血清補体価の低値・高ガンマグロブリン血症が見られる"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "重症筋無力症では胸腺髄質に胚中心を伴うリンパ濾胞の増生を認める。"
+  },
+  {
+    "t": "再灌流障害",
+    "q": "急性心筋梗塞で心カテーテル検査後もトロポニンIが依然上昇していた。心筋に発生した可能性が最も高いものを選べ。",
+    "o": [
+      "a. 細胞の再生",
+      "b. 薬剤による副反応",
+      "c. タンパク質合成の増加",
+      "d. 筋線維萎縮",
+      "e. 再灌流障害"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "再灌流障害→虚血病変に再度血流が回復した際に活性酸素種などにより臓器にかえって障害を与えること。"
+  },
+  {
+    "t": "フィブリノイド壊死",
+    "q": "フィブリノイド壊死について最も正しいものを選べ。",
+    "o": [
+      "a. 多発性結節性血管炎でみられる",
+      "b. 関節リウマチやベーチェット病でのみ見られる",
+      "c. necrobiosisともいう",
+      "d. 血管外膜よりも血管内膜に沈着する"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "フィブリノイド壊死：血管壁にフィブリンと免疫複合体が沈着し好酸性に染まる。結節性多発動脈炎・関節リウマチ・SLEなどの膠原病で見られる。"
+  },
+  {
+    "t": "翼状片（誤り）",
+    "q": "54歳男性（35年来の漁師）。数年前より左目の白目が黒目にかぶさるように拡大。この症状について誤っているものを選べ。",
+    "o": [
+      "a. 角膜の結膜上皮化生がみられる",
+      "b. 結膜上皮の下に腫瘍性病変が見られる",
+      "c. 日光弾性線維症を認める",
+      "d. 屋内よりも屋外で働く人に多い"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "翼状片は反応性増殖性病変であり悪性腫瘍ではない。紫外線暴露による日光弾性線維症や角膜への結膜上皮化生が特徴。"
+  },
+  {
+    "t": "神経芽細胞腫（誤り）",
+    "q": "神経芽腫について誤りを選べ。",
+    "o": [
+      "a. 交感神経節でみられることがある",
+      "b. カテコラミンを産生するためその代謝物でスクリーニングできる",
+      "c. 2歳以上で発症した場合1歳半未満で発症した場合よりも予後が悪い",
+      "d. NMYC遺伝子の増幅が見られると予後不良",
+      "e. 高分化の腫瘍である"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "神経芽細胞腫は未熟かつ未分化癌。予後不良因子：2歳以上・N-MYC遺伝子増幅・血清NSE高値・2n型核型。"
+  },
+  {
+    "t": "馬蹄腎",
+    "q": "馬蹄腎の診断とコメントについて正しいものを選べ。",
+    "o": [
+      "a. これは羊蹄腎で腎機能に問題ない場合が多い",
+      "b. これは馬蹄腎で腸管回転異常やメッケル憩室の合併が多い",
+      "c. これは馬蹄腎で割面はスポンジ状である",
+      "d. これは馬蹄腎で腎機能に問題はない場合が多い",
+      "e. これは羊蹄腎で腎機能の障害を注意する必要がある"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "馬蹄腎は腎下極が融合した先天奇形。腎機能は正常な場合が多い。合併奇形は約30%に見られる。"
+  },
+  {
+    "t": "有害物質とヒ素（誤り）",
+    "q": "有害物質の対応で異なるものを選べ。",
+    "o": [
+      "a. ヒ素－肺がん",
+      "b. ベンゼン－急性骨髄性白血病",
+      "c. ポリ塩化ビフェニル－催奇性",
+      "d. インジウム－咽頭がん",
+      "e. アクリルアミド－末梢神経障害"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ヒ素→皮膚症状（角化・色素沈着）・末梢神経障害・肝障害が主な症状。"
+  },
+  {
+    "t": "有害物質とインジウム（誤り）",
+    "q": "有害物質の対応として誤りを選べ。",
+    "o": [
+      "a. アスベスト－中皮腫",
+      "b. 紫外線－白内障",
+      "c. 塩化ビニル－肝血管肉腫",
+      "d. インジウム－心疾患"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "インジウム（酸化インジウム）→間質性肺炎・肺障害。心疾患との関連は薄い。"
+  },
+  {
+    "t": "放射線治療の分割照射",
+    "q": "放射線治療で正常細胞を傷つけないようにするために適切な方法はどれか。",
+    "o": [
+      "a. 治療前の抗凝固薬の投与",
+      "b. 治療前のステロイド投与",
+      "c. 分割照射",
+      "d. 治療中に酸素持続投与",
+      "e. 治療中の乳酸リンゲル液の投与"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "分割照射（fractionation）→正常細胞はDNA修復が可能だが腫瘍細胞は修復効率が低い→選択的に腫瘍を傷つける。"
+  },
+  {
+    "t": "Pellagra",
+    "q": "下痢・皮膚炎・認知症を合併する疾患はどれか。",
+    "o": [
+      "a. Beriberi（脚気）",
+      "b. Kwashiorkor",
+      "c. Pellagra（ペラグラ）",
+      "d. Scurvy（壊血病）",
+      "e. Rickets（くる病）"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "Pellagra→ナイアシン（ビタミンB3）欠乏→3D症状：Dermatitis（皮膚炎）・Diarrhea（下痢）・Dementia（認知症）。"
+  },
+  {
+    "t": "オゾン",
+    "q": "有害ではあるが大気圏上空で紫外線をブロックしている物質は何か。",
+    "o": [
+      "a. オゾン",
+      "b. 二酸化硫黄",
+      "c. 二酸化窒素",
+      "d. 微粒子",
+      "e. 一酸化炭素"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "オゾン（O3）は成層圏では紫外線を吸収し地球上の生物を守るが、地表では大気汚染物質として呼吸器障害を引き起こす。"
+  },
+  {
+    "t": "Auer小体",
+    "q": "急性骨髄性白血病においてazur顆粒とともに見られるものは何か。",
+    "o": [
+      "a. ハインツ小体",
+      "b. Lewy小体",
+      "c. Auer小体",
+      "d. マロリー小体"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "Auer小体→急性骨髄性白血病（AML）に特徴的な顆粒球系細胞内の針状封入体。ハインツ小体→赤血球内ヘモグロビン変性。Lewy小体→パーキンソン病。"
+  },
+  {
+    "t": "腫瘍の定義（誤り）",
+    "q": "腫瘍について誤りを一つ選べ。",
+    "o": [
+      "a. 良性腫瘍でも放っておくと悪性化する可能性がある",
+      "b. 腫瘍（Tumor）の由来は腫れ物であり腫瘤の形成が腫瘍の定義の一つである",
+      "c. 腫瘍は血管新生を誘導し栄養供給や老廃物代謝に用いる",
+      "d. 腫瘍は外部からの刺激から独立して無限に増殖する自律的増殖を行う"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "白血病などの悪性腫瘍は腫瘤を形成しない。「腫瘤の形成が腫瘍の定義」は誤り。"
+  },
+  {
+    "t": "出血性梗塞",
+    "q": "肺の出血性梗塞について見られるものはどれか。",
+    "o": [
+      "a. 出血と梗塞",
+      "b. 出血と浮腫",
+      "c. 梗塞と浮腫",
+      "d. 腫瘍と炎症"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "出血性梗塞：虚血により血管が脆弱化した後、再開通時に出血が生じる。出血と梗塞の両方が見られる。"
+  },
+  {
+    "t": "免疫染色と治療薬",
+    "q": "治療薬の選択が関与しない免疫染色の抗体はどれか。",
+    "o": [
+      "a. CD20",
+      "b. MelanA",
+      "c. HER2",
+      "d. PD-L1"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "CD20→リツキシマブの標的。HER2→トラスツズマブの標的。PD-L1→免疫チェックポイント阻害薬の標的。MelanAはメラノーマの診断マーカーだが特定の治療薬選択に直接関与しない。"
+  },
+  {
+    "t": "日本人の死因",
+    "q": "日本人の死因別死亡率において最も割合の高いものはどれか。",
+    "o": [
+      "a. 心疾患（高血圧を除く）",
+      "b. 脳血管疾患",
+      "c. 悪性新生物",
+      "d. 血管性および詳細不明の認知症"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "日本人の死因：悪性新生物＞心疾患＞脳血管疾患＞老衰＞肺炎の順。"
+  },
+  {
+    "t": "TNM分類",
+    "q": "TNM分類について正しいものを選べ。",
+    "o": [
+      "a. T：リンパ節転移の程度、N：原発巣の大きさ、M：遠隔転移",
+      "b. T：原発巣の大きさ・深さ・広がり、N：リンパ行性転移、M：血行性転移・播種",
+      "c. T：転移の有無、N：原発巣の大きさ、M：リンパ節転移",
+      "d. T：血行性転移、N：播種、M：原発巣"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "T（Tumor）→原発巣の大きさ・広がり。N（Node）→リンパ節転移。M（Metastasis）→遠隔転移（血行性・播種）。"
+  },
+  {
+    "t": "がん遺伝子（誤り）2",
+    "q": "以下のうち誤っている選択肢はどれか。",
+    "o": [
+      "a. 発がんの原因となる遺伝子をドライバー遺伝子という",
+      "b. 遺伝子はイタリック体で表記する",
+      "c. がん遺伝子は染色体の片側アレルが変異し不活性化されることで癌の発生に関与する",
+      "d. がん抑制遺伝子は両方の染色体が変異して不活性化されることで癌の発生に関与する",
+      "e. Geneticな異常とはDNAの塩基配列に異常が生じるものである"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "がん遺伝子→片側アレルの活性化変異で機能亢進（不活性化ではなく活性化）。がん抑制遺伝子→両アレルの不活性化（two-hit仮説）。"
+  },
+  {
+    "t": "慢性炎症の病理所見",
+    "q": "慢性炎症では液性および細胞性の特異的免疫反応が見られる。これを示唆する病理的所見はどれか。",
+    "o": [
+      "a. 出血",
+      "b. 肉芽腫形成",
+      "c. 炎症細胞の浸潤",
+      "d. 血管増殖"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "慢性炎症では獲得免疫が主体。類上皮細胞・ラングハンス型巨細胞からなる肉芽腫形成が特徴的な所見。"
+  },
+  {
+    "t": "DAMPs",
+    "q": "DAMPs（Damage-associated molecular patterns）に含まれるものを正しく示した選択肢はどれか。\n1. ATP　2. 核酸　3. 核蛋白　4. 熱ショックプロテイン",
+    "o": [
+      "a. 1,2,3,4",
+      "b. 1,3,4",
+      "c. 2,3",
+      "d. 4"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "DAMPs→自然免疫系が自己の障害を認識するための分子パターン。損傷細胞から放出されるATP・核酸・核蛋白・熱ショックプロテインなどが含まれる。"
+  },
+  {
+    "t": "X連鎖伴性遺伝",
+    "q": "X連鎖伴性遺伝の疾患を正しく示したものを選べ。\n1. Wiskott-Aldrich症候群　2. 毛細血管拡張性失調　3. 無γグロブリン血症　4. 重症複合免疫不全症",
+    "o": [
+      "a. 1,2,3,4",
+      "b. 1,3,4",
+      "c. 2,3",
+      "d. 4"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "毛細血管拡張性失調（AT）は常染色体劣性遺伝。Wiskott-Aldrich症候群・無γグロブリン血症・SCID（一部）はX連鎖伴性遺伝。"
+  },
+  {
+    "t": "Grocott染色とカンジダ",
+    "q": "食道の白苔部からの菌体をGrocott染色した際に観察されたものが糸状菌だった。免疫不全で起こるものはどれか。",
+    "o": [
+      "a. カンジダ",
+      "b. アスペルギルス",
+      "c. ニューモシスチス",
+      "d. サイトメガロウイルス",
+      "e. HHV-8"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "Grocott染色→真菌を染め出す。食道白苔＋糸状菌形態→カンジダ性食道炎。免疫不全（HIV・化学療法など）で日和見感染として発症。"
+  },
+  {
+    "t": "II型アレルギー",
+    "q": "II型アレルギーを選びなさい。",
+    "o": [
+      "a. 尋常性天疱瘡",
+      "b. アレルギー性鼻炎",
+      "c. アトピー",
+      "d. アレルギー性結膜炎",
+      "e. 気管支喘息"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "II型（細胞傷害型）→尋常性天疱瘡（抗デスモグレイン抗体）。I型→アレルギー性鼻炎・アトピー・喘息・結膜炎。"
+  },
+  {
+    "t": "アレルギーの種類（正しい）",
+    "q": "正しいものを選びなさい。",
+    "o": [
+      "a. 水疱性類天疱瘡－デスモグレイン抗体",
+      "b. 血液型不適合妊娠－ABO不適合",
+      "c. 重症筋無力症－抗AChR（アセチルコリン受容体）抗体",
+      "d. 急性糸球体腎炎－抗原抗体複合体の沈着"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "水疱性類天疱瘡→抗基底膜抗体（デスモグレインは尋常性天疱瘡）。血液型不適合妊娠→Rh不適合。重症筋無力症→抗AChR抗体（これは正しい）。急性糸球体腎炎→III型アレルギー（免疫複合体沈着）が正しい。"
+  },
+  {
+    "t": "IgG4関連疾患（誤り）",
+    "q": "IgG4関連疾患について誤っているものを一つ選べ。",
+    "o": [
+      "a. 自己免疫性膵炎と膵癌の鑑別が必要である",
+      "b. 病理組織学的にIgG4陽性細胞の浸潤が認められる",
+      "c. Mikulicz病の臨床症状はシェーグレン症候群と類似する",
+      "d. 40歳代に好発する",
+      "e. 無痛性のリンパ節腫大がIgG4関連疾患でみられる"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "IgG4関連疾患→中高年（60代）男性に好発。膵炎・涙腺・唾液腺に多い。"
+  },
+  {
+    "t": "SLE（誤り）",
+    "q": "SLEについて誤っているものを一つ選べ。",
+    "o": [
+      "a. 10〜30代の女性に好発する",
+      "b. SLEでみられる抗体に抗dsDNA抗体がある",
+      "c. 症状として光線過敏症があげられる",
+      "d. 補体低下・高γグロブリン血症がみられる",
+      "e. SLEの心血管病変にLibman-Sachs型の心内膜炎がある"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "補体低下と高γグロブリン血症はSLEの正しい所見。Libman-Sachs心内膜炎（疣贅性心内膜炎）もSLEの特徴。問題作成上の選択肢を確認要。"
+  },
+  {
+    "t": "皮膚筋炎",
+    "q": "Gottron徴候とヘリオトロープ疹が見られる病気を選べ。",
+    "o": [
+      "a. 皮膚筋炎",
+      "b. SLE",
+      "c. ベーチェット病",
+      "d. シェーグレン症候群",
+      "e. 橋本病"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "皮膚筋炎の特徴的皮膚所見：ヘリオトロープ疹（眼瞼周囲の浮腫性紅斑）・Gottron徴候（手指関節伸側の落屑を伴う紅斑）。"
+  },
+  {
+    "t": "関節リウマチ（誤り）2",
+    "q": "関節リウマチの記述として誤っているものを選べ。",
+    "o": [
+      "a. 環椎関節の亜脱臼を合併しやすい",
+      "b. 生命予後に影響する関節外症状として血管炎があげられる",
+      "c. 抗CCP抗体は疾患特異性が高いため診断に有用である",
+      "d. 好発部位は近位指節間関節である",
+      "e. 炎症の主座は滑膜及び関節"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "関節リウマチの生命予後に関わる症状→肺病変・リウマトイド皮下結節・アミロイドーシス。DIP関節は障害されにくい（PIPやMCPに好発）。"
+  }
+]
+;
+var Q_b23M=
+[
+  {
+    "t": "職業暴露（誤り）",
+    "q": "職業暴露に関する組み合わせで誤りを選べ。",
+    "o": [
+      "a. 除草剤－毛嚢炎及び膝瘡様皮膚症",
+      "b. 紫外線－白内障",
+      "c. アクリルアミド－白内障",
+      "d. インジウム－間質性肺炎",
+      "e. ポリ塩化ビフェニル－催奇形性"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "アクリルアミド→末梢神経障害。白内障→紫外線・インジウムなど。インジウム→間質性肺炎（正しい対応）。"
+  },
+  {
+    "t": "小体と疾患（誤り）",
+    "q": "小体の名前と疾患の組み合わせについて誤っているものを選べ。",
+    "o": [
+      "a. マロリー小体－アルコール性肝障害",
+      "b. Lewy小体－日本脳炎ウイルス",
+      "c. ネグリ小体－狂犬病ウイルス",
+      "d. Auer小体－白血病",
+      "e. ラッセル小体－多発性骨髄腫"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "Lewy小体→パーキンソン病・レビー小体型認知症。ネグリ小体→狂犬病。ラッセル小体→形質細胞腫・多発性骨髄腫。マロリー小体→アルコール性肝障害。"
+  },
+  {
+    "t": "ロゼットと腫瘍",
+    "q": "ロゼットの形と疾患の組み合わせとして正しいものを選べ。",
+    "o": [
+      "a. Flexner-Wintersteiner Rosette－網膜芽細胞腫",
+      "b. Flexner-Wintersteiner Rosette－膠芽腫",
+      "c. Homer Wright Rosette－網膜芽細胞腫",
+      "d. Homer Wright Rosette－膠芽腫",
+      "e. 血管周囲性ロゼット－網膜芽細胞腫",
+      "f. 血管周囲性ロゼット－神経膠芽腫"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "Flexner-Wintersteiner→網膜芽細胞腫（白抜きの内腔）。Homer Wright偽ロゼット→神経芽細胞腫・髄芽腫（好酸性線維）。血管周囲性偽ロゼット→脳室上衣腫・膠芽腫。"
+  },
+  {
+    "t": "放射線治療の副作用",
+    "q": "56歳男性、喉頭扁平上皮癌に対し40Sv分割照射。1年後に肉眼的残存腫瘍なし。患者に最も起こりやすい副作用を選べ。",
+    "o": [
+      "a. Azoospermia（無精子症）",
+      "b. Cerebral atrophy（大脳萎縮）",
+      "c. Colonic ulceration（結腸潰瘍）",
+      "d. Marrow aplasia（骨髄無形成）",
+      "e. Vascular fibrosis（血管の線維化）"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "頸部への放射線照射→血管の線維化が最も起こりやすい副作用。骨髄無形成・腸管潰瘍・精子減少は照射部位次第。"
+  },
+  {
+    "t": "スフィンゴ糖脂質（誤り）",
+    "q": "スフィンゴ糖脂質の病気について誤りを選べ。",
+    "o": [
+      "a. Fabry病はGD1bの蓄積",
+      "b. ボツリヌス毒素はGT1bに結合する",
+      "c. Gb3に志賀毒素が結合する",
+      "d. GM2にウェルシュ菌のδ毒素が結合する"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "Fabry病→α-ガラクトシダーゼA欠損によるGb3（globotriaosylceramide）蓄積。GD1bの蓄積は別の疾患。"
+  },
+  {
+    "t": "薬剤催奇形（誤り）",
+    "q": "薬剤による催奇形で誤っているものを選べ。",
+    "o": [
+      "a. ワーファリン－Dandy-Walker症候群",
+      "b. アドリアマイシン－腎障害",
+      "c. テオフィリン－不整脈",
+      "d. アドリアマイシン－肺の繊維化"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "アドリアマイシン（ドキソルビシン）の主な副作用は心筋障害（心毒性）・骨髄抑制。肺の繊維化はブレオマイシンの副作用。"
+  },
+  {
+    "t": "脂肪壊死（誤り）",
+    "q": "脂肪壊死になるもので誤りをひとつ選べ。",
+    "o": [
+      "a. 乳房をぶつける",
+      "b. 振動病",
+      "c. 事故による腹部外傷",
+      "d. 急性出血性膵炎",
+      "e. 膵臓のインスリン分泌腫瘍（インスリノーマ）"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "脂肪壊死→外傷性（乳房打撲・腹部外傷）・酵素性（急性膵炎でリパーゼ漏出）。振動病は末梢神経・血管障害であり脂肪壊死とは関連しない。"
+  },
+  {
+    "t": "アポトーシス（誤り）2",
+    "q": "アポトーシスについて誤っているものを選べ。",
+    "o": [
+      "a. 放射線治療ではDNA損傷によって内在性の経路が活性化",
+      "b. Tay-Sachs病はGM2のリソソームへの蓄積によるアポトーシス",
+      "c. アポトーシスでは細胞は小さくなる",
+      "d. アポトーシスでは核が断片化する",
+      "e. 色素性網膜症はロドプシンの折りたたみ異常によりアポトーシスが引き起こされる"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "Tay-Sachs病→GM2はリソソームへの蓄積（リソソーム蓄積症）であり、小胞体への蓄積ではない。アポトーシスでは核は断片化し、細胞は収縮する。"
+  },
+  {
+    "t": "鉛中毒（誤り）",
+    "q": "鉛について誤っているものを選べ。",
+    "o": [
+      "a. 電池の製造・リサイクルの職歴があった場合鉛中毒を疑う",
+      "b. スプレー塗装の職歴があった場合鉛中毒を疑う",
+      "c. 鉛は骨のリモデリングを阻害する",
+      "d. 鉛に腎障害がある"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "電池の製造・解体（焼却ではなく）で鉛曝露あり。「電池燃やし屋」という分類が不正確。骨リモデリング阻害・腎障害・貧血・神経障害は正しい。"
+  },
+  {
+    "t": "免疫染色と治療薬2（誤り）",
+    "q": "抗原レセプター検査として（治療薬の標的として使う免疫染色の抗体として）誤っているものを選べ。",
+    "o": [
+      "a. ALK",
+      "b. Her2",
+      "c. CD20",
+      "d. CD30",
+      "e. PD-L1"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "ALK→ALK阻害薬。HER2→トラスツズマブ。CD20→リツキシマブ。PD-L1→免疫チェックポイント阻害薬。CD30はブレンツキシマブの標的でもあるが、問題では治療標的外として選ばせている。"
+  },
+  {
+    "t": "感染性壊疽（誤り）",
+    "q": "感染性壊疽について誤っているものを選べ。",
+    "o": [
+      "a. 足趾壊疽は腹部大動脈末梢部や下肢の主幹動脈の閉塞によって起こる",
+      "b. 足趾壊疽は閉塞性血栓性血管炎における中小動脈の閉塞によって起こる",
+      "c. β溶血性レンサ球菌が原因の感染性壊疽の治療はβ溶血性レンサ球菌が薬剤耐性を持たない抗生物質が第一選択",
+      "d. 喫煙は閉塞性動脈硬化症のリスク因子である",
+      "e. Clostridium perfringens・β溶血性レンサ球菌・Vibrio vulnificusが感染性壊疽の原因菌である"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "β溶血性レンサ球菌感染性壊疽の治療は外科的デブリードマンが最重要。抗生物質の選択肢の記述が医学的に問題がある。"
+  },
+  {
+    "t": "職業暴露（誤り）2",
+    "q": "職業暴露における組み合わせで誤りを選べ。",
+    "o": [
+      "a. ヒ素－肺がん",
+      "b. アスベスト－中皮腫",
+      "c. ベンゼン－骨髄性白血病",
+      "d. インジウム－間質性肺炎",
+      "e. 塩化ビニル－白内障"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "塩化ビニル→肝血管肉腫（Angiosarcoma）。白内障→紫外線・インジウムなど。"
+  },
+  {
+    "t": "エタノール代謝の中間産物",
+    "q": "エタノール代謝の中間産物はどれか。",
+    "o": [
+      "a. エタノール",
+      "b. 酢酸（アセテート）",
+      "c. アセトアルデヒド",
+      "d. NAD+",
+      "e. NADH"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "エタノール→（ADH・MEOS）→アセトアルデヒド→（ミトコンドリアALDH）→酢酸（アセテート）。アセトアルデヒドが主要な中間産物で毒性を持つ。"
+  },
+  {
+    "t": "アルコール代謝",
+    "q": "アルコール代謝について正しいものを選べ。",
+    "o": [
+      "a. アルコールはリソソームで代謝される",
+      "b. アセトアルデヒドがミトコンドリアのALDHによって代謝される",
+      "c. カタラーゼは代謝に無関係である",
+      "d. NADHが使われる"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "アルコール→アセトアルデヒド（ADHまたはMEOSにより）→酢酸（ミトコンドリアALDHにより）。カタラーゼも一部関与する。"
+  },
+  {
+    "t": "フィブリノイド壊死（誤り）",
+    "q": "フィブリノイド壊死について誤っているものはどれか。",
+    "o": [
+      "a. 結節性多発性動脈炎でよく見られる",
+      "b. ベーチェット病や関節リウマチで見られる",
+      "c. HE染色で濃いピンク色に染色される",
+      "d. 椎間板軟骨で見られる"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "フィブリノイド壊死は血管壁に見られる（結節性多発動脈炎・SLE・関節リウマチ・ベーチェット病）。椎間板軟骨には見られない。"
+  },
+  {
+    "t": "Fabry病",
+    "q": "13歳男子、蛋白尿・血尿・幼少期から発汗困難・下痢・手足指の激痛・臍周囲から下腹部の暗赤色小丘疹（Angiokeratoma）。以下の選択肢のうち誤っているものを選べ。",
+    "o": [
+      "a. 文中の小丘疹とはAngiokeratomaである",
+      "b. 心肥大（心筋症）が見られる",
+      "c. 糸球体上皮細胞や内皮細胞の泡沫化・電子顕微鏡で細胞質内の層板状・同心円状の膜様構造物が見られる",
+      "d. 腎機能障害は顕在化し慢性腎不全に至る",
+      "e. 神経線維の減少が見られる"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "Fabry病（α-ガラクトシダーゼA欠損→Gb3蓄積）：Angiokeratoma・心肥大・腎不全・神経症状（疼痛）。「神経線維の減少」は誤りで、末梢神経痛はあるが線維数減少とは異なる。"
+  },
+  {
+    "t": "トリソミー18",
+    "q": "妊娠18週の超音波で男児胎児に軽度成長遅延・心室中隔欠損・心房中隔欠損・馬蹄腎・小脳瘤を確認、トリソミーが疑われた。羊水穿刺でFISHを行う際、どの染色体のFISHを行ったか。",
+    "o": [
+      "a. 21トリソミー（ダウン症候群）",
+      "b. X染色体",
+      "c. Y染色体",
+      "d. 18トリソミー（Edwards症候群）"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "トリソミー18（Edwards症候群）：心臓奇形・馬蹄腎・小脳瘤・成長遅延が特徴。トリソミー21（ダウン症）とは臨床像が異なる。"
+  },
+  {
+    "t": "遺伝子疾患の特徴",
+    "q": "正しいものを選べ。",
+    "o": [
+      "a. 嚢胞性線維症はNaイオンの輸送ができなくなる",
+      "b. Marfan症候群はFBN1の異常で水晶体偏位などの眼症状が見られる",
+      "c. AAアミロイドーシスはトランスサイレチンの異常による",
+      "d. GM1ガングリオシドーシスはガラクトセレプロシドの異常による"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "Marfan症候群→FBN1（フィブリリン1）異常→水晶体偏位・大動脈解離・長い四肢。嚢胞性線維症→CFTRのCl-チャネル異常（Na+ではない）。"
+  },
+  {
+    "t": "酵素欠損疾患（誤り）",
+    "q": "以下の病気と欠損酵素の組み合わせで誤っているものを選べ。",
+    "o": [
+      "a. Fabry病－αガラクトシダーゼ",
+      "b. Tay-Sachs病－ヘキソサミニダーゼ",
+      "c. Werner症候群－βガラクトシダーゼ",
+      "d. ハーラー病－αイズロニダーゼ",
+      "e. McArdle病－ホスホリラーゼ"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "Werner症候群→WRNヘリカーゼ（DNA修復酵素）の変異による早老症。βガラクトシダーゼ欠損→GM1ガングリオシドーシス。"
+  },
+  {
+    "t": "深部静脈血栓のリスク（複数選択）",
+    "q": "下肢の深部静脈血栓のリスクファクターとして正しいものを3つ選べ。",
+    "o": [
+      "a. 妊娠",
+      "b. う歯治療",
+      "c. 担癌状態",
+      "d. 経口避妊薬内服",
+      "e. ヘリコバクターピロリ感染"
+    ],
+    "a": [
+      "A",
+      "C",
+      "D"
+    ],
+    "m": true,
+    "e": "深部静脈血栓リスク：妊娠（静脈圧上昇・凝固能亢進）・担癌状態（凝固因子産生↑）・経口避妊薬（エストロゲンによる凝固能亢進）。"
+  },
+  {
+    "t": "肉芽組織の形成",
+    "q": "肉芽組織の形成を認めるものはどれか。",
+    "o": [
+      "a. ステロイド長期使用患者の副腎",
+      "b. 花粉症患者の副鼻腔粘膜",
+      "c. 思春期女性の乳腺",
+      "d. 長期臥床患者の足の筋肉",
+      "e. 治癒中の胃潰瘍"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "肉芽組織は創傷治癒の際に形成（線維芽細胞・新生血管・炎症細胞）。治癒中の潰瘍底に見られる。"
+  },
+  {
+    "t": "常染色体劣性でないもの",
+    "q": "常染色体劣性遺伝でないものはどれか。",
+    "o": [
+      "a. 鎌状赤血球症",
+      "b. Tay-Sachs病",
+      "c. 嚢胞性線維症",
+      "d. Marfan症候群",
+      "e. ムコ多糖症"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "Marfan症候群→常染色体優性遺伝（FBN1変異）。鎌状赤血球・Tay-Sachs・嚢胞性線維症・ムコ多糖症→常染色体劣性遺伝。"
+  },
+  {
+    "t": "IgG4関連疾患（誤り）2",
+    "q": "IgG4関連疾患について誤りを選べ。",
+    "o": [
+      "a. 60歳代に好発",
+      "b. IgG4陽性好酸球が多くなる",
+      "c. 涙腺・唾液腺炎はかつてMikulicz病と言われていたものである",
+      "d. 無痛性リンパ節腫大はリンパ腫との鑑別が必要",
+      "e. 膵炎は画像上で膵癌との鑑別が難しい"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "IgG4関連疾患→IgG4陽性形質細胞（プラズマ細胞）が多くなる。好酸球ではなく形質細胞。"
+  },
+  {
+    "t": "アナフィラキシー（複数選択）",
+    "q": "アナフィラキシーについて正しいものを2つ選べ。",
+    "o": [
+      "a. 徐脈になる",
+      "b. 重症で死亡することがある",
+      "c. 気道狭窄が起こる",
+      "d. 3型アレルギーである",
+      "e. 副腎ステロイドは禁忌である"
+    ],
+    "a": [
+      "B",
+      "C"
+    ],
+    "m": true,
+    "e": "アナフィラキシー→I型アレルギー（IgE介在）。頻脈・低血圧・気道狭窄（浮腫）・蕁麻疹が主症状。重症例は死亡しうる。副腎ステロイドは治療の補助として使用（禁忌ではない）。"
+  },
+  {
+    "t": "解剖の種類",
+    "q": "正しいものを選べ。",
+    "o": [
+      "a. 解剖には病理解剖・法医解剖・系統解剖がある",
+      "b. 手術では迅速診断は必ず行う",
+      "c. 剖検率は現在80%を超えている",
+      "d. 病理解剖は主に犯罪捜査に用いられる"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "解剖の種類：病理解剖（疾患の診断・研究）・法医解剖（犯罪捜査・異状死）・系統解剖（医学教育）の3種類。迅速診断は全手術で必須ではない。"
+  },
+  {
+    "t": "Pellagra（3D症状）",
+    "q": "記憶力悪化・日常タスク困難・水様性下痢・日光暴露部の皮膚発赤・うろこ状変化が3か月間続く55歳女性。最も可能性の高い疾患はどれか。",
+    "o": [
+      "a. Beriberi（脚気）",
+      "b. Cheilosis（口唇症）",
+      "c. Hypothyroidism（甲状腺機能低下症）",
+      "d. Marasmus",
+      "e. Pellagra"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "3D：Dermatitis（光線過敏性皮膚炎）・Diarrhea（下痢）・Dementia（認知症）→Pellagra（ナイアシン欠乏）。"
+  }
+]
+;
+
+var Q=Q_b23M;
+var curYear='23';
+var SK_P='byori_prac', SK_E='byori_exam', HK='byori_hist';
+function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function gs(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
+function rs(k){try{localStorage.removeItem(k);}catch(e){}}
+var mode='';
+var queue=[],total=0,correct=0,attempts=0,elBefore=0,t0=0;
+var answered=false,sel=[],multi=false;
+var navStatus={},curPos=0;
+var examAnswers={},examOrder=[];
+var wrongItems=[];
+function shuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=b[i];b[i]=b[j];b[j]=tmp;}return b;}
+function optKey(txt){return txt.split('.')[0].trim().toUpperCase();}
+function fmtTime(s){return Math.floor(s/60)+'分'+(s%60)+'秒';}
+function selYear(y){
+  curYear=y;
+  ['19','21','23','all'].forEach(function(v){var el=document.getElementById('ybtn-'+v);if(el)el.classList.remove('sel');});
+  var selEl=document.getElementById('ybtn-'+y);if(selEl)selEl.classList.add('sel');
+  if(y==='19')Q=Q_b19M;else if(y==='21')Q=Q_b21M;else if(y==='23')Q=Q_b23M;
+  else Q=Q_b19M.concat(Q_b21M).concat(Q_b23M);
+}
+function goHome(){
+  document.getElementById('home').style.display='block';
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('comp').style.display='none';
+  renderHome();
+}
+function renderHome(){
+  var sp=gs(SK_P),se=gs(SK_E),hasResume=false;
+  var rc=document.getElementById('resume-card');
+  var ri=document.getElementById('resume-info');
+  var brp=document.getElementById('btn-resume-p'),bre=document.getElementById('btn-resume-e');
+  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全年度';}
+  if(sp&&sp.queue&&sp.queue.length>0){
+    hasResume=true;
+    var done=sp.total-sp.queue.length;
+    var d=new Date(sp.savedAt).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    ri.innerHTML='<strong>練習モード ['+yLbl(sp.year)+']</strong>（'+d+' 保存）<br>進捗: '+done+'/'+sp.total+' 問完了　正解済: '+sp.correct+' 問　経過: '+fmtTime(sp.elapsed);
+    ri.className='rinfo';brp.style.display='block';bre.style.display='none';
+    document.getElementById('resume-title').textContent='▶ 練習モードの続き';
+  } else if(se&&se.examOrder&&se.examOrder.length>0){
+    hasResume=true;
+    var ac=Object.keys(se.examAnswers||{}).length;
+    var d=new Date(se.savedAt).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    ri.innerHTML='<strong>試験モード ['+yLbl(se.year)+']</strong>（'+d+' 保存）<br>進捗: '+ac+'/'+se.examOrder.length+' 問回答済　経過: '+fmtTime(se.elapsed);
+    ri.className='rinfo e';bre.style.display='block';brp.style.display='none';
+    document.getElementById('resume-title').textContent='▶ 試験モードの続き';
+  }
+  rc.style.display=hasResume?'block':'none';
+  var bank=getWrongBank();var wc=bank.length;
+  var wdesc=document.getElementById('wrong-mcard-desc');
+  var wbtn=document.getElementById('wrong-start-btn');
+  if(wdesc)wdesc.textContent=wc>0?'過去に間違えた問題 '+wc+'問が対象。全問正解まで繰り返し練習。':'まだ間違えた問題がありません。先に練習・試験モードで解いてください。';
+  if(wbtn){wbtn.disabled=wc===0;wbtn.style.opacity=wc===0?'0.45':'1';}
+  renderHistory();
+}
+function discardSaved(){rs(SK_P);rs(SK_E);renderHome();}
+function renderHistory(){
+  var hist=gs(HK)||[];
+  document.getElementById('btn-clrhist').style.display=hist.length?'block':'none';
+  var ha=document.getElementById('hist-area');
+  if(!hist.length){ha.innerHTML='<div class="nohist">まだ記録がありません</div>';return;}
+  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全';}
+  var rows='';
+  for(var i=0;i<hist.length;i++){
+    var h=hist[i];var acc=Math.round(h.correct/h.total*100);
+    var cls=acc>=80?'bdg-p':acc>=60?'bdg-g':'bdg-o';
+    var mLabel=h.mode==='e'?'試験':'練習';
+    var mc=h.mode==='e'?'color:#1565c0':'color:#00796b';
+    var d=new Date(h.date).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    var hasWrong=h.wrong&&h.wrong.length>0;
+    var revBtn=hasWrong?'<button class="rev-hist-btn" onclick="showHistReview('+i+')">📋 復習</button>':'';
+    rows+='<tr><td>'+d+'</td><td style="'+mc+';font-weight:600">'+mLabel+'</td><td>'+yLbl(h.year)+'</td><td>'+h.correct+'/'+h.total+'問</td><td>'+fmtTime(h.elapsed)+'</td><td><span class="bdg '+cls+'">'+acc+'%</span></td><td>'+revBtn+'</td></tr>';
+  }
+  ha.innerHTML='<table class="htbl"><thead><tr><th>日時</th><th>モード</th><th>年度</th><th>正解</th><th>時間</th><th>正答率</th><th></th></tr></thead><tbody>'+rows+'</tbody></table>';
+}
+function clearHistory(){if(!confirm('履歴を全て削除しますか？'))return;rs(HK);renderHistory();}
+function getWrongBank(){
+  var hist=gs(HK)||[];var seen={};var bank=[];
+  for(var i=0;i<hist.length;i++){var w=hist[i].wrong||[];for(var j=0;j<w.length;j++){if(!seen[w[j].q]){seen[w[j].q]=true;bank.push(w[j]);}}}
+  return bank;
+}
+function startWrongPractice(){
+  var bank=getWrongBank();
+  if(!bank.length){alert('まだ間違えた問題がありません。\n先に練習・試験モードで問題を解いてください。');return;}
+  rs(SK_P);rs(SK_E);mode='p';Q=bank;
+  var idx=[];for(var i=0;i<Q.length;i++)idx.push(i);
+  queue=shuffle(idx);total=queue.length;correct=0;attempts=0;navStatus={};curPos=0;elBefore=0;t0=Date.now();wrongItems=[];
+  curYear='wrong';initQuizUI();
+  document.getElementById('hdr-title').textContent='苦手問題';
+  document.getElementById('mode-ico').textContent='苦手';
+  document.getElementById('hdr-h1').textContent='苦手問題練習 ('+total+'問)';
+  show();
+}
+function showHistReview(idx){
+  var hist=gs(HK)||[];var h=hist[idx];if(!h||!h.wrong||!h.wrong.length)return;
+  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全';}
+  var mLabel=h.mode==='e'?'試験':'練習';
+  var d=new Date(h.date).toLocaleString('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  var html2='<div class="hrev-header"><strong>📋 復習</strong>：'+d+' ['+mLabel+' / '+yLbl(h.year)+'] 不正解 '+h.wrong.length+'問<button onclick="closeHistReview()" class="hrev-close">✕ 閉じる</button></div>';
+  for(var i=0;i<h.wrong.length;i++){
+    var w=h.wrong[i];var userStr=w.userAns&&w.userAns.length?w.userAns.join(', '):'未回答';
+    html2+='<div class="rev-item ng" style="margin-bottom:12px">';
+    html2+='<div class="rev-q" style="margin-bottom:6px">'+(i+1)+'. ['+w.t+'] '+w.q+'</div>';
+    html2+='<div style="font-size:12px;color:#555;margin-bottom:4px">';
+    for(var j=0;j<w.o.length;j++){
+      var ok_k=w.a.map(function(k){return k.toUpperCase();});
+      var k=w.o[j].split('.')[0].trim().toUpperCase();
+      var isCorrect=ok_k.indexOf(k)>=0;var isUser=w.userAns&&w.userAns.indexOf(k)>=0;
+      var style=isCorrect?'color:#2e7d32;font-weight:bold':isUser?'color:#c62828':'';
+      html2+='<div style="'+style+'">'+w.o[j]+(isCorrect?' ✅':'')+(isUser&&!isCorrect?' ← あなたの回答':'')+'</div>';
+    }
+    html2+='</div><div class="rev-ans">正答: <strong>'+w.a.join(', ')+'</strong>　あなた: <strong>'+userStr+'</strong></div>';
+    if(w.e)html2+='<div class="rev-exp">'+w.e+'</div>';
+    html2+='</div>';
+  }
+  document.getElementById('hist-review-body').innerHTML=html2;
+  document.getElementById('hist-review-modal').style.display='flex';
+}
+function closeHistReview(){document.getElementById('hist-review-modal').style.display='none';}
+function startPractice(){
+  rs(SK_P);rs(SK_E);mode='p';
+  var idx=[];for(var i=0;i<Q.length;i++)idx.push(i);
+  queue=shuffle(idx);total=queue.length;correct=0;attempts=0;navStatus={};curPos=0;elBefore=0;t0=Date.now();wrongItems=[];
+  initQuizUI();show();
+}
+function resumePractice(){
+  var s=gs(SK_P);if(!s)return;mode='p';if(s.year)selYear(s.year);
+  queue=s.queue.slice();total=s.total;correct=s.correct;attempts=s.attempts;
+  navStatus=s.navStatus||{};curPos=s.curPos||0;elBefore=s.elapsed;t0=Date.now();wrongItems=s.wrongItems||[];
+  initQuizUI();show();
+}
+function savePractice(){
+  ss(SK_P,{queue:queue,total:total,correct:correct,attempts:attempts,navStatus:navStatus,curPos:curPos,elapsed:elBefore+Math.round((Date.now()-t0)/1000),savedAt:new Date().toISOString(),year:curYear,wrongItems:wrongItems});
+}
+function startExam(){
+  rs(SK_P);rs(SK_E);mode='e';
+  var idx=[];for(var i=0;i<Q.length;i++)idx.push(i);
+  examOrder=shuffle(idx);total=examOrder.length;examAnswers={};curPos=0;elBefore=0;t0=Date.now();
+  initQuizUI();showExam();
+}
+function resumeExam(){
+  var s=gs(SK_E);if(!s)return;mode='e';if(s.year)selYear(s.year);
+  examOrder=s.examOrder.slice();total=examOrder.length;examAnswers=s.examAnswers||{};curPos=s.curPos||0;elBefore=s.elapsed;t0=Date.now();
+  initQuizUI();showExam();
+}
+function saveExam(){ss(SK_E,{examOrder:examOrder,examAnswers:examAnswers,curPos:curPos,elapsed:elBefore+Math.round((Date.now()-t0)/1000),savedAt:new Date().toISOString(),year:curYear});}
+function initQuizUI(){
+  document.getElementById('home').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  document.getElementById('comp').style.display='none';
+  document.getElementById('total-lbl').textContent=total;
+  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全95問';}
+  if(mode==='p'){
+    document.getElementById('mode-ico').className='ico p';document.getElementById('mode-ico').textContent='練習';
+    document.getElementById('hdr-h1').textContent='病理学総論 過去問 ['+yLbl(curYear)+'] 練習モード';
+    document.getElementById('hdr-title').textContent='練習モード';document.getElementById('mode-tab').textContent='練習モード';
+    document.getElementById('mode-badge').className='mode-badge p';document.getElementById('mode-badge').textContent='練習';
+    document.getElementById('qbox').className='qbox p';
+  } else {
+    document.getElementById('mode-ico').className='ico e';document.getElementById('mode-ico').textContent='試験';
+    document.getElementById('hdr-h1').textContent='病理学総論 過去問 ['+yLbl(curYear)+'] 試験モード';
+    document.getElementById('hdr-title').textContent='試験モード';document.getElementById('mode-tab').textContent='試験モード';
+    document.getElementById('mode-badge').className='mode-badge e';document.getElementById('mode-badge').textContent='試験';
+    document.getElementById('qbox').className='qbox e';
+  }
+}
+function saveAndExit(){if(mode==='p')savePractice();else saveExam();goHome();}
+function show(){
+  if(!queue.length){donePractice();return;}
+  var q=Q[queue[0]];
+  answered=false;sel=[];multi=!!q.m;
+  document.getElementById('qlabel').textContent='問題 '+(curPos+1);
+  document.getElementById('qstat').textContent='未回答';
+  document.getElementById('qtopic').textContent=q.t;
+  document.getElementById('qtext').textContent=q.q;
+  renderOpts(q,null,false);
+  document.getElementById('chk-btn').style.display='block';
+  document.getElementById('fb').style.display='none';
+  document.getElementById('nxt-btn').style.display='none';
+  document.getElementById('prev-btn').style.display='none';
+  document.getElementById('submit-btn').style.display='none';
+  renderNav();
+}
+function doCheck(){
+  if(answered||sel.length===0)return;
+  answered=true;attempts++;
+  var q=Q[queue[0]];
+  var ck=q.a.map(function(k){return k.toUpperCase();});
+  var ok;
+  if(multi){var uk=unique(sel);ok=ck.length===uk.length&&ck.every(function(k){return uk.indexOf(k)>=0;});}
+  else{ok=ck.indexOf(sel[0])>=0;}
+  styleOpts(q.o,q.a,sel);
+  var fb=document.getElementById('fb');
+  if(ok){correct++;fb.className='fb ok';fb.innerHTML='✅ <strong>正解！</strong><br>'+q.e;navStatus[curPos]='ok';queue.shift();}
+  else{fb.className='fb ng';fb.innerHTML='❌ <strong>不正解</strong>　正答: <strong>'+q.a.join(', ')+'</strong><br>'+q.e;navStatus[curPos]='ng';var r=queue.shift();queue.push(r);
+  if(!wrongItems.some(function(w){return w.q===q.q;}))wrongItems.push({t:q.t,q:q.q,o:q.o,a:q.a,e:q.e||'',userAns:sel.slice(),m:!!q.m});}
+  fb.style.display='block';
+  document.getElementById('qstat').textContent=ok?'正解':'不正解';
+  document.getElementById('chk-btn').style.display='none';
+  var nb=document.getElementById('nxt-btn');nb.style.display='block';
+  nb.textContent=queue.length===0?'結果を見る':'次のページ';
+  savePractice();renderNav();
+}
+function nextQ(){if(mode==='p'){curPos++;show();}else{saveExamAnswer();curPos++;if(curPos>=total)curPos=total-1;showExam();}}
+function prevQ(){if(mode==='e'){saveExamAnswer();curPos--;if(curPos<0)curPos=0;showExam();}}
+function showExam(){
+  var qi=examOrder[curPos];var q=Q[qi];multi=!!q.m;
+  var existing=examAnswers[curPos]||null;sel=existing?existing.slice():[];
+  document.getElementById('qlabel').textContent='問題 '+(curPos+1)+' / '+total;
+  var ac=Object.keys(examAnswers).length;
+  document.getElementById('qstat').textContent=existing?'回答済':'未回答';
+  document.getElementById('qtopic').textContent=q.t;document.getElementById('qtext').textContent=q.q;
+  document.getElementById('nav-progress').textContent='回答済: '+ac+'/'+total;
+  renderOpts(q,existing,false);
+  document.getElementById('chk-btn').style.display='none';document.getElementById('fb').style.display='none';
+  document.getElementById('prev-btn').style.display=curPos>0?'block':'none';
+  document.getElementById('nxt-btn').style.display=curPos<total-1?'block':'none';
+  document.getElementById('nxt-btn').textContent='次のページ';
+  document.getElementById('submit-btn').style.display=curPos===total-1?'block':'none';
+  renderNav();
+}
+function saveExamAnswer(){if(sel.length>0)examAnswers[curPos]=sel.slice();}
+function submitExam(){
+  saveExamAnswer();
+  if(!confirm('提出しますか？\n未回答の問題は不正解として計算されます。'))return;
+  var e=elBefore+Math.round((Date.now()-t0)/1000);var cor=0,results=[];
+  for(var i=0;i<total;i++){
+    var qi=examOrder[i];var q=Q[qi];var userAns=examAnswers[i]||[];
+    var ck=q.a.map(function(k){return k.toUpperCase();});var ok;
+    if(q.m){var uk=unique(userAns);ok=uk.length>0&&ck.length===uk.length&&ck.every(function(k){return uk.indexOf(k)>=0;});}
+    else{ok=userAns.length>0&&ck.indexOf(userAns[0])>=0;}
+    if(ok)cor++;results.push({q:q,userAns:userAns,ok:ok,pos:i});
+  }
+  rs(SK_E);var hist=gs(HK)||[];
+  var wrongE=results.filter(function(r){return !r.ok;}).map(function(r){return {t:r.q.t,q:r.q.q,o:r.q.o,a:r.q.a,e:r.q.e||'',userAns:r.userAns,m:!!r.q.m};});
+  hist.unshift({date:new Date().toISOString(),mode:'e',correct:cor,total:total,elapsed:e,year:curYear,wrong:wrongE});
+  if(hist.length>30)hist.length=30;ss(HK,hist);showExamResult(cor,total,e,results);
+}
+function showExamResult(cor,tot,e,results){
+  document.getElementById('quiz').style.display='none';document.getElementById('comp').style.display='block';
+  document.getElementById('comp-title').textContent=(cor===tot?'🎉':'📊')+' 試験結果';
+  document.getElementById('st-score').textContent=cor+'/'+tot;document.getElementById('st-time').textContent=fmtTime(e);
+  document.getElementById('st-acc').textContent=Math.round(cor/tot*100)+'%';document.getElementById('st-extra').textContent='';
+  var wrong=results.filter(function(r){return !r.ok;});var rev=document.getElementById('rev-list');
+  if(!wrong.length){rev.innerHTML='<div style="color:#2e7d32;text-align:center;font-size:1.1rem;padding:16px">🏆 全問正解！</div>';return;}
+  var h='<h3 style="font-size:14px;color:#c62828;margin-bottom:12px">❌ 不正解の問題 ('+wrong.length+'問)</h3>';
+  for(var i=0;i<wrong.length;i++){
+    var r=wrong[i];var q=r.q;var userStr=r.userAns.length?r.userAns.join(', '):'未回答';
+    h+='<div class="rev-item ng"><div class="rev-q">Q'+(r.pos+1)+'. ['+q.t+'] '+q.q+'</div>';
+    h+='<div class="rev-ans">あなたの回答: <strong>'+userStr+'</strong>　正答: <strong>'+q.a.join(', ')+'</strong></div>';
+    if(q.e)h+='<div class="rev-exp">'+q.e+'</div>';h+='</div>';
+  }
+  rev.innerHTML=h;
+}
+function donePractice(){
+  var e=elBefore+Math.round((Date.now()-t0)/1000);rs(SK_P);
+  var hist=gs(HK)||[];
+  hist.unshift({date:new Date().toISOString(),mode:'p',correct:correct,total:total,elapsed:e,year:curYear,wrong:wrongItems.slice()});
+  if(hist.length>30)hist.length=30;ss(HK,hist);
+  document.getElementById('quiz').style.display='none';document.getElementById('comp').style.display='block';
+  document.getElementById('comp-title').textContent='🎉 全問正解！';
+  document.getElementById('st-score').textContent=correct+'/'+total;document.getElementById('st-time').textContent=fmtTime(e);
+  document.getElementById('st-acc').textContent=Math.round(correct/attempts*100)+'%';
+  document.getElementById('st-extra').textContent='解答回数: '+attempts+'回';
+  document.getElementById('rev-list').innerHTML='';
+}
+function renderOpts(q,selected,disabled){
+  var d=document.getElementById('opts');d.innerHTML='';sel=selected?selected.slice():[];multi=!!q.m;
+  if(multi){var n=document.createElement('div');n.className='multi-note';n.textContent='※ 複数選択（全て選んでください）';d.appendChild(n);}
+  for(var i=0;i<q.o.length;i++){
+    (function(idx,txt){
+      var row=document.createElement('label');row.className='orow';
+      var inp=document.createElement('input');inp.type=multi?'checkbox':'radio';inp.name='opt';
+      var k=optKey(txt);
+      if(selected&&selected.indexOf(k)>=0)inp.checked=true;
+      if(disabled)inp.disabled=true;
+      inp.onchange=function(){if(mode==='p'&&answered)return;if(multi){if(this.checked)sel.push(k);else sel=sel.filter(function(s){return s!==k;});}else{sel=[k];}};
+      var lbl=document.createElement('span');lbl.className='olbl';lbl.textContent=txt;
+      row.appendChild(inp);row.appendChild(lbl);d.appendChild(row);
+    })(i,q.o[i]);
+  }
+}
+function styleOpts(opts,correct_keys,user_keys){
+  var rows=document.querySelectorAll('.orow');
+  var ck=correct_keys.map(function(k){return k.toUpperCase();});
+  for(var i=0;i<rows.length;i++){
+    var inp=rows[i].querySelector('input');inp.disabled=true;
+    var lbl=rows[i].querySelector('.olbl');var k=optKey(opts[i]);
+    if(ck.indexOf(k)>=0)lbl.classList.add('ok');else if(inp.checked)lbl.classList.add('ng');
+  }
+}
+function unique(a){return a.filter(function(v,i,arr){return arr.indexOf(v)===i;});}
+function renderNav(){
+  var g=document.getElementById('ngrid');g.innerHTML='';
+  for(var i=0;i<total;i++){
+    var c=document.createElement('div');c.className='nc';
+    if(mode==='p'){var s=navStatus[i];if(s==='ok')c.classList.add('dok');else if(s==='ng')c.classList.add('dng');}
+    else{if(examAnswers[i])c.classList.add('ans');}
+    if(i===curPos)c.classList.add('cur');c.textContent=i+1;
+    (function(pos){c.onclick=function(){if(mode==='e'){saveExamAnswer();curPos=pos;showExam();}};})(i);
+    g.appendChild(c);
+  }
+}
+selYear('23');
+goHome();
+</script>
+<div id="hist-review-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1000;align-items:flex-start;justify-content:center;overflow-y:auto;padding:20px;box-sizing:border-box">
+  <div style="background:#fff;border-radius:12px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.3)">
+    <div id="hist-review-body" style="padding:20px"></div>
+  </div>
+</div>
+</body>
+</html>
