@@ -109,7 +109,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans','Me
 .ybtn{flex:1;padding:8px 10px;border:none;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;background:transparent;text-align:center;transition:all .15s;color:#6c757d}
 .ybtn:hover{background:#fff;color:#343a40}
 .ybtn.sel{background:#fff;color:#0f6fc6;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-.ybadge{display:block;font-size:10px;margin-top:2px;font-weight:400;color:inherit;opacity:.75}
+.ybadge{display:inline-block;font-size:10px;margin-top:3px;font-weight:700;color:#fff;opacity:1;border-radius:3px;padding:1px 5px;letter-spacing:.3px}
+.ybtn.y17 .ybadge{background:#6f42c1;}
+.ybtn.y18 .ybadge{background:#fd7e14;}
+.ybtn.y20 .ybadge{background:#20c997;}
+.ybtn.y19 .ybadge{background:#e83e8c;}
+.ybtn.y21 .ybadge{background:#007bff;}
+.ybtn.y23 .ybadge{background:#17a2b8;}
+.ybtn.yall .ybadge{background:#6c757d;}
 
 /* Mode grid - styled like Moodle activity list */
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -194,21 +201,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans','Me
   <div class="hcard">
     <h2>🔬 病理学総論 過去問クイズ</h2>
     <div class="year-sel">
-      <div class="ybtn y19" id="ybtn-19" onclick="selYear('19')">
-        <div>19M</div>
-        <div class="ybadge y19">2021年度 39問</div>
+      <div class="ybtn y17" id="ybtn-17" onclick="selYear('17')">
+        <div class="ybadge y17">17M</div>
+        <div class="ybtn-label">2019年度</div>
+      </div>
+      <div class="ybtn y18" id="ybtn-18" onclick="selYear('18')">
+        <div class="ybadge y18">18M</div>
+        <div class="ybtn-label">2020理解度</div>
+      </div>
+      <div class="ybtn y20" id="ybtn-20" onclick="selYear('20')">
+        <div class="ybadge y20">20M</div>
+        <div class="ybtn-label">2022年度</div>
+      </div>
+            <div class="ybtn y19" id="ybtn-19" onclick="selYear('19')">
+        <div class="ybadge y19">19M</div>
+        <div class="ybtn-label">2021年度</div>
       </div>
       <div class="ybtn y21" id="ybtn-21" onclick="selYear('21')">
-        <div>21M</div>
-        <div class="ybadge y21">2023年度 30問</div>
+        <div class="ybadge y21">21M</div>
+        <div class="ybtn-label">2023年度</div>
       </div>
       <div class="ybtn y23" id="ybtn-23" onclick="selYear('23')">
-        <div>23M</div>
-        <div class="ybadge y23">2025年度 26問</div>
+        <div class="ybadge y23">23M</div>
+        <div class="ybtn-label">2025年度</div>
       </div>
       <div class="ybtn yall" id="ybtn-all" onclick="selYear('all')">
-        <div>全年度</div>
-        <div class="ybadge yall">全95問</div>
+        <div class="ybadge yall">全年度</div>
+        <div class="ybtn-label">全315問</div>
       </div>
     </div>
     <div class="mode-grid">
@@ -316,6 +335,2536 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans','Me
 </div>
 
 <script>
+var Q_b17M=
+[
+  {
+    "t": "炎症",
+    "q": "A 35-year-old man has had increasing dyspnea for the past 24 hours. Bilateral pleural effusions. Thoracentesis yields slightly cloudy yellow fluid with many neutrophils, but no lymphocytes or RBCs. Which mechanism contributes most to the pleural fluid accumulation?",
+    "o": [
+      "a. Arteriolar vasoconstriction",
+      "b. Endothelial contraction",
+      "c. Inhibition of platelet adherence",
+      "d. Lymphatic obstruction",
+      "e. Neutrophil release of lysosomes"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "急性炎症では血管内皮細胞の収縮（ヒスタミン・ロイコトリエンによる）によりギャップが生じ、滲出液が貯留する。"
+  },
+  {
+    "t": "中毒",
+    "q": "Children ages 3-6 with encephalopathic crisis, retarded psychomotor development, microcytic anemia. Rundown housing complex with poor plumbing. Toxic exposure to which substance best accounts for these findings?",
+    "o": [
+      "a. Ethylene glycol",
+      "b. Kerosene",
+      "c. Lead",
+      "d. Methanol",
+      "e. Sodium hypochlorite"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "鉛中毒：神経毒性（脳症・精神運動発達遅延）と小球性貧血。古い建物の塗料・配管が原因。"
+  },
+  {
+    "t": "中毒",
+    "q": "Increased basal cell and squamous cell carcinomas predominantly on palms and soles. Groundwater shows elevated heavy metal used in pressure-treated lumber, insecticides, herbicides. Which metal?",
+    "o": [
+      "a. Arsenic",
+      "b. Beryllium",
+      "c. Cadmium",
+      "d. Lead",
+      "e. Mercury"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ヒ素（砒素）：手掌・足底の角化症・皮膚癌リスク。農薬・防腐剤（緑色の圧力処理木材）に含まれる。"
+  },
+  {
+    "t": "中毒",
+    "q": "72-year-old man with increasing dyspnea. Large pleural mass nearly encasing the right lung. Exposure to which metal is most likely associated?",
+    "o": [
+      "a. Arsenic",
+      "b. Asbestos",
+      "c. Beryllium",
+      "d. Chromium",
+      "e. Nickel"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "アスベスト曝露→悪性胸膜中皮腫。潜伏期間20〜40年。胸膜全体を覆う大きな腫瘤が特徴的。"
+  },
+  {
+    "t": "中毒",
+    "q": "19-year-old student drinks 2 L of 50% ethanol over 30 minutes. Takes acetaminophen for headaches. Which complication is most likely lethal within the first 12 hours?",
+    "o": [
+      "a. Acute pancreatitis",
+      "b. Brainstem depression",
+      "c. Hepatic cirrhosis",
+      "d. Variceal bleeding",
+      "e. Wernicke disease"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "大量急性アルコール：血中濃度が脳幹抑制レベルに達し呼吸抑制。肝硬変・食道静脈瘤は慢性飲酒の合併症。"
+  },
+  {
+    "t": "先天性代謝異常",
+    "q": "Infant with coarse facial features, corneal clouding, joint stiffness, hepatosplenomegaly, mental retardation across 3 generations. Increased urinary mucopolysaccharides. Bone marrow shows 'balloon cells'. Which enzyme deficiency?",
+    "o": [
+      "a. Adenosine deaminase",
+      "b. α-L-Iduronidase",
+      "c. Glucocerebrosidase",
+      "d. Glucose-6-phosphatase",
+      "e. Hexosaminidase A",
+      "f. Lysosomal glucosidase",
+      "g. Sphingomyelinase"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "α-L-Iduronidase欠損→Hurler症候群（ムコ多糖症I型）。ムコ多糖蓄積により全身に影響。"
+  },
+  {
+    "t": "外傷",
+    "q": "7-year-old boy falls off bicycle at 5 km/hr. Top layer of epidermis is removed from right calf and arm. Which term best describes this injury?",
+    "o": [
+      "a. Abrasion",
+      "b. Burn",
+      "c. Contusion",
+      "d. Incision",
+      "e. Laceration"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "擦り傷（abrasion）：表皮が摩擦により剥がれた傷。切傷はincision、裂傷はlaceration、挫傷はcontusion。"
+  },
+  {
+    "t": "外傷",
+    "q": "20-year-old man's right hand contacts a frayed electrical cord carrying 120V, 10-amp alternating current. Which is most likely to develop?",
+    "o": [
+      "a. Bronchoconstriction",
+      "b. Cerebral artery thrombosis",
+      "c. Heat stroke",
+      "d. Gastric hemorrhage",
+      "e. Ventricular fibrillation"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "交流電流（AC）は心臓の電気伝導を乱し心室細動を起こしやすい。即座に致死的となりうる。"
+  },
+  {
+    "t": "外傷",
+    "q": "Firemen at Chernobyl received doses exceeding 50 Sv. Within hours, many became ill. Damage to which tissue most likely led to this acute finding?",
+    "o": [
+      "a. Bone marrow",
+      "b. Cerebrum",
+      "c. Heart",
+      "d. Lungs",
+      "e. Small intestine"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "50Sv超の超高線量→CNS症候群（脳症候群）。神経障害による意識消失・痙攣が急性期症状。"
+  },
+  {
+    "t": "腫瘍",
+    "q": "40-year-old man has a 0.9-cm, circumscribed, pedunculated mass on a short stalk in the upper rectum. Which term best describes this lesion?",
+    "o": [
+      "a. Adenoma",
+      "b. Carcinoma",
+      "c. Choristoma",
+      "d. Hamartoma",
+      "e. Hyperplasia",
+      "f. Sarcoma"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "腺腫（adenoma）：良性上皮性腫瘍。有茎性ポリープの多くは腺腫で大腸癌の前癌病変。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "58-year-old man. MI involving 4-cm area of posterior left ventricular free wall. CK 600 U/L. Which pathologic finding would most likely be seen 1 month later?",
+    "o": [
+      "a. Chronic inflammation",
+      "b. Coagulative necrosis",
+      "c. Complete resolution",
+      "d. Fibrous scar",
+      "e. Nodular regeneration"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "心筋梗塞後1ヶ月→線維性瘢痕（fibrous scar）。心筋は再生能が低く瘢痕置換される。"
+  },
+  {
+    "t": "遺伝性疾患",
+    "q": "Pregnant woman with family history of fragile X syndrome. PCR of FMR1 gene from amniotic fluid yields no amplified products. Most appropriate next step?",
+    "o": [
+      "a. Routine karyotyping of amniotic fluid cells",
+      "b. Routine karyotyping of unaffected father",
+      "c. Southern blot analysis of DNA from amniotic fluid cells",
+      "d. PCR analysis of mother's FMR1 gene",
+      "e. No further testing"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "脆弱X症候群で PCR が増幅できない場合はサザンブロット法で確認するのが次の正しいステップ。父親の核型検査は意味がない。\n\n※この年度の正解はb（不明瞭。一般的な正解はc）。"
+  },
+  {
+    "t": "栄養・欠乏",
+    "q": "Scott's expedition to South Pole. Bodies found with hyperkeratotic papular rash, ecchymoses, and severe gingival swelling with hemorrhages. Most likely contributing cause of death?",
+    "o": [
+      "a. Beriberi",
+      "b. Kwashiorkor",
+      "c. Pellagra",
+      "d. Pernicious anemia",
+      "e. Rickets",
+      "f. Scurvy"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "壊血病（Scurvy）：ビタミンC欠乏。コラーゲン合成障害→歯肉出血・皮下出血・創傷治癒不全。"
+  },
+  {
+    "t": "栄養・欠乏",
+    "q": "Children with increased respiratory infections, keratomalacia, urinary tract calculi, and generalized papular dermatosis. Deficiency of which vitamin?",
+    "o": [
+      "a. Vitamin A",
+      "b. Vitamin B1",
+      "c. Vitamin E",
+      "d. Vitamin D",
+      "e. Vitamin K"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ビタミンA欠乏：角膜軟化症（keratomalacia）・感染抵抗性低下・夜盲症。"
+  },
+  {
+    "t": "中毒",
+    "q": "Ethanol metabolized by alcohol dehydrogenase to an intermediate that depletes NAD+ in hepatocytes. Some persons have deficient enzyme to metabolize this intermediate. What is this intermediate?",
+    "o": [
+      "a. Acetaldehyde",
+      "b. α-Tocopherol",
+      "c. Formic acid",
+      "d. Glutathione",
+      "e. Hydrogen peroxide"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "アセトアルデヒド：エタノール→アルコール脱水素酵素→アセトアルデヒド→アルデヒド脱水素酵素（ALDH）→酢酸。ALDH2欠損（フラッシャー）で蓄積。"
+  },
+  {
+    "t": "遺伝子・エピジェネティクス",
+    "q": "A nuclear chromosomal gene is actively transcribing mRNA transported into the cytoplasm. However, no protein product is observed. How is this active gene's mRNA most likely silenced?",
+    "o": [
+      "a. Absence of tRNA",
+      "b. Binding to miRNA",
+      "c. Methylation of DNA",
+      "d. Mutation of mRNA",
+      "e. Upregulation of mtDNA"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "miRNA（マイクロRNA）はmRNAに結合してその翻訳を抑制する転写後調節機構（ポスト転写的サイレンシング）。"
+  },
+  {
+    "t": "細胞外マトリックス",
+    "q": "62-year-old man with increasing knee pain for 10 years. Knee joint surfaces eroded. Loss of compressibility and lubrication of articular cartilage. Loss of which ECM component?",
+    "o": [
+      "a. Elastin",
+      "b. Fibronectin",
+      "c. Hyaluronan",
+      "d. Integrin",
+      "e. Laminin"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "ヒアルロナン（ヒアルロン酸）：関節軟骨の緩衝・潤滑機能を担う大型多糖。変形性関節症で減少。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "71-year-old man with difficulty with urination for 5 years. Prostate palpably enlarged to twice normal size. Microscopy shows nodules of glands with intervening stroma. Which pathogenic process?",
+    "o": [
+      "a. Apoptosis",
+      "b. Dysplasia",
+      "c. Fatty change",
+      "d. Hyperplasia",
+      "e. Hypertrophy",
+      "f. Metaplasia"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "前立腺肥大症：過形成（hyperplasia）。細胞数の増加が原因。腺管と間質の結節状増殖が特徴。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "34-year-old woman with heartburn from gastric reflux for 5 years. Biopsy of distal esophagus obtained. Which microscopic change has most likely occurred?",
+    "o": [
+      "a. Columnar metaplasia",
+      "b. Goblet cell hyperplasia",
+      "c. Lamina propria atrophy",
+      "d. Squamous dysplasia",
+      "e. Mucosal hypertrophy"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "Barrett食道：胃食道逆流症（GERD）による慢性刺激で食道下部の扁平上皮が円柱上皮に化生（columnar metaplasia）。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "71-year-old man with pancreatic cancer. Normal connective tissues undergo atrophy by sequestering organelles in a vacuole that fuses with a lysosome. Which process occurs in normal cells but is inhibited in cancer cells?",
+    "o": [
+      "a. Aging",
+      "b. Apoptosis",
+      "c. Autophagy",
+      "d. Hyaline change",
+      "e. Karyorrhexis"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "オートファジー（自食作用）：細胞小器官をオートファゴソームで包みリソソームと融合し分解・再利用。癌細胞ではPTEN抑制などで阻害。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "54-year-old man with poor wound healing after hernia repair. Diet is deficient in vitamin C. Synthesis of which ECM component is most affected?",
+    "o": [
+      "a. Collagen",
+      "b. Elastin",
+      "c. Fibronectin",
+      "d. Integrin",
+      "e. Laminin"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ビタミンC：プロリン・リジンの水酸化に必要→コラーゲン安定化。欠乏→壊血病・創傷治癒障害。"
+  },
+  {
+    "t": "炎症",
+    "q": "95-year-old woman touches boiling water. Within 2 hours, marked erythema of skin and small blisters appear on finger pads. Which inflammatory response has occurred?",
+    "o": [
+      "a. Fibrinous inflammation",
+      "b. Granulomatous inflammation",
+      "c. Purulent inflammation",
+      "d. Serous inflammation",
+      "e. Ulceration"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "漿液性炎症（serous inflammation）：熱傷（軽度）では血漿成分が漏出し水疱を形成。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "43-year-old man with cough and fever for 2 months. Transbronchial lung biopsy shows epithelioid cells with Langhans giant cells. Which chemical mediator is most important?",
+    "o": [
+      "a. Bradykinin",
+      "b. Complement C5a",
+      "c. Interferon-γ",
+      "d. Nitric oxide",
+      "e. Prostaglandins"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "IFN-γ（インターフェロンγ）：Th1細胞が産生し、マクロファージを類上皮細胞・多核巨細胞に分化させる。肉芽腫形成に必須のサイトカイン。"
+  },
+  {
+    "t": "壊死",
+    "q": "68-year-old woman suddenly lost consciousness, could not speak or move right arm. Two months later, large cystic area in left parietal lobe on CT. Which pathologic process occurred in her brain?",
+    "o": [
+      "a. Apoptosis",
+      "b. Coagulative necrosis",
+      "c. Fat necrosis",
+      "d. Karyolysis",
+      "e. Liquefactive necrosis"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "脳梗塞→融解壊死（liquefactive necrosis）：脳は脂質が豊富なため虚血性傷害では溶解し嚢胞を形成する。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "全身性エリトマトーデスについて正しいものを1つ選べ。",
+    "o": [
+      "a. 10〜30代の男性にみられる",
+      "b. Libman-Sacks心外膜炎がみられる",
+      "c. 腎臓に免疫複合体が沈着してonion skin lesionを形成する",
+      "d. 脾臓にはwire loop lesionがみられる",
+      "e. 皮膚には円盤性皮疹や光線過敏症がみられる"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "SLEは10〜30代女性に多い。皮膚：蝶形紅斑・光線過敏症・円盤性皮疹。腎臓：wire loop lesion（IgG沈着）。脾臓：onion skin lesion。Libman-Sacks心内膜炎（心外膜炎ではない）。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "全身性強皮症について正しいものは？\n1. 線維芽細胞が活性化され、コラーゲンが増殖する\n2. 30〜50代女性がなりやすい\n3. 指がソーセージ状になり、レイノー現象がある\n4. 間質性肺炎を起こすことがある",
+    "o": [
+      "a. 1,2",
+      "b. 2,3",
+      "c. 4のみ",
+      "d. 1,3,4",
+      "e. 1,2,3,4"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "全身性強皮症（SSc）は1〜4すべて正しい。線維芽細胞過剰活性化、30〜50代女性好発、レイノー現象・指の硬化、間質性肺炎・腎クリーゼなどの内臓病変が特徴。",
+    "m": false
+  },
+  {
+    "t": "肉芽腫",
+    "q": "ラングハンス型巨細胞について正しいものを選べ。",
+    "o": [
+      "a. 骨髄の巨核球が組織に遊走したもの",
+      "b. Tリンパ球が集合したもの",
+      "c. 形質細胞が集合したもの",
+      "d. マクロファージが集合したもの",
+      "e. 好中球が集合したもの"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "ラングハンス型巨細胞：マクロファージ（組織球・類上皮細胞）が合胞化した多核巨細胞。核が馬蹄形・花輪状に配列。結核・サルコイドーシスに見られる。"
+  },
+  {
+    "t": "免疫不全",
+    "q": "低カルシウム血症となる原発性免疫不全症はどれか。",
+    "o": [
+      "a. Wiskott-Aldrich症候群",
+      "b. DiGeorge症候群",
+      "c. 慢性肉芽腫症",
+      "d. 重度複合型免疫不全症",
+      "e. 毛細血管拡張性失調症"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "DiGeorge症候群：第3・4咽頭弓の発生異常→胸腺・副甲状腺欠損。PTH欠乏→低Ca血症＋T細胞欠損。"
+  },
+  {
+    "t": "病理診断",
+    "q": "組織病理診断で用いられる基本的な病理学的染色はどれか。",
+    "o": [
+      "a. HE染色",
+      "b. ヨード染色",
+      "c. 免疫組織化学",
+      "d. Ziehl Neelsen染色",
+      "e. マッソン・トリクローム染色"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "HE染色（ヘマトキシリン・エオジン）：病理組織診断の基本染色。核→青紫色（Hematoxylin）、細胞質・線維→赤色（Eosin）。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "肉芽腫について正しいものをひとつ選べ。",
+    "o": [
+      "a. 組織球が結節状に集まり多核巨細胞が形成されることがある",
+      "b. 膠原線維が豊富で炎症細胞に乏しい",
+      "c. 毛細血管が豊富で出血しやすい",
+      "d. 軽度の核異形を伴う上皮細胞による過形成の結節が見られる",
+      "e. 間質細胞が腫瘍形成する"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "肉芽腫：組織球（マクロファージ）が結節状に集まり、類上皮細胞や多核巨細胞を形成する。サルコイドーシス・結核が代表例。"
+  },
+  {
+    "t": "止血",
+    "q": "非腫瘍性病変で、病変により血管が破裂したとき、血液によってできるものを（　）と呼ぶ。",
+    "o": [
+      "a. うっ血",
+      "b. 血管肉腫",
+      "c. 血腫",
+      "d. 血管腫"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "血腫（hematoma）：血管破綻により血液が組織内に貯留した状態。うっ血は血液うっ滞、血管腫・血管肉腫は腫瘍性病変。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "正しい選択肢の組み合わせを選べ。\n1. neoplasmは腫瘍である\n2. 悪性間葉性腫瘍はがんである\n3. 悪性間葉性腫瘍は癌腫である\n4. 良性間葉性腫瘍は肉腫である",
+    "o": [
+      "a. 1のみ",
+      "b. 1,2のみ",
+      "c. 2,3のみ",
+      "d. 4のみ",
+      "e. 1〜4のすべて"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "neoplasmは腫瘍（正しい）。悪性間葉性腫瘍は「がん（悪性腫瘍）」だが「癌腫（carcinoma）」ではなく「肉腫（sarcoma）」。良性間葉性腫瘍は肉腫ではない。",
+    "m": false
+  },
+  {
+    "t": "うっ血",
+    "q": "肝臓の慢性うっ血の際の肉眼像は何と呼ばれるか。",
+    "o": [
+      "a. nutmeg liver",
+      "b. garlic liver",
+      "c. gamma-gandy結節",
+      "d. coconut liver"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ナツメグ肝（nutmeg liver）：右心不全などによる慢性うっ血で、小葉中心の暗赤色うっ血と周辺の黄色肝細胞がナツメグ模様を呈する。"
+  },
+  {
+    "t": "止血",
+    "q": "止血後に血餅を除去するのは（　）の作用であり、これには組織プラスミノーゲン活性化因子が関わる。",
+    "o": [
+      "a. 補体系",
+      "b. 線維素溶解",
+      "c. アポトーシス",
+      "d. ネクローシス"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "線維素溶解系（fibrinolysis）：t-PA（組織プラスミノーゲン活性化因子）がプラスミノーゲン→プラスミンに変換し、フィブリン血餅を溶解する。"
+  },
+  {
+    "t": "腫瘍名称",
+    "q": "誤りを1つ選びなさい。",
+    "o": [
+      "a. melanomaは良性のメラニン産生性腫瘍である",
+      "b. Teratomaは奇形腫で、三胚葉への分化傾向を有する",
+      "c. cancerはラテン語でカニを意味する",
+      "d. carcinomaは上皮性悪性腫瘍、sarcomaは間葉性悪性腫瘍を意味する",
+      "e. neoplasmは新生物・腫瘍を意味する"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "melanoma（悪性黒色腫）は悪性腫瘍。良性の場合は母斑（nevus）と呼ぶ。b〜eはすべて正しい。"
+  },
+  {
+    "t": "感染症",
+    "q": "矢印で示した核内封入体（Owl's eye = フクロウの目様）が見られた場合、感染が疑われるウイルスはどれか。",
+    "o": [
+      "a. Streptococcus pneumoniae",
+      "b. Aspergillus fumigatus",
+      "c. Mycobacterium tuberculosis",
+      "d. Mycoplasma pneumoniae",
+      "e. Cytomegalovirus"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "Owl's eye（フクロウの目）封入体：CMV（サイトメガロウイルス）感染の特徴的所見。核内に大型の封入体が見られる。免疫不全患者で重症化。"
+  },
+  {
+    "t": "アレルギー",
+    "q": "I型アレルギー（即時型）として正しいものを選べ。",
+    "o": [
+      "a. 自己免疫性溶血性貧血",
+      "b. Goodpasture症候群",
+      "c. 気管支喘息",
+      "d. 接触性皮膚炎",
+      "e. 膜性腎炎"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "I型アレルギー（IgE依存性即時型）：気管支喘息、アナフィラキシー、アレルギー性鼻炎、蕁麻疹。II型：溶血性貧血・Goodpasture。IV型：接触性皮膚炎。"
+  },
+  {
+    "t": "炎症",
+    "q": "抗好中球細胞質抗体であるp-ANCАを産生する自己免疫性疾患を選べ（複数選択）。",
+    "o": [
+      "a. Wegener肉芽腫症",
+      "b. 原発性胆汁性肝硬変",
+      "c. 顕微鏡的多発血管炎",
+      "d. Goodpasture症候群",
+      "e. 慢性肉芽腫症"
+    ],
+    "a": [
+      "C",
+      "D"
+    ],
+    "e": "p-ANCA（抗MPO抗体）：顕微鏡的多発血管炎・好酸球性多発血管炎性肉芽腫症に陽性。Goodpasture症候群はGBM抗体（抗GBM抗体）。Wegener（GPA）はc-ANCA（抗PR3抗体）。",
+    "m": true
+  },
+  {
+    "t": "塞栓症",
+    "q": "塞栓症の原因として一番頻度が高いのは（　）である。",
+    "o": [
+      "a. 悪性腫瘍",
+      "b. 脂肪",
+      "c. 血栓",
+      "d. 寄生虫"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "血栓塞栓症が最多。深部静脈血栓（DVT）→肺動脈塞栓が代表的。その他脂肪・空気・羊水・腫瘍塞栓などがある。"
+  },
+  {
+    "t": "浮腫",
+    "q": "浮腫とは水分が血管内から間質に移動する現象だが、浮腫液のタンパク質濃度が低いものを（　）という。",
+    "o": [
+      "a. 生食液",
+      "b. 電解液",
+      "c. 滲出液",
+      "d. 漏出液"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "漏出液（transudate）：低タンパク・低比重（<1.012）。静水圧上昇・膠質浸透圧低下による非炎症性浸出。炎症性の高タンパクなものは滲出液（exudate）。"
+  },
+  {
+    "t": "止血・凝固",
+    "q": "血管内血栓症を引き起こすウィルヒョウの3要素のうち1つは血流異常・内皮細胞傷害である。残りの1つを選べ。",
+    "o": [
+      "a. 血小板増加",
+      "b. 血液凝固能亢進",
+      "c. 赤血球減少",
+      "d. 白血球減少"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "Virchow（ウィルヒョウ）の3要素：①血液凝固能亢進（高凝固状態）②血流異常（うっ滞・乱流）③内皮細胞傷害。3要素が揃うと血栓形成リスクが高まる。"
+  },
+  {
+    "t": "壊死",
+    "q": "貧血性梗塞の際に見られる壊死はとくに（　）と呼ぶ。",
+    "o": [
+      "a. 出血壊死",
+      "b. 融解壊死",
+      "c. 乾酪壊死",
+      "d. 凝固壊死"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "凝固壊死（coagulative necrosis）：タンパク質変性・凝固による壊死。心筋・腎・肝などの貧血性梗塞で典型的。細胞の輪郭は保たれる。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "53歳の女性の血圧が150/95 mmHgと高値。もし高血圧が何年も治療されないままであれば、心筋には次のどの細胞変化が見られる可能性が最も高いか？",
+    "o": [
+      "a. アポトーシス",
+      "b. 異形成",
+      "c. 脂肪変性",
+      "d. ヘモジデローシス",
+      "e. 過形成",
+      "f. 肥大（ハイパートロフィー）",
+      "g. 化生"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "高血圧→心臓に慢性圧負荷→左心室の肥大（hypertrophy）。心筋細胞は増殖できないため、個々の細胞が大きくなる（過形成ではない）。"
+  },
+  {
+    "t": "炎症",
+    "q": "長文で「細胞間隙から血漿が出ていく事」を何というか問う問題。",
+    "o": [
+      "a. 化膿",
+      "b. 浮腫",
+      "c. 出血",
+      "d. 虚血",
+      "e. 梗塞"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "浮腫（edema）：血管内から間質組織へ液体が移動し蓄積する状態。静水圧上昇・膠質浸透圧低下・血管透過性亢進・リンパ管閉塞が原因。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "Gottron徴候とヘリオトロープ疹を認める疾患はどれか。",
+    "o": [
+      "a. シェーグレン症候群",
+      "b. 全身性強皮症",
+      "c. 抗リン脂質抗体症候群",
+      "d. 多発性筋炎・皮膚筋炎",
+      "e. 混合性結合組織病"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "皮膚筋炎の特徴：ヘリオトロープ疹（眼瞼の紫紅色腫脹）・Gottron丘疹（関節背面の鱗屑性紅斑）。近位筋力低下・間質性肺炎を合併。"
+  },
+  {
+    "t": "病理診断",
+    "q": "病理組織像について、肺膿瘍（肺化膿症）の特徴として正しいものを選べ。",
+    "o": [
+      "a. 壊死・好中球浸潤・膿瘍腔形成",
+      "b. 多核巨細胞・類上皮細胞の結節状集簇",
+      "c. 血管周囲のフィブリノイド壊死",
+      "d. 浸出液・好酸球浸潤",
+      "e. 肺胞内の線維性滲出物と組織球浸潤"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "肺膿瘍（化膿性炎症）：好中球主体の急性炎症→組織壊死→膿瘍腔形成。化膿性炎症はStaphylococcus aureusなどが原因。"
+  },
+  {
+    "t": "炎症",
+    "q": "出血性肺梗塞の肉眼像で見られる病変の組み合わせとして正しいのはどれか。",
+    "o": [
+      "a. 出血と腫瘍",
+      "b. 出血と浮腫",
+      "c. 出血と梗塞",
+      "d. 梗塞と浮腫",
+      "e. 腫瘍と炎症"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "出血性肺梗塞：肺動脈塞栓（血栓・腫瘍塞栓など）→肺組織の壊死（梗塞）＋気管支動脈系からの側副血行による出血→出血と梗塞の組み合わせ。"
+  },
+  {
+    "t": "炎症",
+    "q": "慢性肉芽腫症（CGD）について正しいものを選べ。",
+    "o": [
+      "a. B細胞機能の欠損が主体",
+      "b. NАDPHオキシダーゼ欠損→活性酸素産生障害→殺菌能低下",
+      "c. カタラーゼ陰性菌（Streptococcus等）への抵抗性が低下",
+      "d. IgGが著明に低下",
+      "e. カルシウム代謝異常が見られる"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "慢性肉芽腫症（CGD）：NADPHオキシダーゼ（gp91phox等）の欠損→活性酸素産生不能→カタラーゼ陽性菌（Staph. aureus、Aspergillus等）を殺菌できない→反復性感染・肉芽腫形成。"
+  },
+  {
+    "t": "炎症",
+    "q": "ウィルヒョウの3要素のうち、血液凝固能異常を問う。長文で「血液の流れが遅い、血管壁が傷ついている」状況が述べられている。残りの1つの要素として最も適切なのはどれか。",
+    "o": [
+      "a. 赤血球の形態異常",
+      "b. 血小板の過少",
+      "c. 血液凝固能亢進",
+      "d. 白血球の活性化",
+      "e. 補体系の活性化"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "Virchow（ウィルヒョウ）の3要素：①血流異常（うっ滞・乱流）②内皮細胞傷害③血液凝固能亢進（高凝固状態）。三要素が揃うと血栓形成リスクが高まる。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "原発性免疫不全症について正しい組み合わせを選べ。",
+    "o": [
+      "a. X連鎖無γグロブリン血症－T細胞欠損が主体",
+      "b. DiGeorge症候群－胸腺欠損によるT細胞欠損",
+      "c. 重症複合型免疫不全症（SCID）－B細胞のみ欠損",
+      "d. Wiskott-Aldrich症候群－MHC class IIの欠損",
+      "e. 高IgM症候群－IgGとIgAが正常"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "DiGeorge症候群：第3・4咽頭弓発生異常→胸腺欠損→T細胞欠損。X連鎖無γグロブリン血症：B細胞欠損（Bruton's tyrosine kinase変異）。SCIDはT・B細胞両方欠損。"
+  }
+]
+;
+var Q_b18M=
+[
+  {
+    "t": "細胞骨格",
+    "q": "At a surgical incision, endothelial cells elaborate VEGF and new capillaries sprout. Which intracellular protein is most important in facilitating movement of endothelial cells?",
+    "o": [
+      "a. Actin",
+      "b. Cytokeratin",
+      "c. Desmin",
+      "d. Lamin",
+      "e. Myosin"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "アクチン（microfilament）：細胞運動・形態変化に関与。サイトケラチン・デスミン・ラミンは中間径フィラメント。ミオシンは筋収縮の太いフィラメント。"
+  },
+  {
+    "t": "壊死",
+    "q": "68-year-old woman suddenly lost consciousness, could not speak or move right arm. Two months later, large cystic area in left parietal lobe on CT. Which pathologic process occurred?",
+    "o": [
+      "a. Apoptosis",
+      "b. Coagulative necrosis",
+      "c. Fat necrosis",
+      "d. Karyolysis",
+      "e. Liquefactive necrosis"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "脳梗塞→融解壊死（liquefactive necrosis）。脳は脂質含量が高いため虚血では溶解・嚢胞形成する。凝固壊死は心・腎などの固形臓器で典型的。"
+  },
+  {
+    "t": "炎症",
+    "q": "35-year-old man with bilateral pleural effusions. Slightly cloudy yellow fluid with many neutrophils. Which mechanism contributes most to the pleural fluid accumulation?",
+    "o": [
+      "a. Arteriolar vasoconstriction",
+      "b. Endothelial contraction",
+      "c. Inhibition of platelet adherence",
+      "d. Lymphatic obstruction",
+      "e. Neutrophil release of lysosomes"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "炎症性浸出液：ヒスタミン・ロイコトリエンにより血管内皮が収縮しギャップ形成→血漿成分が漏出。内皮収縮が最も重要なメカニズム。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "25-year-old woman: small nodule at healed surgical incision 1 month after appendectomy. Microscopy shows macrophages, collagen, lymphocytes, multinucleated giant cells, polarizable refractile material. Which complication?",
+    "o": [
+      "a. Abscess formation",
+      "b. Chronic inflammation",
+      "c. Exuberant granulation tissue",
+      "d. Granuloma formation",
+      "e. Healing by second intention"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "偏光性の縫合糸に対する異物型肉芽腫。多核巨細胞（異物型）と類上皮細胞の結節形成が特徴。縫合糸が異物として持続的に刺激を与える。"
+  },
+  {
+    "t": "脂質代謝",
+    "q": "Families with atherosclerotic cardiovascular disease and tendinous xanthomas before age 30. Children benefit from HMG-CoA reductase inhibitors. Mutation in a gene encoding a cell surface receptor for which substance?",
+    "o": [
+      "a. Cortisol",
+      "b. Insulin",
+      "c. LDL cholesterol",
+      "d. Leptin",
+      "e. TGF-α"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "家族性高コレステロール血症（FH）：LDL受容体遺伝子変異。LDLが肝臓で取り込めず血中蓄積→動脈硬化促進。スタチン（HMG-CoA還元酵素阻害薬）が有効。"
+  },
+  {
+    "t": "先天性代謝異常",
+    "q": "25-year-old woman: severe muscle cramps during exercise for 2 months, brown urine 4 hours after sessions. Normal muscle strength. Which inherited enzyme defect explains her findings?",
+    "o": [
+      "a. Dystrophin",
+      "b. Fibrillin",
+      "c. Glucose-6-phosphatase",
+      "d. Lysosomal glucosidase",
+      "e. Muscle phosphorylase",
+      "f. Spectrin"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "McArdle病（糖原病V型）：筋ホスホリラーゼ欠損→運動時の筋攣縮・ミオグロビン尿。血中乳酸は上昇しない（嫌気性解糖が起こらないため）。"
+  },
+  {
+    "t": "染色体異常",
+    "q": "39-year-old woman delivers infant with Brushfield spots, macroglossia, low-set ears, oblique palpebral fissures, heart murmur, umbilical hernia. Infant survives with only mild mental retardation. Which chromosomal abnormality?",
+    "o": [
+      "a. Haploidy",
+      "b. Monosomy",
+      "c. Mosaicism",
+      "d. Tetraploidy",
+      "e. Triploidy"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "ダウン症候群（21トリソミー）の特徴を示すが症状が軽い→モザイク型。正常細胞と異常細胞の混在により表現型が軽減する。"
+  },
+  {
+    "t": "先天性疾患",
+    "q": "11-year-old child with 3-year history of bulky foul-smelling diarrhea and multiple respiratory infections. Sputum grows Pseudomonas aeruginosa and Burkholderia cepacia. Stool fat >10 g/day. Which inborn error?",
+    "o": [
+      "a. Abnormal fibrillin production",
+      "b. Galactose-1-phosphate uridyltransferase deficiency",
+      "c. Impaired epithelial cell transport of chloride ion",
+      "d. Phenylalanine hydroxylase deficiency",
+      "e. Reduced numbers of LDL receptors"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "嚢胞性線維症（CF）：CFTR（Cl-チャネル）異常→異常粘液→膵管・気道閉塞。Pseudomonas・Burkholderia感染を繰り返す。脂肪便（脂質吸収障害）。"
+  },
+  {
+    "t": "小児腫瘍",
+    "q": "3-year-old child with palpable abdominal mass on left. Hematuria. 8-cm retroperitoneal mass. Microscopy shows triphasic combination of blastemal, stromal, and epithelial cell types. Child is well 10 years later. Which is most likely related to pathogenesis?",
+    "o": [
+      "a. Anaplastic epithelium",
+      "b. Ganglion cells",
+      "c. Nephrogenic rests",
+      "d. Pseudorosettes",
+      "e. Sarcomatous component"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "Wilms腫瘍（腎芽腫）：WT1遺伝子変異。腎芽残遺（nephrogenic rests）が前駆病変。三相性組織像（芽球・間質・上皮）が特徴。治癒率90%。"
+  },
+  {
+    "t": "小児腫瘍",
+    "q": "5-year-old boy with 9-cm mass near right adrenal gland. Primitive hyperchromatic cells. Cytogenetics: double minutes and homogeneously staining regions. Which gene underwent alterations?",
+    "o": [
+      "a. BCL1 (cyclin gene)",
+      "b. BCL2 (anti-apoptosis gene)",
+      "c. IL2 (growth factor gene)",
+      "d. K-RAS (GTP-binding protein gene)",
+      "e. Lyn (tyrosine kinase gene)",
+      "f. N-MYC (transcription factor gene)"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "神経芽細胞腫：N-MYC遺伝子増幅（double minutes/HSR）が30〜40%に見られ予後不良因子。副腎髄質・交感神経節が好発部位。"
+  },
+  {
+    "t": "病理診断",
+    "q": "76-year-old woman with constricting mass in sigmoid colon. During partial colectomy, which technique can best aid the surgeon in determining whether resection is adequate?",
+    "o": [
+      "a. Electron microscopy",
+      "b. Fine-needle aspiration",
+      "c. Flow cytometry",
+      "d. Frozen section",
+      "e. Radiologic imaging",
+      "f. Serum carcinoembryonic antigen assay"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "術中迅速病理診断（frozen section / 術中凍結切片）：切除断端の癌残存有無を術中リアルタイムで判定。最も迅速な手術中の評価法。"
+  },
+  {
+    "t": "中毒",
+    "q": "Increasing numbers of children under 5 with cerebral palsy, deafness, blindness, mental retardation in a coastal community near a coal-burning plant. High seafood consumption. Which compound is responsible?",
+    "o": [
+      "a. Bisphenol A",
+      "b. Cadmium",
+      "c. Methyl mercury",
+      "d. Organochlorine",
+      "e. Vinyl chloride"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "メチル水銀（有機水銀）：魚介類の食物連鎖で濃縮（水俣病）。胎児の脳に蓄積→脳性麻痺・難聴・視覚障害・精神遅滞。"
+  },
+  {
+    "t": "中毒",
+    "q": "19-year-old student drinks 2 L of 50% ethanol over 30 minutes. Takes acetaminophen for headaches. Which complication is most likely lethal within the first 12 hours?",
+    "o": [
+      "a. Acute pancreatitis",
+      "b. Brainstem depression",
+      "c. Hepatic cirrhosis",
+      "d. Variceal bleeding",
+      "e. Wernicke disease"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "大量急性アルコール：zero-order kinetics代謝のため血中濃度上昇→脳幹抑制→呼吸停止。アセトアミノフェン併用は肝毒性増強（慢性影響）。"
+  },
+  {
+    "t": "外傷",
+    "q": "20-year-old man's right hand contacts a frayed electrical cord (120-V, 10-amp AC). Which is most likely to develop?",
+    "o": [
+      "a. Bronchoconstriction",
+      "b. Cerebral artery thrombosis",
+      "c. Heat stroke",
+      "d. Gastric hemorrhage",
+      "e. Ventricular fibrillation"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "交流電流（AC）：心臓の電気伝導を障害し心室細動を引き起こす。体内を通過する電流の直接的影響。"
+  },
+  {
+    "t": "中毒",
+    "q": "48-year-old woman with marked osteopenia and radial head fracture. Which underlying disease contributes most to her fracture risk?",
+    "o": [
+      "a. Atrophic gastritis",
+      "b. Chronic lymphocytic leukemia",
+      "c. Coronary atherosclerosis",
+      "d. Primary biliary cirrhosis",
+      "e. Pulmonary emphysema"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "原発性胆汁性肝硬変（PBC）：慢性胆汁うっ滞→脂溶性ビタミンD吸収障害→骨軟化症・骨粗鬆症→骨折リスク増大。"
+  },
+  {
+    "t": "細胞周期",
+    "q": "Cyclin B synthesis is induced; cyclin B binds and activates CDK1. The active kinase is most likely to control progression in which phase of the cell cycle?",
+    "o": [
+      "a. G0 to G1",
+      "b. G1 to S",
+      "c. S to G2",
+      "d. G2 to M",
+      "e. M to G1"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "サイクリンB-CDK1複合体（MPF）：G2→M移行のチェックポイントを制御。CDK阻害因子により調節。この関門を通過すると有糸分裂が開始。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "71-year-old man with pancreatic cancer and decreasing BMI. Normal tissues undergo atrophy by sequestering organelles in vacuoles that fuse with lysosomes. Cancer cells inhibit this process. Which process in normal cells?",
+    "o": [
+      "a. Aging",
+      "b. Apoptosis",
+      "c. Autophagy",
+      "d. Hyaline change",
+      "e. Karyorrhexis"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "オートファジー：Atg遺伝子によりオートファゴソームが形成→リソソームと融合し細胞小器官を分解・再利用。癌細胞ではPTEN抑制などで阻害され生存優位性を獲得。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "43-year-old man with cough, fever 2 months. Chest CT: reticulonodular densities. Transbronchial biopsy: noncaseating granulomas with epithelioid cells and Langhans giant cells. Which mediator is most important?",
+    "o": [
+      "a. Bradykinin",
+      "b. Complement C5a",
+      "c. Interferon-γ",
+      "d. Nitric oxide",
+      "e. Prostaglandins"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "IFN-γ：Th1細胞が産生しマクロファージを類上皮細胞・多核巨細胞に分化させる。肉芽腫形成に必須のサイトカイン（サルコイドーシス・結核で重要）。"
+  },
+  {
+    "t": "遺伝性疾患",
+    "q": "Pregnant woman with family history of fragile X syndrome. PCR of FMR1 gene from amniotic fluid cells yields no amplified products. Most appropriate next step?",
+    "o": [
+      "a. Routine karyotyping of amniotic fluid cells",
+      "b. Routine karyotyping of unaffected father",
+      "c. Southern blot analysis of DNA from amniotic fluid cells",
+      "d. PCR analysis of mother's FMR1 gene",
+      "e. No further testing"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "脆弱X症候群（FMR1 CGG反復>200）：完全突然変異はPCRで増幅不可→次ステップはサザンブロット法でDNAサイズ・増幅を確認。父親の核型検査は意味なし（拡大は卵形成時に起こる）。"
+  },
+  {
+    "t": "先天性疾患",
+    "q": "2-year-old boy with absent irides bilaterally, cryptorchidism, hypospadias, mental retardation. Bilateral adrenal and pancreatic enlargement. 6-cm solid mass in left kidney. Most likely diagnosis?",
+    "o": [
+      "a. Edwards syndrome",
+      "b. Marfan syndrome",
+      "c. Klinefelter syndrome",
+      "d. Patau syndrome",
+      "e. Turner syndrome",
+      "f. WAGR syndrome"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "WAGR症候群：11番染色体短腕欠失（WT1+PAX6遺伝子）。Wilms腫瘍・無虹彩症・泌尿生殖器奇形・精神遅滞が特徴。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "腫瘍画像（1）：細胞密度が高く、核の多形性に乏しく、形態は正常細胞に類似。最も適した診断は？",
+    "o": [
+      "a. 良性上皮性腫瘍",
+      "b. 悪性上皮性腫瘍",
+      "c. 良性間葉性腫瘍",
+      "d. 悪性間葉性腫瘍"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "形態が正常細胞に類似（低異型度）かつ間葉系組織由来→良性間葉性腫瘍（平滑筋腫等）。良性腫瘍は核の多形性が乏しく正常に近い形態。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "腫瘍画像（2）：細胞密度が強く、核の異型細胞を多数認める組織像。最も適した診断は？",
+    "o": [
+      "a. 良性上皮性腫瘍",
+      "b. 悪性上皮性腫瘍",
+      "c. 良性間葉性腫瘍",
+      "d. 悪性間葉性腫瘍"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "強い細胞異型・高細胞密度かつ間葉系→悪性間葉性腫瘍（肉腫：平滑筋肉腫・横紋筋肉腫等）。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "腫瘍画像（3）：偽重層上皮で正常に近い構造、一部に杯細胞を認める。最も適した診断は？",
+    "o": [
+      "a. 良性上皮性腫瘍",
+      "b. 悪性上皮性腫瘍",
+      "c. 良性間葉性腫瘍",
+      "d. 悪性間葉性腫瘍"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "正常に近い上皮構造・低異型度かつ上皮性→良性上皮性腫瘍（腺腫・乳頭腫等）。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "腫瘍画像（4）：不整な腺管構造を認め、核の異型が強い組織像。最も適した診断は？",
+    "o": [
+      "a. 良性上皮性腫瘍",
+      "b. 悪性上皮性腫瘍",
+      "c. 良性間葉性腫瘍",
+      "d. 悪性間葉性腫瘍"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "不整腺管構造・強い核異型かつ上皮性→悪性上皮性腫瘍（腺癌・扁平上皮癌等）。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "次のうち正しいのはどれか。正しい組み合わせを選べ。\n1. Neoplasmは腫瘍を意味する\n2. 悪性間葉性腫瘍はがんである\n3. 悪性間葉性腫瘍は癌腫である\n4. 良性間葉性腫瘍は肉腫である",
+    "o": [
+      "a. 1,3,4のみ",
+      "b. 1,2のみ",
+      "c. 2,3のみ",
+      "d. 4のみ",
+      "e. 1〜4のすべて"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "1（neoplasm=腫瘍）と2（悪性腫瘍=がん）が正しい。3：悪性間葉性腫瘍は肉腫（sarcoma）、癌腫（carcinoma）は上皮性。4：良性間葉性腫瘍は線維腫・平滑筋腫など（肉腫ではない）。",
+    "m": false
+  },
+  {
+    "t": "塞栓症",
+    "q": "塞栓症の原因として一番頻度が高いのは（　）である。",
+    "o": [
+      "a. 悪性腫瘍",
+      "b. 脂肪",
+      "c. 血栓",
+      "d. 寄生虫"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "血栓塞栓症が最多。DVT→肺動脈塞栓（肺血栓塞栓症）が代表的。"
+  },
+  {
+    "t": "ショック",
+    "q": "（　）の代表的な原因としては、広範囲の心筋梗塞、弁膜症、重症不整脈があがる。",
+    "o": [
+      "a. 血液分布異常性ショック",
+      "b. 循環血液量減少性ショック",
+      "c. 心外閉塞・拘束性ショック",
+      "d. 心原性ショック"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "心原性ショック（cardiogenic shock）：心臓自体の機能不全。心筋梗塞（特に広範囲）・弁膜症・重症不整脈が原因。"
+  },
+  {
+    "t": "ショック",
+    "q": "（　）の代表的な原因としては、敗血症、アナフィラキシーがあがる。",
+    "o": [
+      "a. 血液分布異常性ショック",
+      "b. 循環血液量減少性ショック",
+      "c. 心外閉塞・拘束性ショック",
+      "d. 心原性ショック"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "血液分布異常性ショック（distributive shock）：末梢血管拡張により血液分布が異常。敗血症（メディエーター過剰）・アナフィラキシー（IgEによる血管拡張）が原因。"
+  },
+  {
+    "t": "止血",
+    "q": "非腫瘍性病変で、病的に血管が破綻し血液の局所的な塊を作る場合を（　）と呼ぶ。",
+    "o": [
+      "a. 血管腫",
+      "b. 血腫",
+      "c. 血管肉腫",
+      "d. うっ血"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "血腫（hematoma）：非腫瘍性の血管破綻で血液が局所に貯留。血管腫・血管肉腫は腫瘍性病変。"
+  },
+  {
+    "t": "壊死",
+    "q": "貧血性梗塞の際に見られる壊死はとくに（　）と呼ぶ。",
+    "o": [
+      "a. 出血壊死",
+      "b. 融解壊死",
+      "c. 乾酪壊死",
+      "d. 凝固壊死"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "凝固壊死（coagulative necrosis）：タンパク変性・凝固による壊死。心・腎・肝などの固形臓器の貧血性梗塞で典型的。細胞輪郭が保たれる。"
+  },
+  {
+    "t": "うっ血",
+    "q": "肝臓の慢性うっ血の際に観察される肉眼像は（　）と呼ばれている。",
+    "o": [
+      "a. garlic liver",
+      "b. coconut liver",
+      "c. nutmeg liver",
+      "d. Gamna-Gandy結節"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "ナツメグ肝（nutmeg liver）：慢性右心不全→肝うっ血。小葉中心の暗赤色うっ血と周辺の黄色肝細胞がナツメグ模様。"
+  },
+  {
+    "t": "止血",
+    "q": "止血は血管損傷部位に起こり、血餅を形成することにより出血を防ぐ作用であり、血小板、（　）、内皮細胞が関与し厳密に制御されている。",
+    "o": [
+      "a. 白血球",
+      "b. 補体",
+      "c. 凝固因子",
+      "d. 赤血球"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "止血の3要素：①血小板②凝固因子③内皮細胞。内皮細胞はvWF・TF・プロスタサイクリン産生などを通じて止血を調節する。"
+  },
+  {
+    "t": "止血・凝固",
+    "q": "血管内血栓症を引き起こす重要な異常（ウィルヒョウの3要素）とは、（　）、血流異常、内皮細胞傷害である。",
+    "o": [
+      "a. 血小板増加",
+      "b. 血液凝固能亢進",
+      "c. 赤血球減少",
+      "d. 白血球減少"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "Virchow（ウィルヒョウ）の3要素：①血液凝固能亢進②血流異常（うっ滞・乱流）③内皮細胞傷害。"
+  },
+  {
+    "t": "浮腫",
+    "q": "皮膚や粘膜面にみられる直径1〜2mmの微小出血を（　）という。",
+    "o": [
+      "a. 点状出血",
+      "b. 紫斑",
+      "c. 斑状出血",
+      "d. 血腫"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "点状出血（petechiae）：直径1〜2mm以下の微小出血点。紫斑（purpura）は直径3mm以上。血小板減少症・血管炎・DICで見られる。"
+  },
+  {
+    "t": "止血",
+    "q": "止血完了後に凝固した血餅が異物となるためにそれらを除去する（　）があり、後者は組織プラスミノーゲン活性化因子などが働く。",
+    "o": [
+      "a. ネクローシス",
+      "b. アポトーシス",
+      "c. 補体系",
+      "d. 線維素溶解系"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "線維素溶解系（fibrinolysis）：t-PAがプラスミノーゲン→プラスミンに変換し、フィブリン血餅を溶解する。"
+  },
+  {
+    "t": "浮腫",
+    "q": "浮腫とは水分が血管内から間質組織に移動する現象だが、浮腫液のタンパク質濃度が低いものを（　）という。",
+    "o": [
+      "a. 生食液",
+      "b. 電解液",
+      "c. 滲出液",
+      "d. 漏出液"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "漏出液（transudate）：低タンパク・低比重。静水圧上昇（心不全）・膠質浸透圧低下（低アルブミン血症）による非炎症性浸出。"
+  },
+  {
+    "t": "病理診断",
+    "q": "免疫組織化学（免疫染色）に用いられない抗体を1つ選べ。",
+    "o": [
+      "a. CEA",
+      "b. グリメリウス",
+      "c. estrogen receptor（ER）",
+      "d. PD-L1"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "グリメリウス（Grimelius）染色：神経内分泌顆粒を染める組織化学染色（抗体を使わない。銀染色の一種）。CEA・ER・PD-L1は免疫組織化学用抗体。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "次の病変のうち、上皮細胞由来ではないものは（　）である。",
+    "o": [
+      "a. 腺腫",
+      "b. 乳頭腫",
+      "c. 白血病",
+      "d. 扁平上皮癌"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "白血病：造血細胞（血液細胞）由来の悪性腫瘍。上皮性ではない。腺腫・乳頭腫は良性上皮性腫瘍、扁平上皮癌は悪性上皮性腫瘍。"
+  },
+  {
+    "t": "腫瘍特徴",
+    "q": "腫瘍の特徴として正しい組み合わせを選びなさい。\n(1)良性腫瘍は悪性化することはないので放置しても命に別状はない。\n(2)悪性腫瘍は原発巣を切除すればそれで命を落とすことはない。\n(3)上皮性悪性腫瘍を癌腫、間葉系悪性腫瘍を肉腫という。\n(4)腫瘍は栄養がなくても増殖し、一般に血流は乏しい。\n(5)外界からの刺激から独立して自律的な増殖を示す。",
+    "o": [
+      "a. 1,3",
+      "b. 2,5",
+      "c. 3,4",
+      "d. 3,5",
+      "e. 4,5"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "(3)上皮性悪性腫瘍=癌腫、間葉系悪性腫瘍=肉腫（正しい）。(5)腫瘍は自律的増殖（正しい）。(1)誤り：良性腫瘍も悪性化しうる。(2)誤り：転移により死亡。(4)誤り：腫瘍は血管新生を誘導する。",
+    "m": false
+  },
+  {
+    "t": "腫瘍転移",
+    "q": "悪性腫瘍について、誤っているものの組み合わせを選びなさい。\n(3)播種とは胸腔や腹腔に腫瘍が原発巣を越えて拡がること。\n(4)TNM分類のNは血行性転移や播種の指標となる。\n(5)悪性腫瘍は必ず腫瘤を形成する。",
+    "o": [
+      "a. 1,3",
+      "b. 2,5",
+      "c. 3,4",
+      "d. 3,5",
+      "e. 4,5"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "(4)誤り：N=リンパ節転移（Node）の指標。M=遠隔転移（Metastasis：血行性・播種）の指標。(5)誤り：白血病・腹膜播種など腫瘤を形成しない悪性腫瘍がある。",
+    "m": false
+  },
+  {
+    "t": "発がん",
+    "q": "がんにおける遺伝子異常について正しいものの組み合わせを選びなさい。\n(1)発がん原因遺伝子をパッセンジャー遺伝子という。\n(2)発がん遺伝子はがん遺伝子とがん抑制遺伝子に分けられる。\n(3)がん遺伝子は車のブレーキにたとえられる。\n(4)がん抑制遺伝子は車のアクセルにたとえられる。\n(5)がん抑制遺伝子は失活することにより発がんに寄与する。",
+    "o": [
+      "a. 1,3",
+      "b. 2,5",
+      "c. 3,4",
+      "d. 3,5",
+      "e. 4,5"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "(2)正しい。(5)正しい：がん抑制遺伝子は両アレルの失活（two-hit theory）により発がん。ドライバー遺伝子が発がん原因（パッセンジャーは偶発的変異）。がん遺伝子=アクセル（活性化で増殖促進）、がん抑制遺伝子=ブレーキ（失活で増殖抑制解除）。",
+    "m": false
+  },
+  {
+    "t": "発がん",
+    "q": "がんにおける遺伝子異常について誤っているものの組み合わせを選びなさい。\n(2)epigenetic異常はDNA塩基配列の変化を伴う異常。\n(3)genetic異常は塩基配列の変化はないが、DNA修飾因子の変化により遺伝子発現が変化。",
+    "o": [
+      "a. 1,3",
+      "b. 2,3",
+      "c. 3,4",
+      "d. 3,5",
+      "e. 4,5"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "(2)誤り：epigenetic異常はDNA塩基配列変化なし（メチル化・ヒストン修飾など）。(3)誤り：genetic異常は塩基配列の変化（点変異・欠失・増幅など）を伴う。",
+    "m": false
+  },
+  {
+    "t": "アレルギー",
+    "q": "次のアレルギー反応に対する説明について、正しいものの組み合わせはどれか？\n1. I型アレルギー－血清補体の反応による組織破壊\n2. II型アレルギー－抗原抗体複合体の沈着\n3. III型アレルギー－ヒスタミンの関与\n4. IV型アレルギー－細胞性免疫型反応\n5. V型アレルギー－受容体に対する自己抗体反応",
+    "o": [
+      "a. 1,2",
+      "b. 1,5",
+      "c. 2,3",
+      "d. 3,4",
+      "e. 4,5"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "IV型：T細胞介在性細胞性免疫（ツベルクリン反応・接触性皮膚炎）。V型（刺激型）：受容体に対する自己抗体（Basedow病のTSH受容体抗体）。I型はIgE、II型は細胞傷害性抗体、III型は免疫複合体沈着。",
+    "m": false
+  },
+  {
+    "t": "炎症",
+    "q": "肉芽腫について適切なものを1つ選べ。",
+    "o": [
+      "a. 好中球の集簇巣のことである",
+      "b. 間質細胞由来の良性腫瘍である",
+      "c. 組織修復とともに瘢痕化していく",
+      "d. 組織球の持続的活性化により形成される",
+      "e. ICAM-1やE-selectinの発現が認められる"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "肉芽腫：組織球（マクロファージ）の持続的活性化により形成される結節状の炎症病変。類上皮細胞・多核巨細胞を形成する。好中球の集簇は膿瘍。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "全身性エリテマトーデス（SLE）に関する記述のうち、正しいものはどれか？",
+    "o": [
+      "a. 10〜30歳代の男性に多い",
+      "b. 皮膚症状として円盤性皮疹、光線過敏症がある",
+      "c. Libman-Sacks型心外膜炎がみられる",
+      "d. 脾臓では血管周囲のwire-loop lesionが特徴的",
+      "e. 腎臓では小葉間動脈周囲のonion skin lesionがみられる"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "SLEは10〜30代女性に多い（aは誤り）。皮膚症状（b）は正しい。Libman-Sacks心内膜炎（心外膜炎でない）。腎臓：wire-loop lesion（IgG沈着）。脾臓：onion skin lesion（小動脈周囲線維化）。"
+  }
+]
+;
+var Q_b20M=
+[
+  {
+    "t": "自然免疫",
+    "q": "自己の細胞が傷害されたときに放出されるheat shock proteinや核酸などをなんというか。",
+    "o": [
+      "a. PAMPs（病原体関連分子パターン）",
+      "b. DAMPs（危険関連分子パターン）",
+      "c. 物理的因子",
+      "d. 化学的因子"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "DAMPs（Danger-Associated Molecular Patterns）：自己細胞の傷害時に放出される内因性危険シグナル分子（heat shock protein・核酸・ATP・HMGB1など）。PAMPsは病原体由来分子。"
+  },
+  {
+    "t": "細胞周期",
+    "q": "サイクリンBの合成が誘導され、サイクリンBはCDK1に結合し活性化する。この活性型キナーゼが制御する細胞周期の段階はどれか。",
+    "o": [
+      "a. G0",
+      "b. G1",
+      "c. S",
+      "d. G2→M",
+      "e. M"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "サイクリンB-CDK1複合体（MPF, Maturation Promoting Factor）：G2→M移行のチェックポイントを制御。この関門を通過すると有糸分裂が開始する。"
+  },
+  {
+    "t": "ショック",
+    "q": "心タンポナーデや緊張性気胸は（　）ショックに分類される。",
+    "o": [
+      "a. 循環血液量減少性ショック",
+      "b. 血液分布異常性ショック",
+      "c. 心原性ショック",
+      "d. 心外閉塞・拘束性ショック"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "心外閉塞・拘束性ショック（obstructive shock）：心臓外からの圧迫（心タンポナーデ・緊張性気胸・肺塞栓）により心拍出量が低下。"
+  },
+  {
+    "t": "ショック",
+    "q": "（　）の代表的な原因としては、広範囲の心筋梗塞、弁膜症、重症不整脈があがる。",
+    "o": [
+      "a. 血液分布異常性ショック",
+      "b. 循環血液量減少性ショック",
+      "c. 心外閉塞・拘束性ショック",
+      "d. 心原性ショック"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "心原性ショック（cardiogenic shock）：広範囲心筋梗塞・弁膜症・重症不整脈→心ポンプ機能低下→心拍出量減少。"
+  },
+  {
+    "t": "ショック",
+    "q": "（　）の代表的な原因としては、敗血症、アナフィラキシーがあがる。",
+    "o": [
+      "a. 血液分布異常性ショック",
+      "b. 循環血液量減少性ショック",
+      "c. 心外閉塞・拘束性ショック",
+      "d. 心原性ショック"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "血液分布異常性ショック（distributive shock）：末梢血管拡張による血流分布異常。敗血症（炎症メディエーター）・アナフィラキシー（IgE依存性）が原因。"
+  },
+  {
+    "t": "中毒",
+    "q": "19歳の大学生がエタノール50%の混合アルコール飲料2Lを30分で飲んだ。最初の12時間以内に致死となる可能性が最も高いのはどれか。",
+    "o": [
+      "a. 急性膵炎",
+      "b. 脳幹機能が抑制される",
+      "c. 肝硬変",
+      "d. 静脈瘤出血",
+      "e. ウェルニッケ病"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "大量急性アルコール：zero-order kinetics代謝のため急速に血中濃度上昇→脳幹抑制→呼吸停止。最も迅速に致死的となる合併症。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "43歳男性、2ヶ月の咳と発熱。経気管支肺生検でLangerhans巨細胞を含む肉芽腫。この病変に最も重要なケミカルメディエーターはどれか。",
+    "o": [
+      "a. ブラジキニン",
+      "b. 補体C5a",
+      "c. インターフェロン-γ",
+      "d. 一酸化窒素",
+      "e. プロスタグランジン"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "IFN-γ（インターフェロンγ）：Th1細胞が産生しマクロファージを類上皮細胞・多核巨細胞に分化させる。肉芽腫形成に必須。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "次のうち正しいのはどれか。正しい組み合わせを選べ。\n1. Neoplasmは腫瘍を意味する\n2. 悪性間葉性腫瘍はがんである\n3. 悪性間葉性腫瘍は癌腫である\n4. 良性間葉性腫瘍は肉腫である",
+    "o": [
+      "a. 1,3,4のみ",
+      "b. 1,2のみ",
+      "c. 2,3のみ",
+      "d. 4のみ",
+      "e. 1〜4のすべて"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "neoplasm=腫瘍（1：正）。悪性間葉性腫瘍=悪性腫瘍（がん）だが癌腫ではなく肉腫（sarcoma）（2：正、3：誤）。良性間葉性腫瘍=線維腫等（肉腫でない）（4：誤）。",
+    "m": false
+  },
+  {
+    "t": "塞栓症",
+    "q": "塞栓症の原因として一番頻度が高いのは（　）である。",
+    "o": [
+      "a. 悪性腫瘍",
+      "b. 脂肪",
+      "c. 血栓",
+      "d. 寄生虫"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "血栓塞栓症が最多。DVT（深部静脈血栓）→肺動脈塞栓（肺血栓塞栓症）が代表的。"
+  },
+  {
+    "t": "壊死",
+    "q": "貧血性梗塞の際に見られる壊死はとくに（　）と呼ぶ。",
+    "o": [
+      "a. 出血壊死",
+      "b. 融解壊死",
+      "c. 乾酪壊死",
+      "d. 凝固壊死"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "凝固壊死（coagulative necrosis）：タンパク変性・凝固による壊死。心・腎・肝などの固形臓器の貧血性梗塞で典型的。細胞輪郭が保たれる。"
+  },
+  {
+    "t": "うっ血",
+    "q": "肝臓の慢性うっ血の際に観察される肉眼像は（　）と呼ばれている。",
+    "o": [
+      "a. garlic liver",
+      "b. coconut liver",
+      "c. nutmeg liver",
+      "d. Gamna-Gandy結節"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "ナツメグ肝（nutmeg liver）：右心不全などによる慢性うっ血で、小葉中心の暗赤色うっ血と周辺の黄色肝細胞がナツメグ模様を呈する。"
+  },
+  {
+    "t": "止血",
+    "q": "止血は血管損傷部位に起こり、血餅を形成することにより出血を防ぐ作用であり、血小板、（　）、内皮細胞が関与し厳密に制御されている。",
+    "o": [
+      "a. 白血球",
+      "b. 補体",
+      "c. 内皮細胞",
+      "d. 凝固因子"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "止血の3要素：①血小板②凝固因子③内皮細胞。内皮細胞はvWF産生・TF発現・プロスタサイクリン産生などで調節する。"
+  },
+  {
+    "t": "止血・凝固",
+    "q": "血管内血栓症を引き起こす重要な異常（ウィルヒョウの3要素）とは、（　）、血流異常、内皮細胞傷害である。",
+    "o": [
+      "a. 血小板増加",
+      "b. 血液凝固能亢進",
+      "c. 赤血球減少",
+      "d. 白血球減少"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "Virchow（ウィルヒョウ）の3要素：①血液凝固能亢進（高凝固状態）②血流異常（うっ滞・乱流）③内皮細胞傷害。"
+  },
+  {
+    "t": "浮腫",
+    "q": "浮腫液のタンパク質濃度が低いものを（　）という。",
+    "o": [
+      "a. 生食液",
+      "b. 電解液",
+      "c. 滲出液",
+      "d. 漏出液"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "漏出液（transudate）：低タンパク・低比重（<1.012）。静水圧上昇・膠質浸透圧低下による非炎症性浸出。"
+  },
+  {
+    "t": "出血",
+    "q": "皮膚や粘膜面にみられる直径1〜2mmの微小出血を（　）という。",
+    "o": [
+      "a. 点状出血",
+      "b. 紫斑",
+      "c. 斑状出血",
+      "d. 血腫"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "点状出血（petechiae）：直径1〜2mm以下の微小出血点。血小板減少症・血管炎・DICで見られる。"
+  },
+  {
+    "t": "止血",
+    "q": "止血完了後に凝固した血餅が異物となるためそれらを除去する系を（　）といい、組織プラスミノーゲン活性化因子などが働く。",
+    "o": [
+      "a. ネクローシス",
+      "b. アポトーシス",
+      "c. 補体系",
+      "d. 線維素溶解系"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "線維素溶解系（fibrinolysis）：t-PAがプラスミノーゲン→プラスミンに変換しフィブリン血餅を溶解。"
+  },
+  {
+    "t": "肉芽腫",
+    "q": "ラングハンス型巨細胞の病理像について正しいものを選べ。",
+    "o": [
+      "a. Tリンパ球が活性化され多核となった細胞",
+      "b. 形質細胞が分裂できずに多核となった細胞",
+      "c. 骨髄の巨核球が組織へ遊走した細胞",
+      "d. マクロファージが合胞化した細胞",
+      "e. 好中球が多核した細胞"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "ラングハンス型巨細胞：マクロファージが合胞化した多核巨細胞。核が馬蹄形・花輪状に配列。結核・サルコイドーシスなどの肉芽腫性炎症で見られる。"
+  },
+  {
+    "t": "腫瘍分類",
+    "q": "上皮性細胞由来ではないものはどれか。",
+    "o": [
+      "a. 腺腫",
+      "b. 乳頭腫",
+      "c. 扁平上皮性癌",
+      "d. 筋肉腫（横紋筋肉腫）"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "筋肉腫（横紋筋肉腫）は間葉系悪性腫瘍（肉腫）。腺腫・乳頭腫は良性上皮性腫瘍、扁平上皮癌は悪性上皮性腫瘍。"
+  },
+  {
+    "t": "発がん",
+    "q": "がんにおける遺伝子異常について誤っているものの組み合わせを選びなさい。\n(2)epigenetic異常はDNA塩基配列の変化を伴う異常のことを指す。\n(3)genetic異常は塩基配列の変化はないが、DNA修飾因子の変化により遺伝子発現が変化することで発がんに寄与する。",
+    "o": [
+      "a. (1)(3)",
+      "b. (2)(3)",
+      "c. (3)(4)",
+      "d. (3)(5)",
+      "e. (4)(5)"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "(2)誤り：epigenetic異常はDNA塩基配列変化なし（メチル化・ヒストン修飾）。(3)誤り：genetic異常は塩基配列変化を伴う（点変異・欠失・増幅）。",
+    "m": false
+  },
+  {
+    "t": "発がん",
+    "q": "がんにおける遺伝子異常について正しいものの組み合わせを選びなさい。\n(2)発がん原因遺伝子はがん遺伝子とがん抑制遺伝子に分けられる。\n(5)がん抑制遺伝子は失活することにより発がんに寄与する。",
+    "o": [
+      "a. (1)(3)",
+      "b. (2)(5)",
+      "c. (3)(4)",
+      "d. (3)(5)",
+      "e. (4)(5)"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "(2)正しい：ドライバー遺伝子はがん遺伝子とがん抑制遺伝子に大別。(5)正しい：がん抑制遺伝子は両アレル失活（two-hit）で発がん。がん遺伝子=アクセル、がん抑制遺伝子=ブレーキ。",
+    "m": false
+  },
+  {
+    "t": "腫瘍特徴",
+    "q": "腫瘍の特徴として正しい組み合わせはどれか。\n(3)上皮性悪性腫瘍を癌腫、間葉性悪性腫瘍を肉腫という。\n(5)外界からの刺激から独立して自律的な増殖を示す。",
+    "o": [
+      "a. (1)(2)",
+      "b. (2)(5)",
+      "c. (3)(5)",
+      "d. (3)(4)",
+      "e. (4)(5)"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "(3)正しい：癌腫=上皮性悪性腫瘍、肉腫=間葉性悪性腫瘍。(5)正しい：腫瘍の自律的増殖は定義的特徴。(1)誤：良性も悪性化あり。(2)誤：転移で死亡。(4)誤：腫瘍は血管新生誘導。",
+    "m": false
+  },
+  {
+    "t": "病理診断",
+    "q": "免疫組織化学（免疫染色）に用いられないものを1つ選べ。",
+    "o": [
+      "a. AFP（α-フェトプロテイン）",
+      "b. PD-L1",
+      "c. vimentin",
+      "d. PAS（過ヨウ素酸シッフ）"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "PAS染色：多糖類・糖タンパク・真菌を染める組織化学染色（抗体を使わない）。AFP・PD-L1・vimentinは特異的抗体を用いた免疫組織化学。"
+  },
+  {
+    "t": "止血",
+    "q": "止血の際に働くメカニズムとして、血小板の凝集やフィブリン沈着をさせる凝固系と、止血が完了した際に凝固した血餅が異物となるためにそれらを除去する（　）があり、後者は組織プラスミノーゲン活性化因子などが働く。",
+    "o": [
+      "a. アポトーシス",
+      "b. ネクローシス",
+      "c. 補体系",
+      "d. 線維素溶解系"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "線維素溶解系（fibrinolysis）：t-PAがプラスミノーゲン→プラスミンに変換しフィブリン血餅を溶解する。DIC治療でも重要な機序。"
+  },
+  {
+    "t": "腫瘍転移",
+    "q": "悪性腫瘍について、誤っているものの組み合わせを選びなさい。\n(4)TNM分類のNは血行性転移や播種の指標となる。\n(5)悪性腫瘍は必ず腫瘤を形成する。",
+    "o": [
+      "a. 1,3",
+      "b. 2,5",
+      "c. 3,4",
+      "d. 3,5",
+      "e. 4,5"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "(4)誤：N=リンパ節転移（Node）の指標。M=遠隔転移（血行性・播種）の指標。(5)誤：白血病・腹膜播種など腫瘤を形成しない悪性腫瘍がある。",
+    "m": false
+  },
+  {
+    "t": "アレルギー",
+    "q": "Ⅳ型アレルギーによる疾患を一つ選べ。",
+    "o": [
+      "a. Basedow病",
+      "b. Stevens-Johnson症候群",
+      "c. アレルギー性鼻炎",
+      "d. Goodpasture症候群",
+      "e. アトピー性皮膚炎"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "IV型アレルギー（遅延型・細胞性免疫）：T細胞介在性。Stevens-Johnson症候群・接触性皮膚炎・ツベルクリン反応。I型=IgE（鼻炎・アトピー）、II型=細胞傷害性（Goodpasture）、V型=刺激型（Basedow）。"
+  },
+  {
+    "t": "外傷",
+    "q": "20歳の男性が120V、10アンペアの交流電流の電気コードに右手が接触した。この電気的損傷の結果として最も発症しやすいのはどれか。",
+    "o": [
+      "a. 気管支収縮",
+      "b. 脳動脈血栓塞栓症",
+      "c. 熱中症",
+      "d. 胃部出血",
+      "e. 心室細動"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "交流電流（AC）は心臓の電気伝導系を障害し心室細動を引き起こす。電流が体内を通過する際の直接的な影響で即座に致死的となりうる。"
+  },
+  {
+    "t": "中毒",
+    "q": "48歳女性が階段から転落し右手首を負傷。X線で著明な骨減少症と橈骨頭骨折。この患者の骨折リスクに最も寄与する基礎疾患はどれか。",
+    "o": [
+      "a. 萎縮性胃炎",
+      "b. 慢性リンパ性白血病",
+      "c. 冠動脈アテローム硬化症",
+      "d. 原発性胆汁性肝硬変",
+      "e. 肺気腫"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "原発性胆汁性肝硬変（PBC）：慢性胆汁うっ滞→脂溶性ビタミンD吸収障害→骨軟化症・骨粗鬆症→骨折リスク増大。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "Gottron徴候とヘリオトロープ疹を認める疾患はどれか。",
+    "o": [
+      "a. シェーグレン症候群",
+      "b. 全身性強皮症",
+      "c. ベーチェット病",
+      "d. 多発性筋炎・皮膚筋炎",
+      "e. 混合性結合組織病"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "皮膚筋炎の特徴：ヘリオトロープ疹（眼瞼の紫紅色腫脹）・Gottron丘疹（関節背面の鱗屑性紅斑）。近位筋力低下・間質性肺炎を合併。"
+  },
+  {
+    "t": "アレルギー",
+    "q": "アレルギーとその原因の組み合わせとして誤っているものを1つ選べ。",
+    "o": [
+      "a. 水疱性類天疱瘡－表皮基底部にIgGやC3が沈着（II型）",
+      "b. 血液型不適合妊娠－ABO血液型（II型）",
+      "c. 急性糸球体腎炎－糸球体の基底膜と上皮の間に免疫複合体が沈着（III型）",
+      "d. クローン病－乾酪壊死のない類上皮肉芽腫（IV型）",
+      "e. 尋常性天疱瘡－デスモグレインに対する自己抗体（II型）"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "(b)誤り：Rh血液型不適合妊娠は抗Rh IgGによるII型アレルギー。ABO不適合（IgM主体）は胎盤通過困難で胎児への影響は少ない。選択肢の「ABO型不適合」という記述が誤り。"
+  },
+  {
+    "t": "遺伝子・エピジェネティクス",
+    "q": "ある実験で核染色体遺伝子がmRNAを活発に転写しているが、タンパク質産物は観察されない。このmRNAのサイレンシングはどのように起こる可能性が最も高いか？",
+    "o": [
+      "a. tRNAの不存在",
+      "b. miRNAへの結合",
+      "c. DNAのメチル化",
+      "d. mRNAの変異",
+      "e. mtDNAのアップレギュレーション"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "miRNA（マイクロRNA）はmRNAに結合してその翻訳を抑制または分解を促進する。転写後調節機構（ポスト転写的サイレンシング）の代表的機序。"
+  },
+  {
+    "t": "細胞外マトリックス",
+    "q": "線維芽細胞によって合成された分子のうち、細胞インテグリンおよび細胞外コラーゲンに最もよく結合し、表皮基底細胞を基底膜に接着させることができるものはどれか？",
+    "o": [
+      "a. デルマタン硫酸",
+      "b. フィブロネクチン",
+      "c. ヘパリン",
+      "d. ヒアルロン酸",
+      "e. プロコラーゲン"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "フィブロネクチン：RGD配列を介してインテグリンと結合し、コラーゲン・フィブリンとも結合する多機能糖タンパク。細胞接着・移動・創傷治癒に重要。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "53歳の女性。血圧150/95 mmHg。もし高血圧が何年も治療されないままであれば、心筋には次のどの細胞変化が見られる可能性が最も高いか？",
+    "o": [
+      "a. アポトーシス",
+      "b. 異形成",
+      "c. 脂肪変性",
+      "d. ヘモジデローシス",
+      "e. 過形成",
+      "f. 肥大（ハイパートロフィー）",
+      "g. 化生"
+    ],
+    "a": [
+      "F"
+    ],
+    "e": "慢性高血圧→左心室に圧負荷→心筋肥大（hypertrophy）。心筋細胞は増殖できないため、個々の細胞が大きくなる肥大が起こる（過形成ではない）。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "58歳男性、4時間持続する胸痛。左心室後壁4cmの梗塞。CK 600 U/L。1ヶ月後に左心室病変に見られる可能性が最も高いのはどれか。",
+    "o": [
+      "a. 慢性炎症",
+      "b. 凝固壊死",
+      "c. 完全治癒",
+      "d. 線維瘢痕",
+      "e. 再生結節"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "心筋梗塞後1ヶ月→線維性瘢痕（fibrous scar）形成。心筋は再生能が低いため、壊死巣は瘢痕組織で置換される。"
+  },
+  {
+    "t": "壊死",
+    "q": "68歳女性が突然意識を失い、1時間後に右腕が動かせなくなった。CTで左脳に障害。この病態の説明として正しいのはどれか。",
+    "o": [
+      "a. 左中大脳動脈支配域の核融解",
+      "b. 左中大脳動脈支配域の凝固壊死",
+      "c. 左中大脳動脈支配域の融解壊死",
+      "d. 左前大脳動脈支配域の脂肪壊死",
+      "e. 左前大脳動脈支配域の融解壊死"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "左中大脳動脈支配域（右上肢・言語中枢）の脳梗塞→融解壊死（liquefactive necrosis）。脳は脂質含量が高く虚血では溶解・嚢胞形成する。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "30歳の女性が右胸に受傷後3週間で皮膚挫傷は消退した。1ヶ月後、あざの深部に固くて痛みのないしこりが残っている。最も可能性の高い診断は？",
+    "o": [
+      "a. 膿瘍",
+      "b. 脂肪壊死",
+      "c. 線維腺腫",
+      "d. 炎症性乳がん",
+      "e. 硬化性腺症"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "乳房外傷後の脂肪壊死（fat necrosis）：外傷による乳腺脂肪組織の壊死。石灰化を伴う硬いしこりを形成。悪性腫瘍との鑑別が重要。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "57歳女性、1年以上の食後灼熱心窩部痛。上部消化管内視鏡で下部食道粘膜に発赤。生検で基底帯扁平上皮過形成、固有層乳頭の伸長、好酸球・好中球浸潤。最も可能性の高い診断は？",
+    "o": [
+      "a. Barrett食道",
+      "b. 食道静脈瘤",
+      "c. 鉄欠乏状態",
+      "d. 逆流性食道炎",
+      "e. 全身性硬化症"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "逆流性食道炎（GERD）：胃酸逆流→食道粘膜の炎症。基底帯肥厚・乳頭伸長・好酸球浸潤が組織学的特徴。Barrett食道（円柱上皮化生）は慢性GERDの合併症。"
+  },
+  {
+    "t": "中毒",
+    "q": "ある疫学研究で、成人に基底細胞癌と扁平上皮癌の発生率が上昇。病変は主に手のひらと足の裏。地下水に圧力処理された木材・殺虫剤・除草剤に使用される重金属が上昇。最も関与している可能性の高い金属は？",
+    "o": [
+      "a. ヒ素（Arsenic）",
+      "b. ベリリウム（Beryllium）",
+      "c. カドミウム（Cadmium）",
+      "d. 鉛（Lead）",
+      "e. 水銀（Mercury）"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "ヒ素（砒素）：手掌・足底の角化症・皮膚癌（基底細胞癌・扁平上皮癌）リスク。農薬・防腐剤（圧力処理木材の緑色の着色）に含まれる。"
+  },
+  {
+    "t": "中毒",
+    "q": "患者は呼吸困難が増悪している72歳の男性。胸部X線写真で右肺をほぼ覆う大きな胸膜腫瘤。次の金属への暴露のうち、最も関連している可能性が高いものはどれか？",
+    "o": [
+      "a. ヒ素",
+      "b. ベリリウム",
+      "c. クロム",
+      "d. ニッケル",
+      "e. アスベスト"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "アスベスト（石綿）曝露→悪性胸膜中皮腫。潜伏期間20〜40年。胸膜全体を覆う大きな腫瘤が特徴。"
+  },
+  {
+    "t": "外傷",
+    "q": "次に示す機械的外傷について正しくないものを選べ。",
+    "o": [
+      "a. 擦過傷（abrasion）とは、皮膚表面を削りこすって表層を傷つけた傷",
+      "b. 挫傷・打撲は鈍的外傷で血管損傷と組織への血液滲出が特徴",
+      "c. 裂傷は鈍器による力で引き起こされる組織の裂け目や破壊的伸展",
+      "d. 切創では血管をそのままつなぎ、縁が不規則であることは少ない",
+      "e. 刺創は一般に細長い器具によって引き起こされる"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "切創（incision）の誤り：切創は鋭器で組織が明瞭に切断される傷。血管も切断される（つながったまま=誤り）。縁は比較的整（不規則でない）。"
+  },
+  {
+    "t": "遺伝性疾患",
+    "q": "B細胞系の低下をきたさない疾患を1つ選べ。",
+    "o": [
+      "a. 毛細血管拡張性運動失調症",
+      "b. DiGeorge症候群",
+      "c. 高IgM症候群",
+      "d. Wiskott-Aldrich症候群",
+      "e. X連鎖無γグロブリン血症"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "DiGeorge症候群：第3・4咽頭弓の発生異常→胸腺欠損→T細胞欠損が主体。B細胞は存在するが機能低下。他の選択肢はすべてB細胞機能低下を伴う。"
+  },
+  {
+    "t": "感染症",
+    "q": "肺炎での受診。Grocott染色像でこの病原体はなにか。（真菌のカップ状構造が見える）",
+    "o": [
+      "a. カンジダ",
+      "b. ニューモシスチス",
+      "c. サイトメガロウイルス",
+      "d. ヒトヘルペスウイルス8型",
+      "e. アスペルギルス"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "ニューモシスチス肺炎（PCP）：Pneumocystis jiroveciiによる日和見感染。Grocott染色（六アミン銀染色）で黒く染まるカップ状・三日月形の嚢子が特徴。AIDS・免疫抑制患者で多い。"
+  },
+  {
+    "t": "腫瘍",
+    "q": "ロゼットの種類とそのロゼットに対応する腫瘍の組み合わせで、間違っているものを選べ。",
+    "o": [
+      "a. Homer Wright偽ロゼット－神経芽細胞腫",
+      "b. Homer Wright偽ロゼット－髄芽腫",
+      "c. Flexner-Wintersteiner真ロゼット－腎芽腫",
+      "d. Flexner-Wintersteiner真ロゼット－網膜芽細胞腫",
+      "e. 血管周囲性偽ロゼット－脳室上衣腫"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "Flexner-Wintersteiner真ロゼット：網膜芽細胞腫に特徴的（d：正しい）。腎芽腫（Wilms腫瘍）に対応するロゼットはない→(c)が誤り。Homer Wright偽ロゼット：神経芽細胞腫・髄芽腫。"
+  },
+  {
+    "t": "先天性代謝異常",
+    "q": "リソソーム病に関する記述で正しいものを選べ（複数選択可）。",
+    "o": [
+      "a. Gaucher病の治療には酵素補充療法・基質合成抑制薬・骨髄移植がある",
+      "b. 赤痢菌の志賀毒素はGM2ガングリオシドに結合する",
+      "c. GM2ガングリオシドーシスでは神経系細胞へのGM2蓄積が生じる",
+      "d. Gaucher病ではガラクトシルセラミドの蓄積が原因",
+      "e. Hunter症候群ではムチンが皮膚や骨、軟骨などに沈着する"
+    ],
+    "a": [
+      "A",
+      "C"
+    ],
+    "e": "(a)正しい：Gaucher病治療はERT（酵素補充）・基質合成抑制・骨髄移植。(c)正しい：Tay-Sachs病等GM2ガングリオシドーシスで神経細胞にGM2蓄積。(d)誤：Gaucher病はグルコシルセラミド蓄積（ガラクトシルセラミドはKrabbe病）。",
+    "m": true
+  },
+  {
+    "t": "中毒",
+    "q": "次の毒性化学物質とそれによる疾患の組み合わせで正しくないものはどれか。",
+    "o": [
+      "a. アスベスト－中皮腫",
+      "b. ベンゼン－白血病",
+      "c. ヒ素－皮膚がん",
+      "d. ブタノール－鼻腔がん"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "ブタノール（ブタノール）と鼻腔がんの関連は正しくない。鼻腔がんはニッケル・クロム・木材粉塵などと関連。他は正しい（アスベスト→中皮腫、ベンゼン→白血病、ヒ素→皮膚癌）。"
+  },
+  {
+    "t": "炎症",
+    "q": "「炎症の4徴候」に含まれないものを選べ。",
+    "o": [
+      "a. 発熱",
+      "b. 発赤",
+      "c. 腫脹",
+      "d. 疼痛",
+      "e. うっ血"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "炎症の4徴候（Celsusの4徴）：発赤（rubor）・腫脹（tumor）・発熱（calor）・疼痛（dolor）。機能障害（functio laesa）を加えて5徴とすることもある。うっ血は徴候ではなく病態。"
+  },
+  {
+    "t": "炎症",
+    "q": "11歳の子供が転んで手を切り感染症になった。細菌を除去するのはどの細胞か？",
+    "o": [
+      "a. Bリンパ球",
+      "b. 線維芽細胞",
+      "c. マクロファージ",
+      "d. マスト細胞",
+      "e. Tリンパ球"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "マクロファージ（組織球）：食菌作用により細菌を取り込み・分解する主要な自然免疫細胞。好中球とともに感染初期の細菌除去に重要。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "全身性エリトマトーデス（SLE）にみられないものを1つ選べ。",
+    "o": [
+      "a. wire loop lesion（腎臓）",
+      "b. Libman-Sacks型心内膜炎",
+      "c. 蝶形紅斑",
+      "d. onion skin lesion（脾臓）",
+      "e. 乾酪壊死のある肉芽腫"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "SLEに乾酪壊死を伴う肉芽腫はみられない（乾酪壊死=結核の特徴）。wire loop lesion（腎臓のIgG沈着）・Libman-Sacks心内膜炎・蝶形紅斑・onion skin lesion（脾臓小動脈周囲線維化）はSLEの特徴的所見。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "血管内皮細胞が除去できない異物を取り込むことをなんというか。",
+    "o": [
+      "a. 貪食",
+      "b. 器質化",
+      "c. 石灰化",
+      "d. ヒアリン変性"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "器質化（organization）：除去できない異物・壊死組織・血栓などを線維芽細胞・血管が侵入して肉芽組織で置換すること。"
+  },
+  {
+    "t": "先天性疾患",
+    "q": "馬蹄腎の写真が示され、これについて正しいものを選べ。",
+    "o": [
+      "a. 羊蹄腎であり、腎機能に問題は無いことが多い",
+      "b. 羊蹄腎であり、腸回転異常やメッケル憩室を伴う",
+      "c. 馬蹄腎であり、腎機能に問題は無いことが多い",
+      "d. 馬蹄腎であり、腸回転異常やメッケル憩室を伴うことが多い",
+      "e. 馬蹄腎であり、割面はスポンジ状である"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "馬蹄腎：両側の腎臓が下極で融合した先天奇形。多くは腎機能が保たれる（正常）。腸回転異常・UPJ（腎盂尿管移行部）通過障害・尿路感染症を合併しやすい。"
+  },
+  {
+    "t": "炎症",
+    "q": "慢性炎症でみられるものをすべて選べ（5択）。",
+    "o": [
+      "a. 毛細血管の増殖",
+      "b. リンパ濾胞",
+      "c. 線維芽細胞の増殖",
+      "d. 好中球浸潤",
+      "e. a、b、cすべて"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "慢性炎症の組織学的特徴：①単核球浸潤（リンパ球・マクロファージ・形質細胞）②リンパ濾胞形成③線維芽細胞増殖・線維化④毛細血管増殖（血管新生）。好中球は急性炎症の特徴。"
+  },
+  {
+    "t": "中毒",
+    "q": "アルコールは体内で酸化されて（　）になる。",
+    "o": [
+      "a. 酢酸",
+      "b. アセトアルデヒド",
+      "c. エタナール",
+      "d. アセトン"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "エタノール→アルコール脱水素酵素（ADH）→アセトアルデヒド→アルデヒド脱水素酵素（ALDH）→酢酸。アセトアルデヒドが悪酔いの原因物質。ALDH2欠損者はフラッシャー。"
+  },
+  {
+    "t": "腫瘍",
+    "q": "腫瘍塞栓症の画像が示された。どの塞栓症か選べ。",
+    "o": [
+      "a. 肺血栓塞栓症",
+      "b. 全身性血栓塞栓症",
+      "c. 脂肪塞栓症",
+      "d. 腫瘍塞栓症",
+      "e. 細菌性塞栓症"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "腫瘍塞栓症：悪性腫瘍の腫瘍細胞が血管・リンパ管内に侵入し塞栓を形成。転移のメカニズムの一つ。画像では血管内の腫瘍細胞塊が確認できる。"
+  },
+  {
+    "t": "壊死",
+    "q": "フィブリノイド壊死について正しくないものを1つ選べ。",
+    "o": [
+      "a. フィブリンと付着した免疫複合体が血管外に漏出している",
+      "b. 関節リウマチとベーチェット病で見られる",
+      "c. 結節性多発性動脈炎で見られる",
+      "d. 悪性高血圧で見られる",
+      "e. SLEの腎病変で見られる"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "フィブリノイド壊死：関節リウマチ・結節性多発動脈炎・悪性高血圧・SLEの血管病変に見られる。ベーチェット病には見られない（ベーチェットは閉塞性血管炎が主体）→(b)が誤り。"
+  },
+  {
+    "t": "先天性代謝異常",
+    "q": "Gaucher病について正しいものを選べ（複数選択可）。",
+    "o": [
+      "a. グルコセレブロシドが蓄積する",
+      "b. 酵素補充療法・骨髄移植・基質合成抑制療法で治療される",
+      "c. 肝臓にグリコーゲンが蓄積する",
+      "d. グルコース-6-ホスファターゼ欠損症である",
+      "e. 眼底にcherry red spotが認められる"
+    ],
+    "a": [
+      "A",
+      "B"
+    ],
+    "e": "Gaucher病：グルコセレブロシダーゼ欠損→グルコセレブロシドがマクロファージに蓄積（a:正）。治療：ERT・基質合成抑制・骨髄移植（b:正）。Cherry red spot：Tay-Sachs・Niemann-Pick病の眼底所見（e:誤）。",
+    "m": true
+  },
+  {
+    "t": "炎症",
+    "q": "炎症に関わる細胞の組み合わせとして正しいものを選べ。\n1.好中球 2.好酸球 3.組織球 4.形質細胞",
+    "o": [
+      "a. 1,2",
+      "b. 2,3",
+      "c. 4のみ",
+      "d. 1,3,4",
+      "e. 1,2,3,4"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "炎症に関わる細胞：好中球（急性炎症の主役）、好酸球（寄生虫・アレルギー）、組織球（マクロファージ：慢性炎症）、形質細胞（抗体産生：慢性炎症）。すべて炎症に関与する。",
+    "m": false
+  },
+  {
+    "t": "染色体異常",
+    "q": "次のうち、上皮細胞由来でないものは（　）である。",
+    "o": [
+      "a. 乳頭腫",
+      "b. 骨肉腫",
+      "c. 腺腫",
+      "d. 扁平上皮癌"
+    ],
+    "a": [
+      "B"
+    ],
+    "e": "骨肉腫（osteosarcoma）：間葉系悪性腫瘍（肉腫）。骨芽細胞由来の悪性腫瘍で上皮細胞由来でない。乳頭腫・腺腫は良性上皮性腫瘍、扁平上皮癌は悪性上皮性腫瘍。"
+  },
+  {
+    "t": "壊死",
+    "q": "(Googleで乾酪壊死を調べると出てくる肉眼と組織像の画像) これはなにか？",
+    "o": [
+      "a. 乾酪壊死",
+      "b. 凝固壊死",
+      "c. アポトーシス",
+      "d. 融解壊死",
+      "e. フィブリノイド壊死"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "乾酪壊死（caseous necrosis）：チーズ様の白色・軟らかい壊死。結核菌感染の特徴的所見。組織学的に正常構造が完全に消失し無構造の好酸性物質に置換される。"
+  },
+  {
+    "t": "自己免疫",
+    "q": "関節リウマチについて正しいものを選べ。",
+    "o": [
+      "a. 間質性肺炎などの関節外症状が予後を規定する",
+      "b. 抗CCP抗体は発症後期に出現する",
+      "c. 環軸関節の亜脱臼は見られない",
+      "d. 続発性アミロイドーシスは起こらない",
+      "e. 骨侵食は見られない"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "関節リウマチ（RA）：間質性肺炎・血管炎・続発性アミロイドーシスなどの関節外症状が予後を規定する。抗CCP抗体は早期（発症前）から出現（b:誤り）。環軸関節亜脱臼あり（脊髄圧迫の危険）。"
+  },
+  {
+    "t": "壊死",
+    "q": "フィブリノイド壊死（fibrinoid necrosis）の画像が示された。これは何か。",
+    "o": [
+      "a. フィブリノイド壊死",
+      "b. 乾酪壊死",
+      "c. 凝固壊死",
+      "d. 融解壊死",
+      "e. 脂肪壊死"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "フィブリノイド壊死：血管壁にフィブリン様の好酸性物質が沈着。悪性高血圧・結節性多発動脈炎・SLE・関節リウマチの血管病変に見られる。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "脂肪肝（脂肪変性）について正しいものを選べ。",
+    "o": [
+      "a. 脂肪肝とは肝臓細胞が脂肪細胞に変異すること",
+      "b. 脂肪肝とは肝臓の間葉幹細胞が脂肪細胞に変異すること",
+      "c. 脂肪変性とは細胞質内にトリグリセリドが蓄積した状態",
+      "d. 脂肪変性は可逆的病変であり、原因が除去されれば完全に回復する"
+    ],
+    "a": [
+      "C",
+      "D"
+    ],
+    "e": "脂肪変性（fatty change）：肝細胞の細胞質内にトリグリセリド（中性脂肪）が蓄積した状態。可逆的病変で、アルコール・肥満・糖尿病・薬物などが原因。細胞が脂肪細胞に変化するわけではない。",
+    "m": true
+  },
+  {
+    "t": "栄養・欠乏",
+    "q": "ビタミン・栄養欠乏と関連疾患の組み合わせで誤っているものを1つ選べ。",
+    "o": [
+      "a. ナイアシン欠乏－ペラグラ",
+      "b. ビタミンB1欠乏－脚気・ウェルニッケ脳症",
+      "c. ビタミンB12欠乏－巨赤芽球性貧血",
+      "d. 葉酸欠乏－神経管欠損",
+      "e. ビタミンC欠乏－骨軟化症"
+    ],
+    "a": [
+      "E"
+    ],
+    "e": "ビタミンC欠乏→壊血病（コラーゲン合成障害）。骨軟化症はビタミンD欠乏が原因。他の組み合わせはすべて正しい。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "マクロファージにヘモジデリンが取り込まれた場合、ヘモジデリンはどの細胞小器官に蓄積するか。",
+    "o": [
+      "a. 染色体（核内）",
+      "b. ゴルジ体",
+      "c. リボソーム",
+      "d. リソソーム",
+      "e. 小胞体"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "ヘモジデリン：ヘモグロビン分解産物（フェリチン凝集体）。マクロファージが赤血球を貪食後、リソソームで分解・蓄積。ヘモジデローシス・ヘモクロマトーシスで見られる。"
+  },
+  {
+    "t": "細胞変化",
+    "q": "リポフスチン・セロイド・ヘモジデリン顆粒について誤っているものを選べ。",
+    "o": [
+      "a. リポフスチンは消耗色素・老化色素とも呼ばれる",
+      "b. リポフスチンは脂質とタンパク質の酸化産物がリソソームに蓄積したもの",
+      "c. ヘモジデリンは鉄を含む色素でベルリン青染色で青く染まる",
+      "d. セロイドは過酸化脂質で構成されリポフスチンと同一物質",
+      "e. これらはすべてリソソーム内に蓄積する"
+    ],
+    "a": [
+      "D"
+    ],
+    "e": "セロイドはリポフスチンと類似するが別物（過酸化脂質主体でビタミンE欠乏・脂質代謝異常で蓄積）。リポフスチン（消耗色素・老化色素）は脂質・タンパク質の酸化産物が加齢・萎縮でリソソームに蓄積。ヘモジデリンはフェリチン凝集体でベルリン青染色陽性。"
+  },
+  {
+    "t": "炎症",
+    "q": "結節性多発動脈炎（PAN）について正しいものを選べ。",
+    "o": [
+      "a. 小型血管（毛細血管・細静脈）のみを侵す",
+      "b. ANCA陰性の中型血管炎",
+      "c. 壊死性炎症を伴い、フィブリノイド壊死が特徴的",
+      "d. 糸球体腎炎が必発",
+      "e. 肺に必ず病変が出現する"
+    ],
+    "a": [
+      "B",
+      "C"
+    ],
+    "e": "結節性多発動脈炎（PAN）：中型動脈のANCA陰性壊死性血管炎。フィブリノイド壊死を伴う全層性炎症が特徴。腎・消化管・皮膚・神経を侵すが肺を侵さない（肺を侵すのはGPA・MPA）。",
+    "m": true
+  },
+  {
+    "t": "自己免疫",
+    "q": "IgG4関連疾患の特徴として正しいものを選べ。",
+    "o": [
+      "a. 膵臓癌との鑑別が不要である",
+      "b. リンパ節腫大は見られない",
+      "c. 組織にIgG4陽性形質細胞が多数浸潤し、線維化を伴う",
+      "d. ステロイドは無効",
+      "e. 自己免疫性膵炎との関連はない"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "IgG4関連疾患：組織にIgG4陽性形質細胞多数浸潤＋線維化が特徴。膵臓（自己免疫性膵炎）・涙腺・唾液腺・後腹膜など多臓器に発症。膵癌との鑑別が重要。ステロイドに著効。"
+  },
+  {
+    "t": "栄養・欠乏",
+    "q": "日光に長期間当たって皮膚がうろこ状（落屑性皮疹）になり、下痢・認知症を伴う疾患はどれか。",
+    "o": [
+      "a. 壊血病",
+      "b. 脚気",
+      "c. ペラグラ",
+      "d. 悪性貧血",
+      "e. くる病"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "ペラグラ（Pellagra）：ナイアシン（ビタミンB3）欠乏。3D：Dermatitis（日光過敏性皮膚炎・落屑）・Diarrhea（下痢）・Dementia（認知症）が特徴。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "萎縮や過形成などの変化とその原因の組み合わせで誤っているものを選べ。",
+    "o": [
+      "a. 副腎皮質過形成－高コルチゾール血症（クッシング病）",
+      "b. 急性赤色肝萎縮－キノコ中毒による劇症肝炎",
+      "c. 褐色萎縮－がんの悪液質",
+      "d. 授乳期乳腺の腺房増殖－妊娠",
+      "e. 舌乳頭萎縮－鉄欠乏性貧血"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "副腎皮質過形成はACTH過剰（クッシング病=下垂体腺腫によるACTH過剰）、または高脂血症ではない。選択肢aの「高コルチゾール血症」ではなく「ACTHの慢性刺激」が副腎皮質過形成の原因。"
+  },
+  {
+    "t": "先天性代謝異常",
+    "q": "ゴーシェ（Gaucher）病の3歳女児についての説明で正しいものを全て選べ。",
+    "o": [
+      "a. グルコセレブロシドが蓄積する",
+      "b. 酵素製剤酵素補充療法、骨髄移植、基質合成抑制療法で治療される",
+      "c. 肝臓にグリコーゲンが蓄積する",
+      "d. グルコース-6-ホスファターゼ欠損症である",
+      "e. 高尿酸血症で痛風の合併に注意",
+      "f. 眼底検査でcherry red spotが認められる"
+    ],
+    "a": [
+      "A",
+      "B"
+    ],
+    "e": "Gaucher病：グルコセレブロシダーゼ欠損→グルコセレブロシドがマクロファージ（Gaucher細胞）に蓄積。治療はERT・骨髄移植・基質合成抑制。Cherry red spotはTay-Sachs・Niemann-Pick病（Gaucher病ではない）。",
+    "m": true
+  },
+  {
+    "t": "止血・凝固",
+    "q": "心筋梗塞のカテーテル治療後、トロポニンが上昇したままであった。その原因として最も適切なものはどれか。",
+    "o": [
+      "a. 血液の再灌流による心筋障害",
+      "b. 筋組織の萎縮",
+      "c. 新たな血栓形成",
+      "d. カテーテルによる冠動脈穿孔"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "再灌流障害（reperfusion injury）：虚血心筋への血流再開時に活性酸素種が大量発生→心筋障害。トロポニンが引き続き上昇する。"
+  },
+  {
+    "t": "炎症・修復",
+    "q": "以下のa〜eのうち、瘢痕組織を認める病理画像を一つ選べ（瘢痕組織の特徴について選択）。",
+    "o": [
+      "a. 多核巨細胞・類上皮細胞の結節（肉芽腫）",
+      "b. 好中球浸潤と膿瘍形成",
+      "c. 膠原線維の密な配列と少数の線維芽細胞（成熟瘢痕）",
+      "d. 毛細血管増殖・線維芽細胞・炎症細胞（肉芽組織）",
+      "e. 血管内皮の増殖とフィブリン沈着"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "成熟した瘢痕組織（scar tissue）：緻密な膠原線維束が主体で、線維芽細胞は少なく、血管も乏しい。肉芽組織（granulation tissue）は修復の初期で毛細血管増殖・線維芽細胞が豊富。"
+  },
+  {
+    "t": "炎症",
+    "q": "急性炎症と慢性炎症の違いについて正しいものを選べ。",
+    "o": [
+      "a. 急性炎症の主体は好中球、慢性炎症の主体はリンパ球・マクロファージ",
+      "b. 慢性炎症では浮腫が必発",
+      "c. 急性炎症では組織修復が起こらない",
+      "d. 慢性炎症では発熱・発赤が常に著明",
+      "e. 急性炎症は常に慢性炎症に移行する"
+    ],
+    "a": [
+      "A"
+    ],
+    "e": "急性炎症：好中球が主体、短時間で進行、浮腫・発熱・発赤が典型的。慢性炎症：リンパ球・マクロファージ・形質細胞が主体、組織破壊と修復が同時進行、線維化を伴う。"
+  },
+  {
+    "t": "病理診断",
+    "q": "PAS染色（過ヨウ素酸シッフ染色）で染色されるものを選べ（複数選択）。",
+    "o": [
+      "a. グリコーゲン",
+      "b. 真菌の細胞壁",
+      "c. 糖タンパク・ムチン",
+      "d. 核（DNA）",
+      "e. 脂肪（トリグリセリド）"
+    ],
+    "a": [
+      "A",
+      "B",
+      "C"
+    ],
+    "e": "PAS染色：1,2-グリコール基を持つ多糖類を染める。グリコーゲン・真菌細胞壁（多糖類）・ムチン・糖タンパクが陽性（紫赤色）。DNAや脂肪はPAS陰性。",
+    "m": true
+  },
+  {
+    "t": "壊死",
+    "q": "次の壊死の種類とその特徴・疾患の組み合わせで正しいものを選べ。",
+    "o": [
+      "a. 凝固壊死－脳梗塞の典型的所見",
+      "b. 融解壊死－心筋梗塞の典型的所見",
+      "c. 乾酪壊死－結核感染の特徴的所見",
+      "d. 脂肪壊死－肺虚血の典型的所見",
+      "e. フィブリノイド壊死－骨格筋の外傷後変化"
+    ],
+    "a": [
+      "C"
+    ],
+    "e": "乾酪壊死（caseous necrosis）：結核菌感染に特徴的（チーズ様）。凝固壊死：心・腎・肝の貧血性梗塞。融解壊死：脳梗塞・化膿。脂肪壊死：膵炎・乳房外傷。フィブリノイド壊死：血管炎・悪性高血圧。"
+  }
+]
+;
 var Q_b19M=
 [
   {
@@ -328,13 +2877,14 @@ var Q_b19M=
       "d. 乾酪壊死"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "凝固壊死はタンパク質の変性・凝固により起こり、梗塞病変で一般に見られる。脳など脂肪の多い組織では融解壊死。結核では乾酪壊死（凝固壊死の一種）。"
+    "e": "凝固壊死はタンパク質の変性・凝固により起こり、心・腎・肝の貧血性梗塞で一般にみられる。脳はタンパク質が少なく脂肪が多いため融解壊死をきたす。",
+    "m": false
   },
   {
-    "t": "ウィルヒョウの三要素",
-    "q": "血管内血栓症を引き起こす重要な異常（ウィルヒョウの3要素）とは、（　　）、血流異常、内皮細胞傷害である。",
+    "t": "血栓症",
+    "q": "血管内血栓症を引き起こす重要な異常（ウィルヒョウの3要素）とは、（　）、血流異常、内皮細胞傷害である。",
     "o": [
       "a. 血小板増加",
       "b. 血液凝固能亢進",
@@ -342,12 +2892,13 @@ var Q_b19M=
       "d. 白血球減少"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "ウィルヒョウの三要素：①血液凝固能亢進、②血流異常（うっ滞）、③内皮細胞傷害。"
+    "e": "ウィルヒョウの三要素：血液凝固能亢進、血流異常（血流の停滞）、内皮細胞傷害。",
+    "m": false
   },
   {
-    "t": "止血の三要素",
+    "t": "止血",
     "q": "止血の3要素は、血小板、凝固因子、あとひとつは何か？",
     "o": [
       "a. ワルファリン",
@@ -356,13 +2907,14 @@ var Q_b19M=
       "d. 顆粒球"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "止血の三要素：血小板・凝固因子・内皮細胞。"
+    "e": "止血の3要素：血小板・凝固因子・内皮細胞。",
+    "m": false
   },
   {
-    "t": "ショックの分類",
-    "q": "（　　）ショックの代表的な原因としては心筋梗塞、弁膜症、不整脈が挙げられる。",
+    "t": "ショック",
+    "q": "（　）ショックの代表的な原因としては心筋梗塞、弁膜症、不整脈が挙げられる。",
     "o": [
       "a. 心原性",
       "b. 循環血液量減少性",
@@ -370,13 +2922,14 @@ var Q_b19M=
       "d. 心外閉塞・拘束性"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "心原性ショック→心筋梗塞・弁膜症・不整脈。循環血液量減少性→出血・脱水。血液分布異常性→アナフィラキシー・敗血症。"
+    "e": "心原性：心筋梗塞・弁膜症・不整脈。循環血液量減少性：出血・脱水。血液分布異常性：アナフィラキシー・敗血症。心外閉塞・拘束性：肺塞栓・心タンポナーデ。",
+    "m": false
   },
   {
     "t": "塞栓症",
-    "q": "塞栓症の原因として一番頻度が高いのは（　　）である。",
+    "q": "塞栓症の原因として最も頻度が高いのは（　）である。",
     "o": [
       "a. 悪性腫瘍",
       "b. 血栓",
@@ -384,12 +2937,13 @@ var Q_b19M=
       "d. 寄生虫"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "塞栓の多くは遊離した血栓（血栓塞栓症）。"
+    "e": "塞栓の大多数は遊離した血栓（血栓塞栓）である。",
+    "m": false
   },
   {
-    "t": "Nutmeg liver",
+    "t": "循環障害",
     "q": "肝臓の慢性うっ血の際の肉眼像は何と呼ばれるか。",
     "o": [
       "a. nutmeg liver",
@@ -398,27 +2952,29 @@ var Q_b19M=
       "d. gamma-gandy結節"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "Nutmeg liver（ニクズク肝）：慢性うっ血性肝障害で、肝小葉中心部が暗赤色、辺縁部が黄色化し、ナツメグに似た外観を呈する。"
+    "e": "nutmeg liver（ニクズク肝）：肝臓の小葉中心部が暗赤色、辺縁部が黄色化し、ナツメグに例えられる。",
+    "m": false
   },
   {
-    "t": "悪性腫瘍（誤りの組み合わせ）",
-    "q": "悪性腫瘍について、誤っているものの組み合わせを選びなさい。\n(4) TNM分類のNは血行性転移や播種の指標となる。\n(5) 悪性腫瘍は必ず腫瘤を形成する。",
+    "t": "腫瘍（悪性）",
+    "q": "悪性腫瘍について誤っているものの組み合わせを選びなさい。\n(1)リンパ管侵襲を介してリンパ節にリンパ行性転移をきたす。\n(2)静脈侵襲を介して他臓器に血行性転移をきたす。\n(3)播種とは胸腔や腹腔に腫瘍が原発巣を越えて拡がることを指す。\n(4)TNM分類のNは血行性転移や播種の指標となる。\n(5)悪性腫瘍は必ず腫瘤を形成する。",
     "o": [
-      "a. (1),(3)",
-      "b. (2),(5)",
-      "c. (3),(4)",
-      "d. (3),(5)",
-      "e. (4),(5)"
+      "a. (1)(3)",
+      "b. (2)(5)",
+      "c. (3)(4)",
+      "d. (3)(5)",
+      "e. (4)(5)"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "(4)NはリンパNの転移指標、血行性転移・播種はM。(5)白血病などは塊を形成しない悪性腫瘍の例。"
+    "e": "(4)N（リンパ節転移）が反映するのはリンパ行性転移。(5)白血病など腫瘤を形成しない悪性腫瘍がある。",
+    "m": false
   },
   {
-    "t": "心筋梗塞の経時変化",
+    "t": "心筋梗塞",
     "q": "心筋梗塞発症後24〜48時間後に現れる組織学的変化として適切なものはどれか。",
     "o": [
       "a. マクロファージの出現",
@@ -427,13 +2983,14 @@ var Q_b19M=
       "d. 高度な心筋細胞の好酸化"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "24〜48h：高度な心筋細胞の好酸化。1wk：マクロファージ出現・毛細血管増殖。2〜6wks：梗塞部心筋線維の消失。"
+    "e": "24〜48h：高度な心筋細胞の好酸化。1week：マクロファージ出現・毛細血管・線維芽細胞増殖。2〜6weeks：梗塞部心筋線維の消失。",
+    "m": false
   },
   {
-    "t": "浮腫液の分類",
-    "q": "浮腫とは水分が血管内から間質組織に移動する現象であるが、浮腫液のタンパク質濃度が低いものを（　　）という。",
+    "t": "浮腫",
+    "q": "浮腫とは水分が血管内から間質組織に移動する現象であるが、浮腫液のタンパク質濃度が低いものを（　）という。",
     "o": [
       "a. 生食液",
       "b. 電解液",
@@ -441,13 +2998,14 @@ var Q_b19M=
       "d. 漏出液"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "漏出液→タンパク質濃度低い（非炎症性）。滲出液→タンパク質濃度高い（炎症性）。"
+    "e": "漏出液（低タンパク）：うっ血・低タンパク血症などで生じる。滲出液（高タンパク）：炎症などで生じる。",
+    "m": false
   },
   {
-    "t": "腫瘍の分類",
-    "q": "上皮性細胞由来でないものはどれか。",
+    "t": "腫瘍（非上皮性）",
+    "q": "上皮性細胞由来でないものを選べ。",
     "o": [
       "a. 線維腫",
       "b. 扁平上皮性癌",
@@ -455,13 +3013,14 @@ var Q_b19M=
       "d. 腺腫"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "線維腫は良性非上皮性腫瘍（間葉系由来）。扁平上皮性癌・乳頭腫・腺腫は上皮性腫瘍。"
+    "e": "線維腫は線維芽細胞由来の良性非上皮性腫瘍。扁平上皮性癌・乳頭腫・腺腫は上皮性腫瘍。",
+    "m": false
   },
   {
-    "t": "がん遺伝子異常（誤り）",
-    "q": "がんにおける遺伝子異常について誤っているものの組み合わせを選びなさい。\n(2) epigenetic な異常はDNA塩基配列の変化を伴う異常のことを指す。\n(3) genetic な異常は塩基配列の変化はないが、DNAの修飾因子の変化により遺伝子発現が変化することで発がんに寄与する。",
+    "t": "発がん遺伝子（誤り）",
+    "q": "がんにおける遺伝子異常について誤っているものの組み合わせを選びなさい。\n(1)がんにおける遺伝子異常はgeneticな異常とepigeneticな異常に分けられる。\n(2)epigeneticな異常はDNA塩基配列の変化を伴う異常のことを指す。\n(3)geneticな異常は塩基配列の変化はないが、DNAの修飾因子の変化により遺伝子発現が変化することで発がんに寄与する。\n(4)発がんは通常、長期にわたり複数の遺伝子異常が蓄積することにより生じ、多段階発がんと呼ばれる。\n(5)がん遺伝子の異常は片方のアレルのホットスポットに集中することが多く、がん抑制遺伝子の異常は両方のアレルに生じることが多い。",
     "o": [
       "a. (1)(3)",
       "b. (2)(3)",
@@ -470,13 +3029,14 @@ var Q_b19M=
       "e. (4)(5)"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "epigenetic異常→塩基配列の変化なし、修飾因子の変化。genetic異常→DNA塩基配列の変化を伴う。(2)(3)の記述が逆。"
+    "e": "epigeneticとgeneticの説明が逆。epigenetic=DNA修飾・遺伝子発現変化（塩基配列変化なし）、genetic=塩基配列変化あり。",
+    "m": false
   },
   {
-    "t": "がん遺伝子（正しい組み合わせ）",
-    "q": "がんにおける遺伝子異常について正しいものの組み合わせを選びなさい。\n(1) 発がんの原因となりうる遺伝子をパッセンジャー遺伝子という。\n(2) 発がんの原因となる遺伝子は大きくがん遺伝子とがん抑制遺伝子に分けられる。\n(3) がん遺伝子は車のブレーキにたとえられる。\n(4) がん抑制遺伝子は車のアクセルにたとえられる。\n(5) がん抑制遺伝子は遺伝子が失活することにより発がんに寄与する。",
+    "t": "発がん遺伝子（正しい）",
+    "q": "がんにおける遺伝子異常について正しいものの組み合わせを選びなさい。\n(1)発がんの原因となりうる遺伝子をパッセンジャー遺伝子という。\n(2)発がんの原因となる遺伝子は大きくがん遺伝子とがん抑制遺伝子に分けられる。\n(3)がん遺伝子は車のブレーキにたとえられる。\n(4)がん抑制遺伝子は車のアクセルにたとえられる。\n(5)がん抑制遺伝子は遺伝子が失活することにより発がんに寄与する。",
     "o": [
       "a. (1)(3)",
       "b. (2)(5)",
@@ -485,28 +3045,46 @@ var Q_b19M=
       "e. (4)(5)"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "発がん原因遺伝子→ドライバー遺伝子。がん遺伝子→アクセル（活性化で増殖促進）。がん抑制遺伝子→ブレーキ（失活で発がん）。"
+    "e": "(1)ドライバー遺伝子が正しい。(3)(4)アクセルとブレーキが逆。がん遺伝子=アクセル（活性化で発がん）、がん抑制遺伝子=ブレーキ（失活で発がん）。",
+    "m": false
   },
   {
-    "t": "腫瘍の特徴（誤り）",
-    "q": "腫瘍の特徴として誤りの組み合わせを選べ。\n(1) 良性腫瘍は悪性化することはないので放置しても命に別状はない。\n(4) 腫瘍は栄養がなくても増殖する能力を獲得しており、一般に血流は乏しい。",
+    "t": "腫瘍の特徴（正しい組み合わせ）",
+    "q": "腫瘍の特徴として正しい組み合わせを選べ。\n(1)良性腫瘍は悪性化することはないので放置しても命に別状はない。\n(2)悪性腫瘍は原発巣を切除すればそれで命を落とすことはない。\n(3)上皮性悪性腫瘍を癌腫、間葉性悪性腫瘍を肉腫という。\n(4)腫瘍は栄養がなくても増殖する能力を獲得しており、一般に血流は乏しい。\n(5)外界からの刺激から独立して自律的な増殖を示す。",
     "o": [
       "a. (1)(2)",
       "b. (2)(5)",
       "c. (3)(4)",
       "d. (3)(5)",
-      "e. (1)(4)"
+      "e. (4)(5)"
     ],
     "a": [
-      "E"
+      "d"
     ],
-    "e": "(1)大腸腺腫が腺癌になるなど、良性腫瘍から悪性化するケースもある。(4)悪性腫瘍は血管新生が行われ血流は確保される。"
+    "e": "(1)大腸腺腫→腺癌など良性から悪性化あり。(2)転移・浸潤があるため原発巣切除だけでは不十分。(4)悪性腫瘍は血管新生を誘導する。",
+    "m": false
   },
   {
-    "t": "免疫組織化学",
-    "q": "免疫組織化学（免疫染色）に用いられない抗体はどれか。",
+    "t": "腫瘍の定義",
+    "q": "正しい選択肢を全て選べ。\na. neoplasmは腫瘍である\nb. 悪性間葉性腫瘍はがんである\nc. 悪性間葉性腫瘍は癌腫である\nd. 良性間葉性腫瘍は肉腫である",
+    "o": [
+      "a. neoplasm（新生物）は腫瘍と同義",
+      "b. 悪性間葉性腫瘍はがんである",
+      "c. 悪性間葉性腫瘍は癌腫である",
+      "d. 良性間葉性腫瘍は肉腫である"
+    ],
+    "a": [
+      "a",
+      "b"
+    ],
+    "e": "がん=悪性腫瘍（上皮・間葉問わず）。癌腫=悪性上皮性腫瘍。肉腫=悪性間葉性腫瘍。",
+    "m": true
+  },
+  {
+    "t": "免疫染色",
+    "q": "免疫組織化学（免疫染色）に用いられない抗体を一つ選べ。",
     "o": [
       "a. PAS",
       "b. PD-L1",
@@ -514,13 +3092,30 @@ var Q_b19M=
       "d. vimentin"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "PAS染色は糖を検出する化学的染色で抗体を使わない。免疫染色はPD-L1、AFP、vimentinなど抗原を標的とする抗体を使用する。"
+    "e": "PAS染色はグリコーゲン・ムコ蛋白質の糖を検出する特殊染色であり、抗体を使う免疫組織化学ではない。",
+    "m": false
+  },
+  {
+    "t": "アレルギー（正しい組み合わせ）",
+    "q": "以下の組み合わせで正しいものを選べ。",
+    "o": [
+      "a. 水疱性天疱瘡：抗デスモグレイン抗体",
+      "b. 血液不適合妊娠：第一子の溶血性黄疸",
+      "c. 膜性腎症：胸腺腫の合併が多い",
+      "d. サルコイドーシス：乾酪壊死のない類上皮肉芽腫",
+      "e. 尋常性天疱瘡：びらんのない緊満感のある水疱形成"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "水疱性天疱瘡は抗BP抗体（基底膜）、尋常性天疱瘡は抗デスモグレイン抗体。血液不適合溶血性黄疸は第2子以降。サルコイドーシスは乾酪壊死のない類上皮肉芽腫が特徴。",
+    "m": false
   },
   {
     "t": "炎症細胞",
-    "q": "炎症に関わる細胞の組み合わせとして正しいものを選べ（全て選べ）。\n① 好中球 ② 好酸球 ③ 組織球 ④ 形質細胞",
+    "q": "炎症に関わる細胞の組み合わせとして正しいものを選べ。（①好中球 ②好酸球 ③組織球 ④形質細胞）",
     "o": [
       "a. ①②",
       "b. ②③",
@@ -529,12 +3124,13 @@ var Q_b19M=
       "e. ①②③④"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "急性炎症前期は①〜③（自然免疫系）が活性化。慢性炎症では④（形質細胞など獲得免疫系）が主体となる。"
+    "e": "炎症細胞には急性炎症期の自然免疫系（好中球・好酸球・組織球）と慢性炎症期の獲得免疫系（形質細胞・リンパ球）の両方が含まれる。",
+    "m": false
   },
   {
-    "t": "炎症の4徴候",
+    "t": "炎症の徴候",
     "q": "「炎症の4徴候」に含まれないものを選べ。",
     "o": [
       "a. 発熱",
@@ -544,13 +3140,14 @@ var Q_b19M=
       "e. うっ血"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "炎症の4徴候：発熱・発赤・腫脹・疼痛。5徴候では「機能低下」が加わる。うっ血は炎症の徴候ではない。"
+    "e": "炎症の4徴候：発熱・発赤・腫脹・疼痛。5徴候として機能低下を加えることもある。うっ血は炎症の原因・病態であり徴候には含まれない。",
+    "m": false
   },
   {
-    "t": "器質化・肉芽組織",
-    "q": "器質化とは、組織の（　　）への置換である。（　　）は線維芽細胞を主成分とし、Mφなどの炎症細胞や新生血管が混在して形成される。",
+    "t": "肉芽組織",
+    "q": "（　）の中には同じ単語が入る。その単語として適切なものを選べ。\n・器質化とは、組織の（　）への置換である。\n・（　）は線維芽細胞を主成分とし、Mφなどの炎症細胞や新生血管が混在して形成される。",
     "o": [
       "a. 肉芽組織",
       "b. 肉芽腫",
@@ -558,9 +3155,10 @@ var Q_b19M=
       "d. 膿瘍"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "肉芽組織は創傷治癒の際の一時的補填物（線維芽細胞・炎症細胞・新生血管）。肉芽腫は慢性炎症の一形態で別物。"
+    "e": "肉芽組織：線維芽細胞・マクロファージ・新生血管からなり、組織修復の際に形成される。器質化=異物や壊死組織が肉芽組織に置換されること。",
+    "m": false
   },
   {
     "t": "I型アレルギー",
@@ -569,17 +3167,35 @@ var Q_b19M=
       "a. 接触性皮膚炎",
       "b. アレルギー性鼻炎",
       "c. Goodpasture症候群",
-      "d. Basedow病",
+      "d. Basedow病（Graves病）",
       "e. 尋常性天疱瘡"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "I型（即時型）→アレルギー性鼻炎・気管支喘息。IV型→接触性皮膚炎。II型→Goodpasture症候群・尋常性天疱瘡。"
+    "e": "I型（IgE介在性）：アレルギー性鼻炎・喘息・アナフィラキシー。IV型（遅延型）：接触性皮膚炎。II型（細胞傷害型）：Goodpasture症候群・尋常性天疱瘡。",
+    "m": false
+  },
+  {
+    "t": "関節リウマチ（誤り2つ）",
+    "q": "関節リウマチについて、誤った記述を二つ選べ。",
+    "o": [
+      "a. 左右非対称に発現する",
+      "b. リウマチイド因子は変性したIgG抗体のFc部分に作用する",
+      "c. 遠位指節間関節（DIP）に好発する",
+      "d. 滑膜の慢性活動性炎症により、絨毛状増殖が見られる",
+      "e. 関節以外で起こる症状として、間質性肺炎がある"
+    ],
+    "a": [
+      "a",
+      "c"
+    ],
+    "e": "関節リウマチは左右対称に発現。PIP（近位指節間関節）やMCP（中手指節関節）に好発し、DIPは障害されにくい。",
+    "m": true
   },
   {
     "t": "シェーグレン症候群",
-    "q": "シェーグレン症候群の症状として正しいものを1つ選べ。",
+    "q": "シェーグレン（Sjögren）症候群の症状として正しいものを1つ選べ。",
     "o": [
       "a. ヘリオトロープ疹",
       "b. Gottron徴候",
@@ -587,9 +3203,42 @@ var Q_b19M=
       "d. 口内炎"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "シェーグレン症候群→外分泌腺障害（唾液腺・涙腺）→口腔乾燥・口内炎・ドライアイ。ヘリオトロープ疹・Gottron徴候は皮膚筋炎の症状。"
+    "e": "シェーグレン症候群：外分泌腺（涙腺・唾液腺）を標的とする自己免疫疾患。ドライアイ・ドライマウス・口内炎が特徴。ヘリオトロープ疹・Gottron徴候は皮膚筋炎。",
+    "m": false
+  },
+  {
+    "t": "CMV感染",
+    "q": "矢印で示した構造物（Owl's eye）が見られた場合、感染が疑われるウイルスはどれか。",
+    "o": [
+      "a. HHV-6（Cytomegalovirus）",
+      "b. HHV-8",
+      "c. poxvirus",
+      "d. HBV",
+      "e. HPV"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "Owl's eye（フクロウの目）：CMV感染細胞でみられるCowdry A型封入体の病理像。CMV=HHV-5だがHHV-6と表記されている場合あり（問題の記述に準じる）。",
+    "m": false
+  },
+  {
+    "t": "フィブリノイド壊死",
+    "q": "結節性多発動脈炎の血管壁の病理所見（フィブリノイド壊死）に関して最も正しいものはどれか。",
+    "o": [
+      "a. 凝固壊死",
+      "b. 乾酪壊死",
+      "c. 脂肪壊死",
+      "d. フィブリノイド壊死",
+      "e. アポトーシス"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "フィブリノイド壊死：膠原病（結節性多発動脈炎・関節リウマチ）の血管壁に見られる。漏出したフィブリンと免疫複合体がHE染色で明るいピンク色を呈する。",
+    "m": false
   },
   {
     "t": "肉芽腫",
@@ -601,13 +3250,14 @@ var Q_b19M=
       "d. 組織球が結節状に集まり多核巨細胞が形成されることがある"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "肉芽腫はMφ（組織球）が刺激物質に反応して形成する慢性炎症反応。ラングハンス型巨細胞などの多核巨細胞を伴う。腫瘍ではない。"
+    "e": "肉芽腫：刺激物質に対してマクロファージが反応して形成される慢性炎症反応。類上皮細胞（活性化Mφ）が集簇し、ラングハンス型多核巨細胞を形成することがある。",
+    "m": false
   },
   {
     "t": "高血圧と心筋変化",
-    "q": "高血圧が長年治療されないままであった場合、心筋に出現する可能性が最も高い細胞変化はどれか。",
+    "q": "53歳女性、血圧150/95mmHg。高血圧が何年も治療されないままであった場合、心筋に出現する可能性が最も高い細胞の変化はどれか。",
     "o": [
       "a. Apoptosis",
       "b. Dysplasia（異形成）",
@@ -618,13 +3268,14 @@ var Q_b19M=
       "g. Metaplasia（化生）"
     ],
     "a": [
-      "F"
+      "f"
     ],
-    "e": "高血圧による圧力負荷→既存の心筋線維の筋フィラメント増加→細胞肥大（Hypertrophy）。心筋細胞は増殖能を持たないのでHyperplasiaは起こらない。"
+    "e": "高血圧→左心室への圧力負荷→心筋細胞の肥大（Hypertrophy）。心筋細胞は増殖能を持たないためHyperplasiaは起こらない。",
+    "m": false
   },
   {
-    "t": "心筋梗塞1ヶ月後",
-    "q": "血清CK 600U/L、左心室4cm梗塞確認後1ヶ月後に左心室病変に見られる可能性が最も高い病理所見はどれか。",
+    "t": "心筋梗塞（1ヶ月後）",
+    "q": "58歳男性、4時間持続する胸痛。左心室後壁に4cmの梗塞確認、血清CK 600U/L。1ヶ月後に見られる可能性が最も高い所見はどれか。",
     "o": [
       "a. 慢性炎症",
       "b. 凝固壊死",
@@ -633,28 +3284,31 @@ var Q_b19M=
       "e. 再生結節"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "凝固壊死は発生後約2〜6週で消失し瘢痕化する。1ヶ月後は線維瘢痕（fibrous scar）が形成されている。"
+    "e": "凝固壊死は1ヶ月後には消失して線維瘢痕化する。心筋梗塞後の組織変化：24-48h=好酸化、1week=Mφ出現・毛細血管増生、2-6weeks=心筋線維消失、6weeks以降=瘢痕化。",
+    "m": false
   },
   {
-    "t": "脳梗塞と壊死の種類",
-    "q": "68歳女性が突然意識を失い1時間後に回復。発話不可・右腕麻痺。CTで左脳に障害。最も正しい記述はどれか。",
+    "t": "脳梗塞",
+    "q": "68歳女性、一時的意識消失後に会話不能・右腕が動かせない。左脳に障害。この病態の説明として正しいものはどれか。",
     "o": [
       "a. 左中大脳動脈支配域の核融解",
       "b. 左中大脳動脈支配域の凝固壊死",
       "c. 左中大脳動脈支配域の融解壊死",
       "d. 左前大脳動脈支配域の脂肪壊死",
-      "e. 左前大脳動脈支配域の融解壊死"
+      "e. 左前大脳動脈支配域の凝固壊死",
+      "f. 左前大脳動脈支配域の融解壊死"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "言語障害・右腕麻痺→左中大脳動脈（MCA）領域。脳はタンパク質少なく脂肪多い→融解壊死。"
+    "e": "言語中枢（Broca野・Wernicke野）は中大脳動脈（MCA）支配域。脳は脂肪が多くタンパク質が少ないため融解壊死を起こす。右腕麻痺は錐体交叉より上位（左大脳）の障害による対側麻痺。",
+    "m": false
   },
   {
     "t": "脂肪壊死",
-    "q": "30歳女性が右胸に受傷。3週間以内に皮膚挫傷は解消したが1ヶ月後に深部に固くて痛みのないしこりが残った。最も可能性の高い診断はどれか。",
+    "q": "30歳女性が右胸に受傷。3週間で挫傷は解消したが1ヶ月後に固くて痛みのないしこりが残っている。最も可能性の高い診断はどれか。",
     "o": [
       "a. 膿瘍",
       "b. 脂肪壊死",
@@ -663,13 +3317,14 @@ var Q_b19M=
       "e. 硬化性腺症"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "外傷後の乳房に固い無痛性しこり→脂肪壊死。脂肪組織の壊死後に石灰化や線維化が起こる。"
+    "e": "脂肪壊死：乳房や膵臓など完全な脂肪組織で起こる壊死。外傷後に固い腫瘤として残ることがある。",
+    "m": false
   },
   {
     "t": "神経芽細胞腫",
-    "q": "生後6か月男児、右副腎5.5cm腫瘤、尿中HVA・VMA上昇。この病変の予後不良に関連している可能性が最も高いものはどれか。",
+    "q": "生後6ヶ月男児、右副腎を含む5.5cm充実性腫瘤、24時間尿でHVA・VMAの濃度上昇。この病変で予後不良に関連している可能性が最も高いものはどれか。",
     "o": [
       "a. 年齢が1歳未満であること",
       "b. 高二倍性（Hyperdiploidy）",
@@ -678,13 +3333,30 @@ var Q_b19M=
       "e. 多数の神経節細胞の存在"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "神経芽細胞腫の予後不良因子：2歳以上・N-MYC遺伝子増幅・血清NSE高値・2n型核型。"
+    "e": "神経芽細胞腫の予後不良因子：N-MYC遺伝子増幅・2歳以上・血清NSE高値・2n型核型。予後良好因子：1歳未満・Hyperdiploidy・神経節細胞多数。",
+    "m": false
   },
   {
-    "t": "Tay-Sachs病",
-    "q": "1〜2歳で失明・神経発達遅滞、眼底黄斑部にcherry-red spotを持つ子供。欠乏している酵素はどれか。",
+    "t": "網膜芽細胞腫",
+    "q": "1歳3ヶ月男児、左眼に外斜視と白色瞳孔、水晶体後方に剥離した網膜を認めた。HE染色でFlexner-Wintersteinerロゼットを確認。これはどの病態か。",
+    "o": [
+      "a. 神経芽細胞腫",
+      "b. 線維芽細胞腫",
+      "c. 髄芽細胞腫",
+      "d. 結膜細胞腫",
+      "e. 網膜芽細胞腫"
+    ],
+    "a": [
+      "e"
+    ],
+    "e": "網膜芽細胞腫：乳幼児に発症する眼内悪性腫瘍。Flexner-Wintersteinerロゼット（白抜き内腔）が特徴。RB1遺伝子異常。",
+    "m": false
+  },
+  {
+    "t": "リソソーム蓄積症",
+    "q": "1〜2歳で失明・神経発達遅延。眼底に顕著な赤い黄斑領域（Cherry-red spot）。欠乏している可能性が最も高い酵素はどれか。",
     "o": [
       "a. α-L-Iduronidase",
       "b. Galactosylceramidase",
@@ -693,13 +3365,14 @@ var Q_b19M=
       "e. Lysosomal glucosidase"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "Cherry-red spot→Tay-Sachs病（GM2ガングリオシドーシス）。Hexosaminidase A欠乏。α-L-Iduronidase→Hurler症候群。Gaucher病→Glucocerebrosidase欠乏。"
+    "e": "Tay-Sachs病：HexosaminidaseA欠乏→GM2ガングリオシド蓄積。Cherry-red spot（黄斑部）が特徴。α-L-Iduronidase欠乏=Hurler症候群、Galactosylceramidase欠乏=Krabbe病、Glucocerebrosidase欠乏=Gaucher病、Lysosomal glucosidase欠乏=Pompe病。",
+    "m": false
   },
   {
     "t": "逆流性食道炎",
-    "q": "1年以上食後に灼熱の心窩部痛を持つ57歳女性。下部食道粘膜に発赤、基底帯扁平上皮過形成・固有層乳頭の伸長・好酸球を認める。最も可能性の高い診断はどれか。",
+    "q": "57歳女性、1年以上食後に灼熱の心窩部痛。下部食道粘膜に発赤、生検で基底帯扁平上皮過形成・固有層乳頭伸長・好酸球浸潤。最も可能性の高い診断はどれか。",
     "o": [
       "a. Barrett食道",
       "b. 食道静脈瘤",
@@ -708,13 +3381,14 @@ var Q_b19M=
       "e. 全身性硬化症"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "食後心窩部痛・食道粘膜発赤・扁平上皮過形成・好酸球浸潤→逆流性食道炎（GERD）。Barrett食道は胃粘膜化生で症状が必ずしも伴わない。"
+    "e": "逆流性食道炎：酸性胃内容物の逆流による食道粘膜傷害。基底帯過形成・乳頭伸長・好酸球浸潤が特徴。Barrett食道は逆流を背景に発生するが症状として心窩部痛を認めない。",
+    "m": false
   },
   {
-    "t": "乳がんとBRCA1",
-    "q": "25歳女性、右胸に2cmの固くて動かない塊。家族歴（母・母方叔母・母方祖母に同様の病変）。妹に見つかる変異遺伝子として最も可能性が高いものはどれか。",
+    "t": "家族性乳がん",
+    "q": "25歳女性、右胸に2cm・固くて動かない腫瘤。母・叔母・祖母に同様の病変。妹に見つかる可能性が最も高い変異遺伝子はどれか。",
     "o": [
       "a. BRCA1",
       "b. Estrogen receptor（ER）",
@@ -724,28 +3398,30 @@ var Q_b19M=
       "f. RB1"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "若年性乳がん＋強い家族歴→BRCA1/2変異（がん抑制遺伝子）。ER・PRは治療反応性の指標。HER2は予後不良の指標。"
+    "e": "BRCA1/2：乳がん・卵巣がんの感受性遺伝子（がん抑制遺伝子）。家族歴が強く若年発症の乳がんに示唆される。HER2/neuは予後不良の指標、ER/PRはホルモン療法の指標。",
+    "m": false
   },
   {
-    "t": "Niemann-Pick病",
-    "q": "22歳女性の子供が4歳までに重度の神経機能低下。著明な肝脾腫、骨髄で多数の泡沫状空胞化マクロファージ。診断に最も有用な分析はどれか。",
+    "t": "ニーマン・ピック病",
+    "q": "4歳までに重度の神経機能低下・肝脾腫・骨髄で泡沫状の空胞化マクロファージ。診断に最も有用なのはどの分析か。",
     "o": [
-      "a. α1-antitrypsinの血清値",
-      "b. 肝細胞のglucose-6-phosphatase活性",
-      "c. 脾マクロファージのsphingomyelinase活性",
+      "a. 血清α1-antitrypsin値",
+      "b. 肝細胞のglucose-6-phosphatase値",
+      "c. 脾マクロファージのsphingomyelinase値",
       "d. 肝細胞のLDL受容体数",
-      "e. 皮膚線維芽細胞のコラーゲン合成速度"
+      "e. 皮膚線維芽細胞でのコラーゲン合成速度"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "神経症状＋肝脾腫＋泡沫状マクロファージ→ニーマン・ピック病A型（sphingomyelinase欠乏）。リソソーム蓄積症。"
+    "e": "ニーマン・ピック病A型：sphingomyelinase欠乏→スフィンゴミエリン蓄積。肝脾腫・神経機能低下・泡沫細胞（Mφ）が特徴。",
+    "m": false
   },
   {
-    "t": "von Gierke病",
-    "q": "2歳の子供、成長障害・肝腫大・低血糖（31mg/dL）・皮膚の斑状出血。肝生検でグリコーゲン陽性空胞が充満した細胞。最も適する疾患はどれか。",
+    "t": "糖原病（von Gierke病）",
+    "q": "乳児期から成長障害のある2歳の子供、発作・肝腫大・斑状出血、血糖値31mg/dL、肝生検でグリコーゲン陽性の空胞で満たされた細胞。最も適する疾患はどれか。",
     "o": [
       "a. Hurler症候群",
       "b. McArdle病",
@@ -754,13 +3430,14 @@ var Q_b19M=
       "e. von Gierke病"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "肝グリコーゲン蓄積＋重度低血糖＋成長障害→von Gierke病（糖原病Ia型：glucose-6-phosphatase欠損）。"
+    "e": "von Gierke病（糖原病I型）：glucose-6-phosphatase欠乏→肝グリコーゲン蓄積・重度の低血糖・肝腫大。McArdle病は骨格筋蓄積。",
+    "m": false
   },
   {
     "t": "新生児RDS",
-    "q": "妊娠28週で出産した女児が呼吸困難・チアノーゼ・すりガラス様陰影を呈し死亡。剖検で肺胞を好酸性の肥厚した硝子膜が覆っていた。最も可能性の高い原因はどれか。",
+    "q": "妊娠28週で出産、女児に重度の呼吸困難・チアノーゼ、胸部X線でsuppressed glass様陰影、剖検で硝子膜像。原因として最も可能性が高いものはどれか。",
     "o": [
       "a. 先天性トキソプラズマ症",
       "b. 肺の未熟性",
@@ -769,13 +3446,14 @@ var Q_b19M=
       "e. 羊水過少"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "28週早産→肺サーファクタント不足→新生児呼吸促迫症候群（RDS）。硝子膜病。34週以前はサーファクタント不十分。"
+    "e": "新生児RDS（呼吸促迫症候群）：肺サーファクタントの不足（肺未熟性）が根本的原因。30週以前では産生されず、34週以前では不十分。硝子膜病の所見を呈する。",
+    "m": false
   },
   {
     "t": "ビタミンB12欠乏",
-    "q": "74歳女性、10年前に胃全摘歴。労作時息切れ・舌の腫れと痛み・汎血球減少。骨髄穿刺で巨赤芽球像を認めた。欠乏しているビタミンはどれか。",
+    "q": "74歳女性、10年前に胃全摘歴、息切れ・舌の腫れ・汎血球減少。骨髄穿刺で巨赤芽球像。どのビタミンの欠乏か。",
     "o": [
       "a. ビタミンA",
       "b. ビタミンB12",
@@ -784,13 +3462,14 @@ var Q_b19M=
       "e. ビタミンE"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "胃全摘→内因子（intrinsic factor）喪失→ビタミンB12吸収障害→悪性貧血（巨赤芽球性貧血）。"
+    "e": "ビタミンB12欠乏→大球性貧血（巨赤芽球貧血）。胃全摘により内因子（gastric intrinsic factor）が欠乏し、B12吸収不全。匙状爪甲は鉄欠乏性貧血に特徴的。",
+    "m": false
   },
   {
-    "t": "鉄欠乏性貧血",
-    "q": "28歳女性事務員（身長158cm・体重42kg）。月経過多・疲労感。手足の爪が匙状に変形（スプーンネイル）。不足している生体金属はどれか。",
+    "t": "鉄欠乏（匙状爪甲）",
+    "q": "28歳女性、事務員、月経過多、最近疲れやすく、手足爪に変形がある。この女性の身体に不足しているのは以下のどの生体金属か。",
     "o": [
       "a. 鉄",
       "b. 亜鉛",
@@ -799,13 +3478,14 @@ var Q_b19M=
       "e. ヒ素"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "匙状爪甲（koilonychia）は鉄欠乏性貧血の特徴的所見。月経過多による慢性失血が原因。"
+    "e": "匙状爪甲（スプーンネイル）：鉄欠乏性貧血に特徴的な変形爪。月経過多により鉄欠乏をきたしやすい。",
+    "m": false
   },
   {
     "t": "ビタミンA欠乏",
-    "q": "貧困コミュニティの子供たちで気道感染症が増加。成人すると角膜軟化症・尿路結石・丘疹性皮膚症の発生率が増加。不足するビタミンとして最も可能性が高いのはどれか。",
+    "q": "貧困コミュニティの子供たちで気道感染症が増加、成人後に角膜軟化症・尿路結石・丘疹性皮膚症が増加。不足するビタミンとして最も可能性が高いのはどれか。",
     "o": [
       "a. ビタミンA",
       "b. ビタミンB1",
@@ -814,29 +3494,31 @@ var Q_b19M=
       "e. ビタミンK"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "ビタミンA欠乏→呼吸器上皮の扁平上皮化生→感染症リスク増加・角膜軟化症・夜盲症。"
+    "e": "ビタミンA欠乏→呼吸器上皮の扁平化生→感染症増加。角膜軟化症・夜盲症も特徴。上皮の形作る界面構造の維持に重要。",
+    "m": false
   },
   {
     "t": "壊血病（Scurvy）",
-    "q": "南極探検から帰還できなかった隊員の遺体で角化性丘疹状発疹・斑状出血・重度の歯肉腫脹・出血が認められた。最も可能性の高い死因はどれか。",
+    "q": "南極探検隊員の遺体で角化性肥厚性丘疹状発疹・斑状出血・歯肉の出血を伴う腫脹。死因として最も可能性の高いものはどれか。",
     "o": [
-      "a. Beriberi（脚気）",
+      "a. Beriberi",
       "b. Kwashiorkor",
       "c. Pellagra",
       "d. Pernicious anemia",
       "e. Rickets",
-      "f. Scurvy（壊血病）"
+      "f. Scurvy"
     ],
     "a": [
-      "F"
+      "f"
     ],
-    "e": "壊血病→ビタミンC欠乏→コラーゲン合成障害→血管壁脆弱化・歯肉出血・斑状出血。長期の新鮮食料不足で発症。"
+    "e": "壊血病（Scurvy）：ビタミンC欠乏→コラーゲン合成障害→血管壁脆弱化→歯肉出血・斑状出血・角化性丘疹。",
+    "m": false
   },
   {
-    "t": "前立腺肥大症",
-    "q": "71歳男性、5年間の排尿困難。前立腺が通常の2倍に肥大。経尿道的前立腺切除術で間質の介在する腺組織の結節性増生を確認。最も可能性が高い変化はどれか。",
+    "t": "前立腺過形成",
+    "q": "71歳男性、尿しぶり・頻尿。直腸診で前立腺は通常の2倍。経尿道的前立腺切除術後の組織像は間質の介在する腺組織の結節性増生。前立腺で発生した可能性が最も高いものはどれか。",
     "o": [
       "a. apoptosis",
       "b. Dysplasia",
@@ -846,13 +3528,14 @@ var Q_b19M=
       "f. Metaplasia"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "前立腺の結節性過形成（BPH）→腺上皮と間質の過形成（Hyperplasia）。前立腺がんとは無関係。内腺（移行域）に好発。"
+    "e": "前立腺結節性過形成（BPH）：前立腺・間質両方のHyperplasia（過形成）により起こる。前立腺がんとは発生部位が異なる（BPHは内腺、がんは外腺）。",
+    "m": false
   },
   {
-    "t": "ビタミンD欠乏と骨折",
-    "q": "48歳女性、階段から転落し骨折。X線で顕著な骨減少。次のうち骨折の原因に最も関係する可能性が高い基礎疾患はどれか。",
+    "t": "原発性胆汁性肝硬変",
+    "q": "48歳女性が転落し右手首負傷。X線で顕著な骨減少と橈骨頭の骨折。骨折の原因に関係する可能性の高い基礎疾患はどれか。",
     "o": [
       "a. 萎縮性胃炎",
       "b. 慢性リンパ性白血病",
@@ -861,49 +3544,66 @@ var Q_b19M=
       "e. 肺気腫"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "原発性胆汁性肝硬変→慢性胆汁うっ滞→脂肪吸収障害→脂溶性ビタミン（D）欠乏→骨軟化症・骨減少。"
+    "e": "原発性胆汁性肝硬変（PBC）→慢性胆汁鬱滞性肝疾患→脂肪吸収障害→脂溶性ビタミンD不足→骨軟化症・骨折。",
+    "m": false
   },
   {
     "t": "電気的損傷",
-    "q": "20歳男性、120V 10Aの交流電流に接触。この電気的損傷の結果として生じる可能性が高いのはどれか。",
+    "q": "20歳男性が120V、10Aの交流電流に触れた。この電気的損傷の結果として生じる可能性の高いものはどれか。",
     "o": [
-      "a. Bronchoconstriction（気管支収縮）",
-      "b. Cerebral artery thrombosis（脳血管血栓）",
-      "c. Laceration（裂傷）",
-      "d. Gastric hemorrhage（胃出血）",
-      "e. Ventricular fibrillation（心室細動）"
+      "a. 気管支収縮",
+      "b. 脳血管血栓",
+      "c. 裂傷",
+      "d. 胃出血",
+      "e. 心室細動（Ventricular fibrillation）"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "交流電流は心臓の刺激伝導系に干渉し、心室細動を引き起こすリスクがある。"
+    "e": "交流電流は心臓の刺激伝導系に干渉し、心室細動を引き起こすリスクがある。電流が身体から地面に流れるとき心機能が影響を受ける。",
+    "m": false
   },
   {
-    "t": "関節リウマチ（誤り×2）",
-    "q": "関節リウマチについて、誤った記述を二つ選べ。",
+    "t": "子宮癌肉腫",
+    "q": "61歳女性、不正性器出血・子宮腫大。癌肉腫（子宮悪性Müller管混合腫瘍）の診断。HE染色標本で2種の混在所見を認めたが、それはどれとどれか。",
     "o": [
-      "a. 左右非対称に発現する",
-      "b. リウマトイド因子は変性したIgG抗体のFc部分に作用する",
-      "c. 遠位指節間関節（DIP）に好発する",
-      "d. 滑膜の慢性活動性炎症により絨毛状増殖が見られる",
-      "e. 関節以外の症状として間質性肺炎がある"
+      "a. 扁平上皮癌細胞",
+      "b. 平滑筋肉腫細胞",
+      "c. 横紋筋肉腫細胞",
+      "d. 腸上皮化生細胞",
+      "e. 類内膜腺癌細胞"
     ],
     "a": [
-      "A",
-      "C"
+      "c",
+      "e"
     ],
-    "m": true,
-    "e": "関節リウマチは左右対称に発現。PIP（近位指節間関節）やMCP（中手指節関節）に好発し、DIPは障害されにくい。"
+    "e": "子宮癌肉腫（悪性Müller管混合腫瘍）：腺癌成分（類内膜腺癌）と肉腫成分（横紋筋肉腫・骨肉腫・軟骨肉腫など異所性成分が多い）の混在。",
+    "m": true
   }
 ]
 ;
 var Q_b21M=
 [
   {
+    "t": "壊死（脳画像）",
+    "q": "矢印について正しいものを選べ（脳の基底核領域の画像）。",
+    "o": [
+      "a. 出血",
+      "b. 梗塞",
+      "c. 膿瘍",
+      "d. 動脈瘤"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "基底核の出血性梗塞：虚血により血管が脆弱化し再開通時に出血を起こす。授業中に基底核は出血を起こし黒褐色になるとの説明あり。",
+    "m": false
+  },
+  {
     "t": "アポトーシス（誤り）",
-    "q": "アポトーシスについて誤っているものを一つ選べ。",
+    "q": "アポトーシスについて誤っているものを1つ選べ。",
     "o": [
       "a. 放射線によるDNA損傷は内在経路を引き起こす",
       "b. アポトーシスでは細胞は小さくなる",
@@ -912,13 +3612,14 @@ var Q_b21M=
       "e. 折りたたみタンパク質の蓄積によるERストレスは内在経路を起こす"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "断片化された細胞はアポトーシスでも見られる。アポトーシスでは細胞が収縮・断片化し、マクロファージに吸収される。"
+    "e": "断片化された細胞がマクロファージに吸収されるのはアポトーシスの特徴。「剪断細胞質」はネクローシスのみには該当しない。",
+    "m": false
   },
   {
-    "t": "前立腺肥大症（誤り）",
-    "q": "前立腺肥大症について誤っているものを一つ選べ。",
+    "t": "前立腺過形成（誤り）",
+    "q": "前立腺肥大症について誤っているものを1つ選べ。",
     "o": [
       "a. 前立腺肥大症は前立腺がんの前がん病変である",
       "b. 前立腺の結節性過形成は尿道狭窄の原因になる",
@@ -927,28 +3628,62 @@ var Q_b21M=
       "e. 間質細胞の過形成が見られる"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "BPHと前立腺がんの間に直接的な相関はなく、前がん病変ではない。BPHは内腺（移行域）に発生しやすく、前立腺がんは外腺に発生しやすい。"
+    "e": "前立腺肥大症と前立腺がんの間に相関はなく、前がん病変ではない。BPHは内腺に、前立腺がんは外腺に発生しやすい。",
+    "m": false
+  },
+  {
+    "t": "Barrett食道",
+    "q": "バレット食道について正しいものを選べ（食道下部の病理画像あり）。",
+    "o": [
+      "a. 食道下部から胃の噴門部に見られる",
+      "b. ルゴール液不染の部分はバレット食道という",
+      "c. 胃の壁細胞の塩酸分泌腺がみられる",
+      "d. Congo redで緑に染色される",
+      "e. 食道腺癌のリスクになる"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "Congo red染色はアミロイドと特異的に結合し、偏光顕微鏡で黄緑色を呈する。ルゴール液はグリコーゲンと反応し、異形成部位では不染となる（バレット食道は胃酸逆流による化生）。",
+    "m": false
   },
   {
     "t": "重症筋無力症（誤り）",
-    "q": "重症筋無力症について誤っているものを一つ選べ。",
+    "q": "重症筋無力症について誤っているものを1つ選べ。",
     "o": [
       "a. 50〜70%に胸腺過形成または胸腺腫が見られる",
       "b. アセチルコリン受容体抗体が産生されることが原因である",
       "c. 治療は胸腺摘出・抗コリンエステラーゼ薬・副腎皮質ステロイドなどがある",
       "d. 胚中心を伴わないリンパ濾胞を形成する",
-      "e. 血清補体価の低値・高ガンマグロブリン血症が見られる"
+      "e. 血清補体価の低値、高ガンマグロブリン血症が見られる"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "重症筋無力症では胸腺髄質に胚中心を伴うリンパ濾胞の増生を認める。"
+    "e": "重症筋無力症：胸腺髄質に胚中心を伴うリンパ濾胞の増生を認める（胚中心あり）。",
+    "m": false
+  },
+  {
+    "t": "乾酪壊死",
+    "q": "上図の組織像（ラングハンス型巨細胞が取り囲む肉芽腫）について正しいものを選べ。",
+    "o": [
+      "a. 乾酪壊死",
+      "b. 融解壊死",
+      "c. 凝固壊死",
+      "d. 脂肪壊死",
+      "e. フィブリノイド壊死"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "Langhans型巨細胞が取り囲んで肉芽腫を形成＝結核の乾酪壊死の特徴的所見。",
+    "m": false
   },
   {
     "t": "再灌流障害",
-    "q": "急性心筋梗塞で心カテーテル検査後もトロポニンIが依然上昇していた。心筋に発生した可能性が最も高いものを選べ。",
+    "q": "54歳男性、3時間続く胸骨下胸痛。急性心筋梗塞と判断、心カテーテル検査後もトロポニンIが依然上昇。心筋に発生した可能性が最も高いものを選べ。",
     "o": [
       "a. 細胞の再生",
       "b. 薬剤による副反応",
@@ -957,56 +3692,158 @@ var Q_b21M=
       "e. 再灌流障害"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "再灌流障害→虚血病変に再度血流が回復した際に活性酸素種などにより臓器にかえって障害を与えること。"
+    "e": "再灌流障害：虚血病変に再度血流が回復した際にかえって臓器に障害を与えること。活性酸素種が呼吸能に障害を与えるためと言われている。",
+    "m": false
   },
   {
-    "t": "フィブリノイド壊死",
-    "q": "フィブリノイド壊死について最も正しいものを選べ。",
+    "t": "心筋梗塞（1ヶ月後）",
+    "q": "58歳男性、4時間続く胸痛。左室後壁に4cmの梗塞確認、血清CK 600U/L。1ヶ月後に見られる可能性が最も高い所見はどれか。",
+    "o": [
+      "a. 慢性炎症",
+      "b. 凝固壊死",
+      "c. 治癒",
+      "d. 線維瘢痕",
+      "e. 再生結節"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "心筋梗塞後の組織変化：24-48h=好酸化、1週=Mφ出現・毛細血管増生、2-6週=心筋線維消失、6週以降=線維瘢痕化。",
+    "m": false
+  },
+  {
+    "t": "脳梗塞（左中大脳動脈）",
+    "q": "68歳女性、突然の意識消失、発話不可、右腕は動かせない、2ヶ月後に左脳に大きな嚢胞性領域を確認。患者の脳で発生したイベントを正しく記述したものを選べ。",
+    "o": [
+      "a. 左前大脳動脈支配域の核融解",
+      "b. 左中大脳動脈支配域の融解壊死",
+      "c. 左中大脳動脈支配域の脂肪壊死",
+      "d. 左前大脳動脈支配域の凝固壊死",
+      "e. 左中大脳動脈支配域の凝固壊死"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "言語中枢（Wernicke野・Broca野）は中大脳動脈（MCA）支配域。脳は脂肪が多いため融解壊死を起こす。右腕麻痺（上肢優位）はMCA梗塞の特徴。",
+    "m": false
+  },
+  {
+    "t": "脂肪壊死（乳房）",
+    "q": "41歳女性、3週前に左胸を打撲、皮膚に陥凹。腫瘤は可動性がなく径1.5cm。組織像の正しい診断はどれか。",
+    "o": [
+      "a. 膿瘍",
+      "b. 脂肪壊死",
+      "c. 線維腺腫",
+      "d. 炎症性乳がん",
+      "e. 硬化性腺症"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "脂肪壊死：乳房外傷後に固い痛みのない腫瘤として残ることがある。超音波・マンモで星芒状の引きつれが特徴的。",
+    "m": false
+  },
+  {
+    "t": "フィブリノイド壊死（誤り）",
+    "q": "フィブリノイド壊死について正しいものを選べ（結節性多発性血管炎の写真あり）。",
     "o": [
       "a. 多発性結節性血管炎でみられる",
-      "b. 関節リウマチやベーチェット病でのみ見られる",
-      "c. necrobiosisともいう",
-      "d. 血管外膜よりも血管内膜に沈着する"
+      "b. 関節リウマチやベーチェット病でみられる",
+      "c. necrobiosis ともいう",
+      "d. 血管外膜よりも血管内膜に沈着する",
+      "e. onion skin-like 病変を形成する"
     ],
     "a": [
-      "A"
+      "d"
     ],
-    "e": "フィブリノイド壊死：血管壁にフィブリンと免疫複合体が沈着し好酸性に染まる。結節性多発動脈炎・関節リウマチ・SLEなどの膠原病で見られる。"
+    "e": "フィブリノイド壊死：漏出したフィブリン・免疫複合体がHE染色で明るいピンク色を呈する。炎症期には中膜・外膜に炎症細胞が浸潤する（内膜よりも外膜側に沈着する）。",
+    "m": false
   },
   {
-    "t": "翼状片（誤り）",
-    "q": "54歳男性（35年来の漁師）。数年前より左目の白目が黒目にかぶさるように拡大。この症状について誤っているものを選べ。",
+    "t": "von Gierke病",
+    "q": "乳児期から成長障害のある2歳の子供、発作・肝腫大・斑状出血、血糖値31mg/dL、肝生検でグリコーゲン陽性の空胞で満たされた細胞。最も適する疾患はどれか。",
     "o": [
-      "a. 角膜の結膜上皮化生がみられる",
-      "b. 結膜上皮の下に腫瘍性病変が見られる",
-      "c. 日光弾性線維症を認める",
-      "d. 屋内よりも屋外で働く人に多い"
+      "a. Hurler症候群",
+      "b. McArdle病",
+      "c. Pompe病",
+      "d. Tay-Sachs病",
+      "e. von Gierke病"
     ],
     "a": [
-      "B"
+      "e"
     ],
-    "e": "翼状片は反応性増殖性病変であり悪性腫瘍ではない。紫外線暴露による日光弾性線維症や角膜への結膜上皮化生が特徴。"
+    "e": "von Gierke病（糖原病I型）：glucose-6-phosphatase欠乏→肝グリコーゲン蓄積・重度の低血糖・肝腫大・成長障害。",
+    "m": false
   },
   {
-    "t": "神経芽細胞腫（誤り）",
+    "t": "Tay-Sachs病（欠損酵素）",
+    "q": "Tay-Sachs病を示唆する問題（Cherry red spotなど）。以下のうちどの酵素の異常か。",
+    "o": [
+      "a. α-L-Iduronidase",
+      "b. Galactosylceramidase",
+      "c. Glucocerebrosidase",
+      "d. Lysosomal α-glucosidase",
+      "e. Hexosaminidase A"
+    ],
+    "a": [
+      "e"
+    ],
+    "e": "Tay-Sachs病：Hexosaminidase A欠乏→GM2ガングリオシド蓄積。Cherry-red spot（黄斑部）が特徴。α-L-Iduronidase=Hurler症候群、Galactosylceramidase=Krabbe病、Glucocerebrosidase=Gaucher病、Lysosomal α-glucosidase=Pompe病。",
+    "m": false
+  },
+  {
+    "t": "神経芽腫（誤り）",
     "q": "神経芽腫について誤りを選べ。",
     "o": [
       "a. 交感神経節でみられることがある",
-      "b. カテコラミンを産生するためその代謝物でスクリーニングできる",
-      "c. 2歳以上で発症した場合1歳半未満で発症した場合よりも予後が悪い",
+      "b. カテコラミンを産生するため、カテコラミンの代謝物でスクリーニングできる",
+      "c. 2歳以上で発症した場合、1歳半未満で発症した場合よりも予後が悪い",
       "d. NMYC遺伝子の増幅が見られると予後不良",
       "e. 高分化の腫瘍である"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "神経芽細胞腫は未熟かつ未分化癌。予後不良因子：2歳以上・N-MYC遺伝子増幅・血清NSE高値・2n型核型。"
+    "e": "神経芽細胞腫は未熟かつ未分化癌（低分化）。予後不良因子：2歳以上・N-MYC遺伝子増幅・血清NSE高値・2n型核型。",
+    "m": false
+  },
+  {
+    "t": "網膜芽細胞腫",
+    "q": "1歳3ヶ月男児、左眼に外斜視と白色瞳孔、HE染色でFlexner-Wintersteinerロゼット確認。どの病態か？",
+    "o": [
+      "a. 神経芽細胞腫",
+      "b. 線維芽細胞腫",
+      "c. 髄芽細胞腫",
+      "d. 結膜細胞腫",
+      "e. 網膜芽細胞腫"
+    ],
+    "a": [
+      "e"
+    ],
+    "e": "網膜芽細胞腫：Flexner-Wintersteinerロゼット（白抜きの内腔）が特徴。RB1遺伝子異常。1歳頃の発症が多い。",
+    "m": false
+  },
+  {
+    "t": "新生児RDS",
+    "q": "25歳女性、妊娠28週で出産。生まれた女児に呼吸困難・チアノーゼ・肺のすりガラス様陰影、その後死亡。剖検で硝子膜像。原因として最も可能性が高いのはどれか。",
+    "o": [
+      "a. congenital toxoplasma",
+      "b. immaturity of lungs",
+      "c. marked fetal anemia",
+      "d. maternal toxemia of pregnancy",
+      "e. oligohydramnios"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "新生児RDS：肺サーファクタント不足（肺未熟性）が原因。妊娠33〜36週頃に十分な量が分泌される。28週では不足し、RDSをきたす。",
+    "m": false
   },
   {
     "t": "馬蹄腎",
-    "q": "馬蹄腎の診断とコメントについて正しいものを選べ。",
+    "q": "馬蹄腎の写真について診断とコメントで正しいものを選べ。",
     "o": [
       "a. これは羊蹄腎で腎機能に問題ない場合が多い",
       "b. これは馬蹄腎で腸管回転異常やメッケル憩室の合併が多い",
@@ -1015,13 +3852,14 @@ var Q_b21M=
       "e. これは羊蹄腎で腎機能の障害を注意する必要がある"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "馬蹄腎は腎下極が融合した先天奇形。腎機能は正常な場合が多い。合併奇形は約30%に見られる。"
+    "e": "馬蹄腎：両腎の下極が癒合した先天性腎奇形。腎機能に問題はない場合が多い。合併症（神経管欠損など）は約30%。",
+    "m": false
   },
   {
-    "t": "有害物質とヒ素（誤り）",
-    "q": "有害物質の対応で異なるものを選べ。",
+    "t": "有害物質（ヒ素）",
+    "q": "有害物質の一対一対応で異なるものを選べ。",
     "o": [
       "a. ヒ素－肺がん",
       "b. ベンゼン－急性骨髄性白血病",
@@ -1030,27 +3868,30 @@ var Q_b21M=
       "e. アクリルアミド－末梢神経障害"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "ヒ素→皮膚症状（角化・色素沈着）・末梢神経障害・肝障害が主な症状。"
+    "e": "ヒ素は皮膚障害（皮膚がん）・末梢神経障害・発熱・下痢を引き起こす（肺がんとは直接関連しない）。インジウムは間質性肺炎を引き起こす。",
+    "m": false
   },
   {
-    "t": "有害物質とインジウム（誤り）",
-    "q": "有害物質の対応として誤りを選べ。",
+    "t": "有害物質（インジウム）",
+    "q": "有害物質の一対一対応として誤りを選べ。",
     "o": [
       "a. アスベスト－中皮腫",
       "b. 紫外線－白内障",
       "c. 塩化ビニル－肝血管肉腫",
-      "d. インジウム－心疾患"
+      "d. インジウム－心疾患",
+      "e. ヒ素－皮膚障害"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "インジウム（酸化インジウム）→間質性肺炎・肺障害。心疾患との関連は薄い。"
+    "e": "インジウムは間質性肺炎を引き起こす（心疾患ではない）。",
+    "m": false
   },
   {
-    "t": "放射線治療の分割照射",
-    "q": "放射線治療で正常細胞を傷つけないようにするために適切な方法はどれか。",
+    "t": "放射線治療（分割照射）",
+    "q": "放射線治療で正常細胞を傷つけないようにするためにすべきことは何か。",
     "o": [
       "a. 治療前の抗凝固薬の投与",
       "b. 治療前のステロイド投与",
@@ -1059,85 +3900,156 @@ var Q_b21M=
       "e. 治療中の乳酸リンゲル液の投与"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "分割照射（fractionation）→正常細胞はDNA修復が可能だが腫瘍細胞は修復効率が低い→選択的に腫瘍を傷つける。"
+    "e": "分割照射：正常細胞はDNA修復能が高いため、放射線を分割して照射することで正常組織を保護しながら腫瘍を効果的に治療できる。",
+    "m": false
   },
   {
-    "t": "Pellagra",
-    "q": "下痢・皮膚炎・認知症を合併する疾患はどれか。",
+    "t": "ビタミンA欠乏（感染症）",
+    "q": "貧困コミュニティの子供で気道感染症が増加、成人後に角膜軟化症・尿路感染症・丘疹性皮膚炎が増加。どのビタミンの不足が最も可能性が高いか。",
     "o": [
-      "a. Beriberi（脚気）",
-      "b. Kwashiorkor",
-      "c. Pellagra（ペラグラ）",
-      "d. Scurvy（壊血病）",
-      "e. Rickets（くる病）"
+      "a. A",
+      "b. B1",
+      "c. E",
+      "d. D",
+      "e. K"
     ],
     "a": [
-      "C"
+      "a"
     ],
-    "e": "Pellagra→ナイアシン（ビタミンB3）欠乏→3D症状：Dermatitis（皮膚炎）・Diarrhea（下痢）・Dementia（認知症）。"
+    "e": "ビタミンA欠乏→呼吸器上皮の扁平化生→感染症増加。角膜軟化症・夜盲症も特徴的。上皮の分化・維持に必要。",
+    "m": false
   },
   {
-    "t": "オゾン",
-    "q": "有害ではあるが大気圏上空で紫外線をブロックしている物質は何か。",
+    "t": "ビタミン欠乏（誤り）",
+    "q": "ビタミン欠乏として一対一対応するものとして誤っているものを選べ。",
     "o": [
-      "a. オゾン",
-      "b. 二酸化硫黄",
-      "c. 二酸化窒素",
-      "d. 微粒子",
-      "e. 一酸化炭素"
+      "a. ビタミンA－類骨の減少",
+      "b. ビタミンC－歯肉出血",
+      "c. ナイアシン－認知機能低下",
+      "d. ビタミンB1－脚気",
+      "e. ビタミンB12－貧血"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "オゾン（O3）は成層圏では紫外線を吸収し地球上の生物を守るが、地表では大気汚染物質として呼吸器障害を引き起こす。"
+    "e": "類骨の減少はビタミンD欠乏による骨軟化症に伴う所見。ビタミンA欠乏では夜盲症・角膜軟化症・扁平化生が起こる。",
+    "m": false
   },
   {
     "t": "Auer小体",
-    "q": "急性骨髄性白血病においてazur顆粒とともに見られるものは何か。",
+    "q": "急性骨髄性白血病においてazur顆粒とともにみられるものは何か。",
     "o": [
       "a. ハインツ小体",
       "b. Lewy小体",
       "c. Auer小体",
-      "d. マロリー小体"
+      "d. マロリー小体",
+      "e. ニーマン小体"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "Auer小体→急性骨髄性白血病（AML）に特徴的な顆粒球系細胞内の針状封入体。ハインツ小体→赤血球内ヘモグロビン変性。Lewy小体→パーキンソン病。"
+    "e": "Auer小体：AML（急性骨髄性白血病）に特徴的。azur顆粒（リソソーム顆粒）が融合した針状・棒状の封入体。ハインツ小体=酸化ヘモグロビン（赤血球）、Lewy小体=パーキンソン病、マロリー小体=アルコール性肝障害。",
+    "m": false
   },
   {
-    "t": "腫瘍の定義（誤り）",
-    "q": "腫瘍について誤りを一つ選べ。",
+    "t": "壊血病（スコット卿）",
+    "q": "ロバートファルコンスコット卿の南極探検隊の遺体で、角化性肥厚性丘疹状発疹・斑状出血・歯肉の出血を伴う腫脹。死因として最も可能性が高いのは何か。",
     "o": [
-      "a. 良性腫瘍でも放っておくと悪性化する可能性がある",
-      "b. 腫瘍（Tumor）の由来は腫れ物であり腫瘤の形成が腫瘍の定義の一つである",
-      "c. 腫瘍は血管新生を誘導し栄養供給や老廃物代謝に用いる",
-      "d. 腫瘍は外部からの刺激から独立して無限に増殖する自律的増殖を行う"
+      "a. Beriberi",
+      "b. Kwashiorkor",
+      "c. Pellagra",
+      "d. Rickets",
+      "e. Scurvy"
     ],
     "a": [
-      "B"
+      "e"
     ],
-    "e": "白血病などの悪性腫瘍は腫瘤を形成しない。「腫瘤の形成が腫瘍の定義」は誤り。"
+    "e": "壊血病（Scurvy）：ビタミンC欠乏→コラーゲン合成障害→血管壁脆弱化→歯肉出血・斑状出血・角化性丘疹。ビタミンCは人間が内因的に生成できない。",
+    "m": false
   },
   {
-    "t": "出血性梗塞",
-    "q": "肺の出血性梗塞について見られるものはどれか。",
+    "t": "乳腺（正常）",
+    "q": "（正常乳腺組織の写真）適切なものを選べ。",
+    "o": [
+      "a. 腺房過形成が認められる",
+      "b. 末梢乳管周囲には腺房細胞を認めない",
+      "c. 小葉では筋上皮細胞が消失",
+      "d. 筋上皮細胞が増加している"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "非妊娠時の正常乳腺には腺房は見られない。末梢乳管周囲に腺房細胞を認めないのが正常所見。",
+    "m": false
+  },
+  {
+    "t": "家族性乳がん",
+    "q": "25歳女性、右胸に2cm・固くて不動性のしこり、家族歴あり。妹に見つかる変異遺伝子はどれか。",
+    "o": [
+      "a. BRCA1",
+      "b. Estrogen receptor",
+      "c. HER2/neu",
+      "d. TP53",
+      "e. Progesterone receptor"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "BRCA1/2：家族性乳がん・卵巣がんの感受性遺伝子。常染色体優性遺伝で50%の確率で遺伝。若年発症・家族歴が強い場合に示唆される。",
+    "m": false
+  },
+  {
+    "t": "塞栓症の原因",
+    "q": "塞栓症の原因として最も頻度が高いのは（　）である。",
+    "o": [
+      "a. 悪性腫瘍",
+      "b. 脂肪",
+      "c. 血栓",
+      "d. 寄生虫"
+    ],
+    "a": [
+      "c"
+    ],
+    "e": "塞栓の大多数は遊離した血栓（血栓塞栓）である。",
+    "m": false
+  },
+  {
+    "t": "骨髄塞栓（画像）",
+    "q": "病理画像について正しいものを選べ（骨髄様組織が血管内に見られる像）。",
+    "o": [
+      "a. 骨髄塞栓",
+      "b. 羊水塞栓",
+      "c. 膿瘍",
+      "d. 脂肪塞栓",
+      "e. 寄生虫塞栓"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "骨髄塞栓：骨折時などに骨髄成分（脂肪・造血細胞）が血管内に入り塞栓を起こす。",
+    "m": false
+  },
+  {
+    "t": "出血性梗塞（肺）",
+    "q": "上記の肺疾患でみられるものはどれか（出血性梗塞のマクロ画像）。",
     "o": [
       "a. 出血と梗塞",
       "b. 出血と浮腫",
       "c. 梗塞と浮腫",
-      "d. 腫瘍と炎症"
+      "d. 腫瘍と炎症",
+      "e. 凝固壊死のみ"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "出血性梗塞：虚血により血管が脆弱化した後、再開通時に出血が生じる。出血と梗塞の両方が見られる。"
+    "e": "出血性梗塞：一度梗塞後に再灌流により出血をきたすもの。肺・腸などで見られる。",
+    "m": false
   },
   {
-    "t": "免疫染色と治療薬",
-    "q": "治療薬の選択が関与しない免疫染色の抗体はどれか。",
+    "t": "治療薬と免疫染色",
+    "q": "ターゲットを標的とする治療薬の選択が関与しない免疫染色の抗体はどれか。",
     "o": [
       "a. CD20",
       "b. MelanA",
@@ -1145,13 +4057,29 @@ var Q_b21M=
       "d. PD-L1"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "CD20→リツキシマブの標的。HER2→トラスツズマブの標的。PD-L1→免疫チェックポイント阻害薬の標的。MelanAはメラノーマの診断マーカーだが特定の治療薬選択に直接関与しない。"
+    "e": "MelanAはメラノーマの診断マーカーだが、分子標的治療薬の選択指標としては用いられない。CD20=リツキシマブ、HER2=トラスツズマブ、PD-L1=免疫チェックポイント阻害薬の標的。",
+    "m": false
+  },
+  {
+    "t": "ショック（循環血液量減少性）",
+    "q": "循環血液量減少性ショックの代表的な原因はどれか。",
+    "o": [
+      "a. 脱水",
+      "b. 心筋症",
+      "c. 重症不整脈",
+      "d. 心タンポナーゼ"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "循環血液量減少性ショック：出血・脱水・熱傷・腹膜炎など。心筋症・重症不整脈=心原性。心タンポナーゼ=心外閉塞・拘束性。",
+    "m": false
   },
   {
     "t": "日本人の死因",
-    "q": "日本人の死因別死亡率において最も割合の高いものはどれか。",
+    "q": "日本人の死因別死亡率において最も割合の高いものは（　）である。",
     "o": [
       "a. 心疾患（高血圧を除く）",
       "b. 脳血管疾患",
@@ -1159,56 +4087,136 @@ var Q_b21M=
       "d. 血管性および詳細不明の認知症"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "日本人の死因：悪性新生物＞心疾患＞脳血管疾患＞老衰＞肺炎の順。"
+    "e": "日本人の死因順位：①悪性新生物→②心疾患→③脳血管疾患→④老衰→⑤肺炎の順番。",
+    "m": false
   },
   {
-    "t": "TNM分類",
-    "q": "TNM分類について正しいものを選べ。",
+    "t": "Nutmeg Liver",
+    "q": "Nutmeg Liverをきたす疾患はどれか。",
     "o": [
-      "a. T：リンパ節転移の程度、N：原発巣の大きさ、M：遠隔転移",
-      "b. T：原発巣の大きさ・深さ・広がり、N：リンパ行性転移、M：血行性転移・播種",
-      "c. T：転移の有無、N：原発巣の大きさ、M：リンパ節転移",
-      "d. T：血行性転移、N：播種、M：原発巣"
+      "a. 慢性うっ血",
+      "b. 急性うっ血",
+      "c. 急性肝炎",
+      "d. 肝膿瘍"
     ],
     "a": [
-      "B"
+      "a"
     ],
-    "e": "T（Tumor）→原発巣の大きさ・広がり。N（Node）→リンパ節転移。M（Metastasis）→遠隔転移（血行性・播種）。"
+    "e": "Nutmeg liver（ニクズク肝）：慢性うっ血による肝障害。小葉中心部が暗赤色、辺縁部が黄色化し、ナツメグ様の外観を呈する。",
+    "m": false
   },
   {
-    "t": "がん遺伝子（誤り）2",
+    "t": "一次止血（関係ない物質）",
+    "q": "一次止血に関係ない物質を選べ。",
+    "o": [
+      "a. 組織因子",
+      "b. 血小板",
+      "c. ADP",
+      "d. vWF"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "一次止血：血小板・vWF・ADP（血小板活性化に関与）が関係。組織因子（TF）は二次止血（凝固カスケードの外因系）を活性化する最も重要な因子。",
+    "m": false
+  },
+  {
+    "t": "ウィルヒョウの三要素",
+    "q": "血管内血栓症を引き起こす重要な異常（ウィルヒョウの三要素）は血流異常、内皮細胞障害、（　）である。",
+    "o": [
+      "a. 血小板増加",
+      "b. 血液凝固能亢進",
+      "c. 赤血球現象",
+      "d. 白血球増加"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "ウィルヒョウの三要素：①血液凝固能亢進、②血流異常（血流の停滞）、③内皮細胞傷害。",
+    "m": false
+  },
+  {
+    "t": "浮腫（漏出液・滲出液）",
+    "q": "浮腫とは水分が血管内から間質組織に移動する現象であるが、浮腫液のタンパク質濃度が高いものを（　）という。",
+    "o": [
+      "a. 生食液",
+      "b. 電解液",
+      "c. 滲出液",
+      "d. 漏出液"
+    ],
+    "a": [
+      "c"
+    ],
+    "e": "滲出液（高タンパク）：炎症・感染などで生じる。漏出液（低タンパク）：うっ血・低タンパク血症などで生じる。",
+    "m": false
+  },
+  {
+    "t": "脳（梗塞画像）",
+    "q": "脳の画像についてみられる所見は以下のうちどれか（中大脳動脈領域の梗塞像）。",
+    "o": [
+      "a. 出血",
+      "b. 梗塞",
+      "c. 膿瘍",
+      "d. 動脈瘤"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "脳梗塞：中大脳動脈領域の梗塞のマクロ画像。融解壊死による嚢胞性変化が見られる。出血性梗塞との鑑別が重要。",
+    "m": false
+  },
+  {
+    "t": "腫瘍の分類",
+    "q": "以下のうち正しい選択肢はどれか。",
+    "o": [
+      "a. 悪性腫瘍－がん",
+      "b. 悪性上皮性腫瘍－肉腫",
+      "c. 悪性間葉性腫瘍－癌腫",
+      "d. メラノサイト－良性腫瘍",
+      "e. 悪性中皮腫－良性腫瘍"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "がん=悪性腫瘍（上皮・間葉問わず）。癌腫=悪性上皮性腫瘍。肉腫=悪性間葉性腫瘍。メラノサイト由来の悪性腫瘍=悪性黒色腫（がんの一種）。",
+    "m": false
+  },
+  {
+    "t": "がん遺伝子（誤り）",
     "q": "以下のうち誤っている選択肢はどれか。",
     "o": [
       "a. 発がんの原因となる遺伝子をドライバー遺伝子という",
       "b. 遺伝子はイタリック体で表記する",
       "c. がん遺伝子は染色体の片側アレルが変異し不活性化されることで癌の発生に関与する",
       "d. がん抑制遺伝子は両方の染色体が変異して不活性化されることで癌の発生に関与する",
-      "e. Geneticな異常とはDNAの塩基配列に異常が生じるものである"
+      "e. GeneticNa異常とはDNAの塩基配列に異常が生じるものである"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "がん遺伝子→片側アレルの活性化変異で機能亢進（不活性化ではなく活性化）。がん抑制遺伝子→両アレルの不活性化（two-hit仮説）。"
+    "e": "がん遺伝子は片側アレルのホットスポットに集中する変異で活性化（アクセル踏みっぱなし）。不活性化ではなく活性化が正しい。がん抑制遺伝子は両方のアレルが変異して不活性化（ブレーキ喪失）。",
+    "m": false
   },
   {
-    "t": "慢性炎症の病理所見",
-    "q": "慢性炎症では液性および細胞性の特異的免疫反応が見られる。これを示唆する病理的所見はどれか。",
+    "t": "器質化",
+    "q": "肉芽組織が異物内に新生血管を伴い異物の自己組織化を行うことを何というか。",
     "o": [
-      "a. 出血",
-      "b. 肉芽腫形成",
-      "c. 炎症細胞の浸潤",
-      "d. 血管増殖"
+      "a. 器質化",
+      "b. 肉芽化",
+      "c. 被包化",
+      "d. 瘢痕化"
     ],
     "a": [
-      "B"
+      "a"
     ],
-    "e": "慢性炎症では獲得免疫が主体。類上皮細胞・ラングハンス型巨細胞からなる肉芽腫形成が特徴的な所見。"
+    "e": "器質化：異物や壊死組織に肉芽組織（線維芽細胞・新生血管・炎症細胞）が侵入して置換されること。",
+    "m": false
   },
   {
     "t": "DAMPs",
-    "q": "DAMPs（Damage-associated molecular patterns）に含まれるものを正しく示した選択肢はどれか。\n1. ATP　2. 核酸　3. 核蛋白　4. 熱ショックプロテイン",
+    "q": "DAMPsとは自然免疫系の細胞が事故の障害を認識するための損害に関する分子パターンをさす。以下のうちDAMPsに含まれるものを正しく示した選択肢はどれか。（1.ATP 2.核酸 3.核蛋白 4.熱ショックプロテイン）",
     "o": [
       "a. 1,2,3,4",
       "b. 1,3,4",
@@ -1216,13 +4224,14 @@ var Q_b21M=
       "d. 4"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "DAMPs→自然免疫系が自己の障害を認識するための分子パターン。損傷細胞から放出されるATP・核酸・核蛋白・熱ショックプロテインなどが含まれる。"
+    "e": "DAMPs（Damage-associated molecular patterns）：細胞が傷害を受けた際に放出される内因性分子。ATP・核酸・核タンパク・熱ショックプロテインなど、壊れた細胞由来の部品を自然免疫系が認識する。",
+    "m": false
   },
   {
     "t": "X連鎖伴性遺伝",
-    "q": "X連鎖伴性遺伝の疾患を正しく示したものを選べ。\n1. Wiskott-Aldrich症候群　2. 毛細血管拡張性失調　3. 無γグロブリン血症　4. 重症複合免疫不全症",
+    "q": "X連鎖伴性遺伝の疾患を示しているうちで正しいものを選べ。（1.Wiskott-Aldrich症候群 2.毛細血管拡張性失調 3.無γグロブリン血症 4.重症複合免疫不全症）",
     "o": [
       "a. 1,2,3,4",
       "b. 1,3,4",
@@ -1230,13 +4239,14 @@ var Q_b21M=
       "d. 4"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "毛細血管拡張性失調（AT）は常染色体劣性遺伝。Wiskott-Aldrich症候群・無γグロブリン血症・SCID（一部）はX連鎖伴性遺伝。"
+    "e": "X連鎖伴性遺伝：Wiskott-Aldrich症候群（WAS遺伝子）、無γグロブリン血症（BTK遺伝子）、重症複合免疫不全症（IL2RG遺伝子など）。毛細血管拡張性失調は常染色体劣性遺伝。",
+    "m": false
   },
   {
-    "t": "Grocott染色とカンジダ",
-    "q": "食道の白苔部からの菌体をGrocott染色した際に観察されたものが糸状菌だった。免疫不全で起こるものはどれか。",
+    "t": "Grocott染色（カンジダ）",
+    "q": "食道の白苔部から接種した菌体をGrocott染色した際に観察されたもの（糸状菌様の菌体）。図に示される免疫不全症を引き起こすものはどれか。",
     "o": [
       "a. カンジダ",
       "b. アスペルギルス",
@@ -1245,9 +4255,10 @@ var Q_b21M=
       "e. HHV-8"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "Grocott染色→真菌を染め出す。食道白苔＋糸状菌形態→カンジダ性食道炎。免疫不全（HIV・化学療法など）で日和見感染として発症。"
+    "e": "Grocott染色は真菌を染め出す方法。カンジダは糸状菌（仮性菌糸）であり食道に感染した場合白苔を伴う。食道カンジダ症は免疫不全（HIV・ステロイド使用など）に合併する日和見感染。",
+    "m": false
   },
   {
     "t": "II型アレルギー",
@@ -1260,53 +4271,57 @@ var Q_b21M=
       "e. 気管支喘息"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "II型（細胞傷害型）→尋常性天疱瘡（抗デスモグレイン抗体）。I型→アレルギー性鼻炎・アトピー・喘息・結膜炎。"
+    "e": "II型（細胞傷害型）：尋常性天疱瘡（抗デスモグレイン抗体→接着分子攻撃）、重症筋無力症、溶血性貧血など。I型（IgE介在性）：アレルギー性鼻炎・アトピー・気管支喘息。",
+    "m": false
   },
   {
-    "t": "アレルギーの種類（正しい）",
+    "t": "アレルギー（正しい組み合わせ）",
     "q": "正しいものを選びなさい。",
     "o": [
-      "a. 水疱性類天疱瘡－デスモグレイン抗体",
+      "a. 水疱性類天疱瘡－デスモグレイン",
       "b. 血液型不適合妊娠－ABO不適合",
-      "c. 重症筋無力症－抗AChR（アセチルコリン受容体）抗体",
+      "c. 重症筋無力症－抗Ach抗体",
       "d. 急性糸球体腎炎－抗原抗体複合体の沈着"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "水疱性類天疱瘡→抗基底膜抗体（デスモグレインは尋常性天疱瘡）。血液型不適合妊娠→Rh不適合。重症筋無力症→抗AChR抗体（これは正しい）。急性糸球体腎炎→III型アレルギー（免疫複合体沈着）が正しい。"
+    "e": "急性糸球体腎炎はIII型アレルギー（免疫複合体型）で抗原抗体複合体の沈着が特徴。水疱性類天疱瘡は基底膜に対する自己抗体、血液型不適合はRh不適合、重症筋無力症は抗Ach受容体抗体。",
+    "m": false
   },
   {
-    "t": "IgG4関連疾患（誤り）",
-    "q": "IgG4関連疾患について誤っているものを一つ選べ。",
+    "t": "IgG4関連疾患",
+    "q": "IgG4関連疾患について誤っているものを1つ選べ。",
     "o": [
       "a. 自己免疫性膵炎と膵癌の鑑別が必要である",
       "b. 病理組織学的にIgG4陽性細胞の浸潤が認められる",
-      "c. Mikulicz病の臨床症状はシェーグレン症候群と類似する",
+      "c. Mikulitz病の臨床症状はシェーグレン症候群と類似する",
       "d. 40歳代に好発する",
       "e. 無痛性のリンパ節腫大がIgG4関連疾患でみられる"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "IgG4関連疾患→中高年（60代）男性に好発。膵炎・涙腺・唾液腺に多い。"
+    "e": "IgG4関連疾患は中高年男性（60代）に好発する（40代ではない）。",
+    "m": false
   },
   {
     "t": "SLE（誤り）",
-    "q": "SLEについて誤っているものを一つ選べ。",
+    "q": "SLEについて誤っているものを1つ選べ。",
     "o": [
       "a. 10〜30代の女性に好発する",
       "b. SLEでみられる抗体に抗dsDNA抗体がある",
       "c. 症状として光線過敏症があげられる",
-      "d. 補体低下・高γグロブリン血症がみられる",
+      "d. 血清補体価が低く血清γグロブリン値が高い",
       "e. SLEの心血管病変にLibman-Sachs型の心内膜炎がある"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "補体低下と高γグロブリン血症はSLEの正しい所見。Libman-Sachs心内膜炎（疣贅性心内膜炎）もSLEの特徴。問題作成上の選択肢を確認要。"
+    "e": "SLEでは補体が低下する（免疫複合体による消費）が、高ガンマグロブリン血症は見られる。血清補体低値＋γグロブリン高値は両方正しく、組み合わせ自体は誤りではない。設問の答えは問題復元に基づきDとする。",
+    "m": false
   },
   {
     "t": "皮膚筋炎",
@@ -1319,24 +4334,42 @@ var Q_b21M=
       "e. 橋本病"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "皮膚筋炎の特徴的皮膚所見：ヘリオトロープ疹（眼瞼周囲の浮腫性紅斑）・Gottron徴候（手指関節伸側の落屑を伴う紅斑）。"
+    "e": "皮膚筋炎：Gottron徴候（手指関節伸側の落屑を伴う紅斑）・ヘリオトロープ疹（眼瞼周囲の浮腫・紅斑）が特徴。",
+    "m": false
   },
   {
-    "t": "関節リウマチ（誤り）2",
+    "t": "半月体",
+    "q": "赤線で囲まれたものは何を形成しているか（急性糸球体腎炎の病理画像）。",
+    "o": [
+      "a. 半月体",
+      "b. ワイヤーループ",
+      "c. フィブリノイド",
+      "d. メサンギウム増殖",
+      "e. 基底膜二重化"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "半月体：ANCA関連腎炎・抗糸球体基底膜抗体が原因の急速進行性糸球体腎炎で見られる。フィブリンの析出と増殖した上皮細胞からなる。",
+    "m": false
+  },
+  {
+    "t": "関節リウマチ（誤り）",
     "q": "関節リウマチの記述として誤っているものを選べ。",
     "o": [
       "a. 環椎関節の亜脱臼を合併しやすい",
       "b. 生命予後に影響する関節外症状として血管炎があげられる",
       "c. 抗CCP抗体は疾患特異性が高いため診断に有用である",
       "d. 好発部位は近位指節間関節である",
-      "e. 炎症の主座は滑膜及び関節"
+      "e. 炎症の主座は滑膜および関節"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "関節リウマチの生命予後に関わる症状→肺病変・リウマトイド皮下結節・アミロイドーシス。DIP関節は障害されにくい（PIPやMCPに好発）。"
+    "e": "血管炎を関節外症状として発生すると悪性関節リウマチになる（生命予後に影響するが関節リウマチの一般的な関節外症状は肺病変・リウマトイド皮下結節・アミロイドーシスなど）。",
+    "m": false
   }
 ]
 ;
@@ -1353,131 +4386,173 @@ var Q_b23M=
       "e. ポリ塩化ビフェニル－催奇形性"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "アクリルアミド→末梢神経障害。白内障→紫外線・インジウムなど。インジウム→間質性肺炎（正しい対応）。"
+    "e": "アクリルアミドは末梢神経障害の原因となる（白内障ではない）。インジウムは間質性肺炎を引き起こす。紫外線は白内障の原因となる。",
+    "m": false
   },
   {
     "t": "小体と疾患（誤り）",
     "q": "小体の名前と疾患の組み合わせについて誤っているものを選べ。",
     "o": [
       "a. マロリー小体－アルコール性肝障害",
-      "b. Lewy小体－日本脳炎ウイルス",
+      "b. レビー小体－日本脳炎ウイルス",
       "c. ネグリ小体－狂犬病ウイルス",
-      "d. Auer小体－白血病",
+      "d. アウエル小体－白血病",
       "e. ラッセル小体－多発性骨髄腫"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "Lewy小体→パーキンソン病・レビー小体型認知症。ネグリ小体→狂犬病。ラッセル小体→形質細胞腫・多発性骨髄腫。マロリー小体→アルコール性肝障害。"
+    "e": "レビー小体はパーキンソン病において脳の神経細胞内にたまる異常タンパク質（α-シヌクレイン）。日本脳炎ウイルスとは関係ない。ネグリ小体は狂犬病ウイルスの封入体。",
+    "m": false
   },
   {
-    "t": "ロゼットと腫瘍",
-    "q": "ロゼットの形と疾患の組み合わせとして正しいものを選べ。",
+    "t": "萎縮の原因（誤り）",
+    "q": "萎縮の原因で誤っているものを選べ。",
     "o": [
-      "a. Flexner-Wintersteiner Rosette－網膜芽細胞腫",
-      "b. Flexner-Wintersteiner Rosette－膠芽腫",
-      "c. Homer Wright Rosette－網膜芽細胞腫",
-      "d. Homer Wright Rosette－膠芽腫",
-      "e. 血管周囲性ロゼット－網膜芽細胞腫",
-      "f. 血管周囲性ロゼット－神経膠芽腫"
+      "a. 負荷の減少",
+      "b. 血流の減少",
+      "c. 神経伝達の消失",
+      "d. 栄養不足",
+      "e. 細胞数の増加"
     ],
     "a": [
-      "A"
+      "e"
     ],
-    "e": "Flexner-Wintersteiner→網膜芽細胞腫（白抜きの内腔）。Homer Wright偽ロゼット→神経芽細胞腫・髄芽腫（好酸性線維）。血管周囲性偽ロゼット→脳室上衣腫・膠芽腫。"
+    "e": "萎縮の原因：負荷の減少（廃用性萎縮）・血流の減少・神経伝達の消失（神経原性萎縮）・栄養不足。細胞数の増加は過形成であり萎縮の原因ではない。",
+    "m": false
   },
   {
     "t": "放射線治療の副作用",
-    "q": "56歳男性、喉頭扁平上皮癌に対し40Sv分割照射。1年後に肉眼的残存腫瘍なし。患者に最も起こりやすい副作用を選べ。",
+    "q": "40Sv（4000cGy）の放射線を喉頭の扁平上皮癌に分割照射。1年後に残存腫瘍の痕跡なし。最も起こりやすい副作用はどれか。",
     "o": [
       "a. Azoospermia（無精子症）",
-      "b. Cerebral atrophy（大脳萎縮）",
+      "b. Cerebral atrophy（大脳の萎縮）",
       "c. Colonic ulceration（結腸潰瘍）",
       "d. Marrow aplasia（骨髄無形成）",
       "e. Vascular fibrosis（血管の線維化）"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "頸部への放射線照射→血管の線維化が最も起こりやすい副作用。骨髄無形成・腸管潰瘍・精子減少は照射部位次第。"
+    "e": "喉頭への放射線照射による晩期副作用として、照射野内の血管の線維化（vascular fibrosis）が最も起こりやすい。骨髄無形成は骨髄への直接照射時、無精子症は睾丸照射時に問題となる。",
+    "m": false
+  },
+  {
+    "t": "Tay-Sachs病",
+    "q": "生後6ヶ月頃から周囲に無関心、中枢神経スフィンゴ糖脂質蓄積、眼底に cherry-red spot、1歳半頃からけいれん頻発、2歳2ヶ月で死亡。この病気の診断として正しいのはどれか。",
+    "o": [
+      "a. テイサックス病",
+      "b. Fabry病",
+      "c. Gaucher病",
+      "d. Pompe病",
+      "e. Hurler症候群"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "Tay-Sachs病：HexosaminidaseA欠乏→GM2ガングリオシド蓄積。中枢神経・末梢神経に蓄積し、Cherry-red spot・神経症状が特徴。",
+    "m": false
   },
   {
     "t": "スフィンゴ糖脂質（誤り）",
     "q": "スフィンゴ糖脂質の病気について誤りを選べ。",
     "o": [
       "a. Fabry病はGD1bの蓄積",
-      "b. ボツリヌス毒素はGT1bに結合する",
-      "c. Gb3に志賀毒素が結合する",
-      "d. GM2にウェルシュ菌のδ毒素が結合する"
+      "b. ボツリヌス毒素はGT1bに結合",
+      "c. 破傷風毒素はGT1bに結合",
+      "d. Gb3に志賀毒素が結合する",
+      "e. GM2にウェルシュ菌のδ毒素が結合"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "Fabry病→α-ガラクトシダーゼA欠損によるGb3（globotriaosylceramide）蓄積。GD1bの蓄積は別の疾患。"
+    "e": "Fabry病はα-ガラクトシダーゼA欠乏によりGb3（グロボトリアオシルセラミド）が蓄積する。GD1bはGaucher病などに関連するが、Fabry病ではない。",
+    "m": false
+  },
+  {
+    "t": "Barrett食道（誤り）",
+    "q": "上記の病態（Barrett食道）について誤っているものを選べ。",
+    "o": [
+      "a. 食道下部から胃の噴門部に見られる",
+      "b. 胃の壁細胞の塩酸分泌腺がみられる",
+      "c. Congo redで緑に染色される",
+      "d. ルゴール液不染の部分はバレット食道という"
+    ],
+    "a": [
+      "c"
+    ],
+    "e": "Congo red染色はアミロイドに特異的であり、バレット食道でCongo redで緑に染色されるというのは誤り。ルゴール液はグリコーゲンと反応し、異形成・がん部位で不染となる。",
+    "m": false
   },
   {
     "t": "薬剤催奇形（誤り）",
     "q": "薬剤による催奇形で誤っているものを選べ。",
     "o": [
-      "a. ワーファリン－Dandy-Walker症候群",
-      "b. アドリアマイシン－腎障害",
-      "c. テオフィリン－不整脈",
-      "d. アドリアマイシン－肺の繊維化"
+      "a. ワーファリン→ダンディー・ウォーカー",
+      "b. アドリアマイシン→腎障害",
+      "c. テオフィリン→不整脈",
+      "d. アドリアマイシン→肺の繊維化",
+      "e. サリドマイド→アザラシ肢症"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "アドリアマイシン（ドキソルビシン）の主な副作用は心筋障害（心毒性）・骨髄抑制。肺の繊維化はブレオマイシンの副作用。"
+    "e": "アドリアマイシン（ドキソルビシン）の主な副作用は心毒性（心筋症）と骨髄抑制。肺の線維化はブレオマイシンの副作用。",
+    "m": false
   },
   {
     "t": "脂肪壊死（誤り）",
-    "q": "脂肪壊死になるもので誤りをひとつ選べ。",
+    "q": "脂肪壊死になるもので誤りを1つ選べ。",
     "o": [
       "a. 乳房をぶつける",
       "b. 振動病",
       "c. 事故による腹部外傷",
       "d. 急性出血性膵炎",
-      "e. 膵臓のインスリン分泌腫瘍（インスリノーマ）"
+      "e. 膵臓のインスリン分泌腫瘍"
     ],
     "a": [
-      "B"
+      "c"
     ],
-    "e": "脂肪壊死→外傷性（乳房打撲・腹部外傷）・酵素性（急性膵炎でリパーゼ漏出）。振動病は末梢神経・血管障害であり脂肪壊死とは関連しない。"
+    "e": "脂肪壊死の主な原因：乳房外傷・膵炎（膵リパーゼによる周囲脂肪壊死）。事故による腹部外傷は脂肪壊死より出血・臓器損傷が主体。",
+    "m": false
   },
   {
-    "t": "アポトーシス（誤り）2",
+    "t": "アポトーシス（誤り）",
     "q": "アポトーシスについて誤っているものを選べ。",
     "o": [
       "a. 放射線治療ではDNA損傷によって内在性の経路が活性化",
-      "b. Tay-Sachs病はGM2のリソソームへの蓄積によるアポトーシス",
+      "b. テイサックス病はGM2の小胞体への蓄積によるアポトーシス",
       "c. アポトーシスでは細胞は小さくなる",
-      "d. アポトーシスでは核が断片化する",
-      "e. 色素性網膜症はロドプシンの折りたたみ異常によりアポトーシスが引き起こされる"
+      "d. 核が断片化する",
+      "e. 色素性〇〇はロドプシンの折りたたみ異常によりアポトーシスが引き起こされる"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "Tay-Sachs病→GM2はリソソームへの蓄積（リソソーム蓄積症）であり、小胞体への蓄積ではない。アポトーシスでは核は断片化し、細胞は収縮する。"
+    "e": "Tay-Sachs病はGM2のリソソームへの蓄積（小胞体ではない）。ERストレスによるアポトーシスはリソソーム蓄積症でもみられるが蓄積部位はリソソーム。核の断片化はアポトーシスの特徴的所見（正しい）。",
+    "m": false
   },
   {
     "t": "鉛中毒（誤り）",
     "q": "鉛について誤っているものを選べ。",
     "o": [
-      "a. 電池の製造・リサイクルの職歴があった場合鉛中毒を疑う",
-      "b. スプレー塗装の職歴があった場合鉛中毒を疑う",
-      "c. 鉛は骨のリモデリングを阻害する",
-      "d. 鉛に腎障害がある"
+      "a. 電池焼却の職歴があった場合鉛中毒を疑う",
+      "b. 噴霧塗装の職歴があった場合鉛中毒を疑う",
+      "c. リードラインはX線での骨端の放射線密度増強",
+      "d. 鉛はカルシウムと拮抗して軟骨のリモデリングを阻害する",
+      "e. 腎障害・貧血を引き起こすこともある"
     ],
     "a": [
-      "A"
+      "a"
     ],
-    "e": "電池の製造・解体（焼却ではなく）で鉛曝露あり。「電池燃やし屋」という分類が不正確。骨リモデリング阻害・腎障害・貧血・神経障害は正しい。"
+    "e": "電池の製造・リサイクル（焼却ではなく製造・解体）で鉛暴露のリスクがある。噴霧塗装は1960年以前の鉛含有塗料で暴露機会があった。焼却は主に水銀・ダイオキシンが問題。",
+    "m": false
   },
   {
-    "t": "免疫染色と治療薬2（誤り）",
-    "q": "抗原レセプター検査として（治療薬の標的として使う免疫染色の抗体として）誤っているものを選べ。",
+    "t": "抗原レセプター検査（誤り）",
+    "q": "抗原レセプター検査として誤っているものを選べ。",
     "o": [
       "a. ALK",
       "b. Her2",
@@ -1486,27 +4561,124 @@ var Q_b23M=
       "e. PD-L1"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "ALK→ALK阻害薬。HER2→トラスツズマブ。CD20→リツキシマブ。PD-L1→免疫チェックポイント阻害薬。CD30はブレンツキシマブの標的でもあるが、問題では治療標的外として選ばせている。"
+    "e": "CD30はリンパ腫（ホジキンリンパ腫・未分化大細胞型リンパ腫）の診断マーカーだが、現時点で標準的な分子標的治療の抗原レセプター検査としては含まれない。ALK・HER2・CD20・PD-L1は分子標的治療の選択に用いられる。",
+    "m": false
+  },
+  {
+    "t": "心筋壊死（誤り）",
+    "q": "心筋の壊死について誤りを選べ。",
+    "o": [
+      "a. 虚血が始まって2時間で光学顕微鏡で死んだように見える",
+      "b. QRSは心室の興奮を示すので、心筋梗塞で変化が見られやすい",
+      "c. 虚血が始まって20〜30分は心筋は生きている"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "心筋梗塞後の組織変化が光学顕微鏡で確認できるのは4〜12時間後。虚血開始後2時間では光学顕微鏡での変化はまだみられない。20〜30分の虚血では心筋はまだ可逆的変化の段階。",
+    "m": false
+  },
+  {
+    "t": "ペラグラ（症例）",
+    "q": "55歳女性、記憶力・日常タスクが悪化、水様性下痢3ヶ月、日光に晒された皮膚が赤くなりうろこ状。最も可能性の高い病気はどれか。",
+    "o": [
+      "a. Beriberi（脚気）",
+      "b. Cheilosis（口唇症）",
+      "c. Hypothyroidism（甲状腺機能低下症）",
+      "d. Marasmus",
+      "e. Pellagra"
+    ],
+    "a": [
+      "e"
+    ],
+    "e": "ペラグラ：ナイアシン（ビタミンB3）欠乏→3Ds（Dermatitis皮膚炎、Diarrhea下痢、Dementia認知症）が特徴。日光露出部位の皮膚炎が典型的。",
+    "m": false
+  },
+  {
+    "t": "壊血病（スコット卿）",
+    "q": "南極探検隊員の遺体で角化性肥厚性丘疹状発疹・斑状出血・歯肉の出血を伴う腫脹。死因として最も可能性が高いのはどれか。",
+    "o": [
+      "a. Beriberi（脚気）",
+      "b. Kwashiorkor",
+      "c. Pellagra",
+      "d. Pernicious anemia（悪性貧血）",
+      "e. Rickets（くる病）",
+      "f. Scurvy（壊血病）"
+    ],
+    "a": [
+      "f"
+    ],
+    "e": "壊血病（Scurvy）：ビタミンC欠乏→コラーゲン合成障害→血管壁脆弱化→歯肉出血・斑状出血・角化性丘疹。ビタミンCは食事から継続的に摂取が必要。",
+    "m": false
+  },
+  {
+    "t": "神経芽細胞腫（MYCN）",
+    "q": "生後6ヶ月男児、右副腎を含む5.5cm充実性腫瘤、24時間尿でHVA・VMA濃度上昇。この病変で予後不良に関連している可能性が最も高いものはどれか。",
+    "o": [
+      "a. 年齢が1歳未満であること",
+      "b. 高二倍性（Hyperdiploidy）",
+      "c. 腎奇形",
+      "d. MYCN（NMYC）癌遺伝子の増幅",
+      "e. 多数の神経節細胞の存在"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "神経芽細胞腫の予後不良因子：N-MYC遺伝子増幅・2歳以上・血清NSE高値・2n型核型。予後良好因子：1歳未満・Hyperdiploidy・神経節細胞多数。",
+    "m": false
+  },
+  {
+    "t": "家族性乳がん（BRCA1）",
+    "q": "25歳女性、右胸に2cm・固くて不動性のしこり、家族歴あり。次のうち彼女の妹に見つかる変異遺伝子はどれか。",
+    "o": [
+      "a. BRCA1",
+      "b. Estrogen receptor",
+      "c. HER2/neu",
+      "d. TP53",
+      "e. Progesterone receptor"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "BRCA1/2：家族性乳がん・卵巣がんの感受性遺伝子（がん抑制遺伝子）。常染色体優性遺伝で50%の確率で遺伝。若年発症・家族歴が強い場合に示唆される。",
+    "m": false
+  },
+  {
+    "t": "再灌流障害",
+    "q": "54歳男性、3時間続く激しい胸骨下胸痛、急性心筋梗塞、心カテーテル検査後もトロポニンIが依然上昇。心筋に発生した可能性が最も高いものを選べ。",
+    "o": [
+      "a. 細胞の再生",
+      "b. 薬剤による副反応",
+      "c. タンパク質合成の増加",
+      "d. 筋線維萎縮",
+      "e. 再灌流障害"
+    ],
+    "a": [
+      "e"
+    ],
+    "e": "再灌流障害：虚血後に血流が再開した際に活性酸素種などにより心筋がさらに傷害を受けること。トロポニンIの持続上昇はその証拠。",
+    "m": false
   },
   {
     "t": "感染性壊疽（誤り）",
     "q": "感染性壊疽について誤っているものを選べ。",
     "o": [
-      "a. 足趾壊疽は腹部大動脈末梢部や下肢の主幹動脈の閉塞によって起こる",
-      "b. 足趾壊疽は閉塞性血栓性血管炎における中小動脈の閉塞によって起こる",
-      "c. β溶血性レンサ球菌が原因の感染性壊疽の治療はβ溶血性レンサ球菌が薬剤耐性を持たない抗生物質が第一選択",
+      "a. 足趾壊疽は、腹部大動脈末梢部や下肢の主幹動脈の閉塞によって起こる",
+      "b. 足趾壊疽は、閉塞性血栓性血管炎における中小動脈の閉塞によって起こる",
+      "c. β溶血性レンサ球菌が原因の感染性壊疽の治療は、β溶血性レンサ球菌が薬剤耐性を持たない抗生物質が第一選択である",
       "d. 喫煙は閉塞性動脈硬化症のリスク因子である",
       "e. Clostridium perfringens・β溶血性レンサ球菌・Vibrio vulnificusが感染性壊疽の原因菌である"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "β溶血性レンサ球菌感染性壊疽の治療は外科的デブリードマンが最重要。抗生物質の選択肢の記述が医学的に問題がある。"
+    "e": "感染性壊疽のβ溶血性レンサ球菌は筋肉・壊死組織など血流のない部位で増殖するため、抗生物質単独では効果が低く、外科的デブリードマンが必須。抗生物質「のみ」が第一選択というのは誤り。",
+    "m": false
   },
   {
-    "t": "職業暴露（誤り）2",
+    "t": "職業暴露（誤り）",
     "q": "職業暴露における組み合わせで誤りを選べ。",
     "o": [
       "a. ヒ素－肺がん",
@@ -1516,24 +4688,42 @@ var Q_b23M=
       "e. 塩化ビニル－白内障"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "塩化ビニル→肝血管肉腫（Angiosarcoma）。白内障→紫外線・インジウムなど。"
+    "e": "塩化ビニルは肝血管肉腫の原因物質。白内障は紫外線・放射線・コルチコステロイドなどが原因。",
+    "m": false
   },
   {
-    "t": "エタノール代謝の中間産物",
+    "t": "エタノール代謝",
     "q": "エタノール代謝の中間産物はどれか。",
     "o": [
-      "a. エタノール",
-      "b. 酢酸（アセテート）",
+      "a. 乳酸",
+      "b. ピルビン酸",
       "c. アセトアルデヒド",
-      "d. NAD+",
-      "e. NADH"
+      "d. アセトン",
+      "e. ケトン体"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "エタノール→（ADH・MEOS）→アセトアルデヒド→（ミトコンドリアALDH）→酢酸（アセテート）。アセトアルデヒドが主要な中間産物で毒性を持つ。"
+    "e": "エタノール→（アルコール脱水素酵素・MEOS）→アセトアルデヒド→（ミトコンドリアのALDH）→酢酸。アセトアルデヒドは肝毒性・発がん性を持つ。",
+    "m": false
+  },
+  {
+    "t": "ビタミンD欠乏と原発性胆汁性肝硬変",
+    "q": "48歳女性が転落し右手首負傷。X線で顕著な骨減少と橈骨頭の骨折。\n(1)欠乏していると考えられるビタミンはどれか。\n(2)骨折の原因に関係する可能性が最も高い基礎疾患はどれか。",
+    "o": [
+      "a. ビタミンA / 萎縮性胃炎",
+      "b. ビタミンB / 慢性リンパ性白血病",
+      "c. ビタミンC / 冠状動脈硬化症",
+      "d. ビタミンD / 原発性胆汁性肝硬変",
+      "e. ビタミンE / 肺気腫"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "原発性胆汁性肝硬変（PBC）→慢性胆汁鬱滞性肝疾患→脂肪吸収障害→脂溶性ビタミンD不足→骨軟化症・骨折。(1)ビタミンD欠乏、(2)PBCが正解。",
+    "m": false
   },
   {
     "t": "アルコール代謝",
@@ -1542,12 +4732,30 @@ var Q_b23M=
       "a. アルコールはリソソームで代謝される",
       "b. アセトアルデヒドがミトコンドリアのALDHによって代謝される",
       "c. カタラーゼは代謝に無関係である",
-      "d. NADHが使われる"
+      "d. NADHが産生されNAD+が使われる",
+      "e. 主にペルオキシソームで代謝される"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "アルコール→アセトアルデヒド（ADHまたはMEOSにより）→酢酸（ミトコンドリアALDHにより）。カタラーゼも一部関与する。"
+    "e": "エタノール→アセトアルデヒド→（ミトコンドリアのALDH2）→酢酸。主な代謝経路：細胞質のADH（アルコール脱水素酵素）とMEOS（ミクロソームエタノール酸化系）。カタラーゼも代謝に関与する（微量）。",
+    "m": false
+  },
+  {
+    "t": "ビタミンA（上皮の分化成熟）",
+    "q": "上皮の分化成熟に必要とされているため、欠乏すると上皮に化生性変化を生じるビタミンはどれか。",
+    "o": [
+      "a. ビタミンA",
+      "b. ビタミンB",
+      "c. ビタミンC",
+      "d. ビタミンD",
+      "e. ビタミンE"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "ビタミンA欠乏→呼吸器上皮・泌尿器上皮の扁平化生→感染症増加。角膜軟化症・夜盲症（ロドプシン産生障害）も特徴的。",
+    "m": false
   },
   {
     "t": "フィブリノイド壊死（誤り）",
@@ -1559,55 +4767,76 @@ var Q_b23M=
       "d. 椎間板軟骨で見られる"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "フィブリノイド壊死は血管壁に見られる（結節性多発動脈炎・SLE・関節リウマチ・ベーチェット病）。椎間板軟骨には見られない。"
+    "e": "フィブリノイド壊死は血管壁（小・中動脈）に見られる所見であり、椎間板軟骨では見られない。結節性多発性動脈炎・関節リウマチ・ベーチェット病・悪性高血圧などで見られる。",
+    "m": false
   },
   {
-    "t": "Fabry病",
-    "q": "13歳男子、蛋白尿・血尿・幼少期から発汗困難・下痢・手足指の激痛・臍周囲から下腹部の暗赤色小丘疹（Angiokeratoma）。以下の選択肢のうち誤っているものを選べ。",
+    "t": "Fabry病（症例・誤り）",
+    "q": "13歳男子、汗をかきにくく下痢しやすい、手足に激痛、臍周囲から下腹部に暗赤色の小丘疹（Angiokeratoma）、蛋白尿・血尿。以下の選択肢のうち誤っているものを選べ。",
     "o": [
       "a. 文中の小丘疹とはAngiokeratomaである",
       "b. 心肥大（心筋症）が見られる",
-      "c. 糸球体上皮細胞や内皮細胞の泡沫化・電子顕微鏡で細胞質内の層板状・同心円状の膜様構造物が見られる",
-      "d. 腎機能障害は顕在化し慢性腎不全に至る",
+      "c. 糸球体上皮細胞や内皮細胞の細胞死の泡沫化、細胞質内の層板状・同心円状の膜様構造物が見られる",
+      "d. 腎機能障害は顕在化し、慢性腎不全に至る",
       "e. 神経線維の減少が見られる"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "Fabry病（α-ガラクトシダーゼA欠損→Gb3蓄積）：Angiokeratoma・心肥大・腎不全・神経症状（疼痛）。「神経線維の減少」は誤りで、末梢神経痛はあるが線維数減少とは異なる。"
+    "e": "Fabry病（αガラクトシダーゼA欠乏）：Gb3蓄積により末梢神経の神経線維増加（神経線維の減少ではなく神経線維の障害による疼痛）。Angiokeratoma・心筋症・腎不全・末梢神経障害が特徴。",
+    "m": false
   },
   {
-    "t": "トリソミー18",
-    "q": "妊娠18週の超音波で男児胎児に軽度成長遅延・心室中隔欠損・心房中隔欠損・馬蹄腎・小脳瘤を確認、トリソミーが疑われた。羊水穿刺でFISHを行う際、どの染色体のFISHを行ったか。",
+    "t": "脳梗塞（左中大脳動脈）",
+    "q": "68歳女性、突然の意識消失、発話不可、右腕は動かせない、2ヶ月後に左脳に大きな嚢胞性領域を確認。患者の脳で発生したイベントを正しく記述したものを選べ。",
     "o": [
-      "a. 21トリソミー（ダウン症候群）",
+      "a. 左前大脳動脈支配域の核融解",
+      "b. 左中大脳動脈支配域の融解壊死",
+      "c. 左中大脳動脈支配域の脂肪壊死",
+      "d. 左中大脳動脈支配域の凝固壊死",
+      "e. 左前大脳動脈支配域の凝固壊死"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "言語中枢（Wernicke野・Broca野）と右上肢運動野は左中大脳動脈（MCA）支配域。脳は脂肪が多いため融解壊死を起こす。2ヶ月後の嚢胞性変化が融解壊死の証拠。",
+    "m": false
+  },
+  {
+    "t": "馬蹄腎",
+    "q": "馬蹄腎の写真について正しいものを選べ。",
+    "o": [
+      "a. 写真は馬蹄腎と呼ばれるもので、腎機能に問題はない場合が多い",
+      "b. 写真は羊蹄腎と呼ばれるもので、腎機能に問題はない場合が多い",
+      "c. 写真は馬蹄腎と呼ばれるもので、腸回転異常やメッケル憩室を伴うことが多い",
+      "d. 写真は羊蹄腎と呼ばれるもので、胃粘膜や膵臓組織の出現を伴うことがある",
+      "e. 写真は馬蹄腎と判断され、その割面はスポンジ状を呈する"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "馬蹄腎：両腎の下極が癒合した先天性腎奇形。腎機能に問題はない場合が多い。スポンジ腎とは別疾患。",
+    "m": false
+  },
+  {
+    "t": "18トリソミー（FISH）",
+    "q": "27歳女性、妊娠18週。男児胎児、軽度成長遅れ、心室・心房中隔欠損、馬蹄腎、小脳瘤が判明しトリソミーが疑われた。羊水穿刺でFISH検査を行い確定した。どの染色体に対してFISHを行ったか。",
+    "o": [
+      "a. 21トリソミー",
       "b. X染色体",
       "c. Y染色体",
-      "d. 18トリソミー（Edwards症候群）"
+      "d. 18トリソミー"
     ],
     "a": [
-      "D"
+      "d"
     ],
-    "e": "トリソミー18（Edwards症候群）：心臓奇形・馬蹄腎・小脳瘤・成長遅延が特徴。トリソミー21（ダウン症）とは臨床像が異なる。"
+    "e": "18トリソミー（Edwards症候群）：心室・心房中隔欠損・馬蹄腎・小脳瘤など複数の奇形の組み合わせが特徴的。21トリソミー（Down症）は知的障害・心奇形が主体。",
+    "m": false
   },
   {
-    "t": "遺伝子疾患の特徴",
-    "q": "正しいものを選べ。",
-    "o": [
-      "a. 嚢胞性線維症はNaイオンの輸送ができなくなる",
-      "b. Marfan症候群はFBN1の異常で水晶体偏位などの眼症状が見られる",
-      "c. AAアミロイドーシスはトランスサイレチンの異常による",
-      "d. GM1ガングリオシドーシスはガラクトセレプロシドの異常による"
-    ],
-    "a": [
-      "B"
-    ],
-    "e": "Marfan症候群→FBN1（フィブリリン1）異常→水晶体偏位・大動脈解離・長い四肢。嚢胞性線維症→CFTRのCl-チャネル異常（Na+ではない）。"
-  },
-  {
-    "t": "酵素欠損疾患（誤り）",
+    "t": "病気と欠損酵素（誤り）",
     "q": "以下の病気と欠損酵素の組み合わせで誤っているものを選べ。",
     "o": [
       "a. Fabry病－αガラクトシダーゼ",
@@ -1617,122 +4846,358 @@ var Q_b23M=
       "e. McArdle病－ホスホリラーゼ"
     ],
     "a": [
-      "C"
+      "c"
     ],
-    "e": "Werner症候群→WRNヘリカーゼ（DNA修復酵素）の変異による早老症。βガラクトシダーゼ欠損→GM1ガングリオシドーシス。"
+    "e": "Werner症候群（早老症）はWRN遺伝子（RecQヘリカーゼ）の異常であり、βガラクトシダーゼ欠乏とは関係ない。βガラクトシダーゼ欠乏はGM1ガングリオシドーシスの原因。",
+    "m": false
   },
   {
-    "t": "深部静脈血栓のリスク（複数選択）",
-    "q": "下肢の深部静脈血栓のリスクファクターとして正しいものを3つ選べ。",
+    "t": "糖原病（von Gierke病）",
+    "q": "乳児期から成長障害のある2歳の子供、発作・肝腫大・斑状出血、血糖値31mg/dL、肝生検でグリコーゲン陽性の空胞。最も適する疾患はどれか。",
     "o": [
-      "a. 妊娠",
-      "b. う歯治療",
-      "c. 担癌状態",
-      "d. 経口避妊薬内服",
-      "e. ヘリコバクターピロリ感染"
+      "a. Hurler症候群",
+      "b. McArdle病",
+      "c. Pompe病",
+      "d. Tay-Sachs病",
+      "e. von Gierke病"
     ],
     "a": [
-      "A",
-      "C",
-      "D"
+      "e"
     ],
-    "m": true,
-    "e": "深部静脈血栓リスク：妊娠（静脈圧上昇・凝固能亢進）・担癌状態（凝固因子産生↑）・経口避妊薬（エストロゲンによる凝固能亢進）。"
+    "e": "von Gierke病（糖原病I型）：glucose-6-phosphatase欠乏→肝グリコーゲン蓄積・重度の低血糖・肝腫大。",
+    "m": false
   },
   {
-    "t": "肉芽組織の形成",
+    "t": "逆流性食道炎",
+    "q": "57歳女性、食後の灼熱の心窩部痛、下部食道粘膜に発赤、生検で基底帯扁平上皮過形成・固有層乳頭伸長・好酸球浸潤。最も可能性の高い診断はどれか。",
+    "o": [
+      "a. Barrett食道",
+      "b. 食道静脈瘤",
+      "c. 鉄欠乏状態",
+      "d. 逆流性食道炎",
+      "e. 全身性硬化症"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "逆流性食道炎：胃酸の逆流による食道粘膜傷害。基底帯過形成・乳頭伸長・好酸球浸潤が組織学的特徴。Barrett食道は逆流を背景に発生するが症状として胸焼けを認めない（無症状のことが多い）。",
+    "m": false
+  },
+  {
+    "t": "オゾン",
+    "q": "ごくありふれた大気汚染物質であり、酸化物や微粒子状物質と混ざることにより亜硫酸ガス・酸性のエアロゾルやスモッグを形成するが、紫外線から地球上の生物を守っている物質は何か。",
+    "o": [
+      "a. オゾン",
+      "b. 二酸化硫黄",
+      "c. 二酸化窒素",
+      "d. 微粒子",
+      "e. 一酸化炭素"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "オゾン（O3）：大気圏上空（成層圏）ではUV-Bをブロックして生物を守る。一方、地表では大気汚染物質（光化学スモッグの原因）となる有害物質。",
+    "m": false
+  },
+  {
+    "t": "肉芽組織形成",
     "q": "肉芽組織の形成を認めるものはどれか。",
     "o": [
       "a. ステロイド長期使用患者の副腎",
-      "b. 花粉症患者の副鼻腔粘膜",
+      "b. 花粉症患者副鼻腔粘膜",
       "c. 思春期女性の乳腺",
       "d. 長期臥床患者の足の筋肉",
       "e. 治癒中の胃潰瘍"
     ],
     "a": [
-      "E"
+      "e"
     ],
-    "e": "肉芽組織は創傷治癒の際に形成（線維芽細胞・新生血管・炎症細胞）。治癒中の潰瘍底に見られる。"
+    "e": "肉芽組織：組織修復時に形成される線維芽細胞・新生血管・炎症細胞からなる組織。治癒中の潰瘍底部に形成される。",
+    "m": false
   },
   {
-    "t": "常染色体劣性でないもの",
-    "q": "常染色体劣性遺伝でないものはどれか。",
+    "t": "がん遺伝子（誤り）",
+    "q": "以下のうち誤っている選択肢はどれか。",
     "o": [
-      "a. 鎌状赤血球症",
-      "b. Tay-Sachs病",
-      "c. 嚢胞性線維症",
-      "d. Marfan症候群",
-      "e. ムコ多糖症"
+      "a. 発がんの原因となる遺伝子をドライバー遺伝子という",
+      "b. 遺伝子はイタリック体で表記する",
+      "c. がん遺伝子は染色体の片側アレルが変異し不活性化されることで癌の発生に関与する",
+      "d. がん抑制遺伝子は両方の染色体が変異して不活性化されることで癌の発生に関与する",
+      "e. GeneticNa異常とはDNAの塩基配列に異常が生じるものである"
     ],
     "a": [
-      "D"
+      "c"
     ],
-    "e": "Marfan症候群→常染色体優性遺伝（FBN1変異）。鎌状赤血球・Tay-Sachs・嚢胞性線維症・ムコ多糖症→常染色体劣性遺伝。"
+    "e": "がん遺伝子は片側アレルの変異で活性化（アクセル踏みっぱなし）。不活性化ではなく活性化が発がんに寄与する。がん抑制遺伝子は両方のアレルが不活性化（ブレーキ喪失）。",
+    "m": false
   },
   {
-    "t": "IgG4関連疾患（誤り）2",
+    "t": "一次止血",
+    "q": "一次止血に関係ない物質を選べ。",
+    "o": [
+      "a. 組織因子",
+      "b. 血小板",
+      "c. ADP",
+      "d. vWF"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "一次止血：血小板・vWF・ADP（血小板活性化・凝集に関与）が中心。組織因子（TF）は二次止血（凝固カスケード外因系）の引き金を引く。",
+    "m": false
+  },
+  {
+    "t": "Grocott染色（カンジダ）",
+    "q": "食道の白苔部から接種した菌体をGrocott染色した際に観察されたもの。図に示される免疫不全症を引き起こすものはどれか。",
+    "o": [
+      "a. カンジダ",
+      "b. アスペルギルス",
+      "c. ニューモシスチス",
+      "d. サイトメガロウイルス",
+      "e. HHV-8"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "Grocott染色は真菌を染め出す。カンジダは仮性菌糸を形成し食道に感染した場合白苔を伴う。食道カンジダ症は細胞性免疫低下（HIV・ステロイドなど）に合併する日和見感染。",
+    "m": false
+  },
+  {
+    "t": "肺疾患（出血と梗塞）",
+    "q": "上記の肺疾患でみられるものはどれか（出血性梗塞の肺画像）。",
+    "o": [
+      "a. 出血と梗塞",
+      "b. 出血と浮腫",
+      "c. 梗塞と浮腫",
+      "d. 腫瘍と炎症",
+      "e. 凝固壊死のみ"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "出血性梗塞：肺は血液供給が豊富なため、塞栓後に再灌流により出血性梗塞をきたしやすい。出血と梗塞の両所見が見られる。",
+    "m": false
+  },
+  {
+    "t": "Nutmeg Liver",
+    "q": "Nutmeg Liverをきたす疾患はどれか。",
+    "o": [
+      "a. 慢性うっ血",
+      "b. 急性うっ血",
+      "c. 急性肝炎",
+      "d. 肝膿瘍"
+    ],
+    "a": [
+      "a"
+    ],
+    "e": "Nutmeg liver（ニクズク肝）：慢性うっ血性心不全などによる肝うっ血で生じる。小葉中心部が暗赤色、辺縁部が黄色化したナツメグ様外観。",
+    "m": false
+  },
+  {
+    "t": "脳の梗塞（画像）",
+    "q": "脳の画像についてみられる所見は以下のうちどれか。",
+    "o": [
+      "a. 出血",
+      "b. 梗塞",
+      "c. 膿瘍",
+      "d. 動脈瘤"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "脳梗塞：融解壊死により嚢胞性変化を呈する。CTでは低吸収域として描出される。中大脳動脈領域の梗塞が最多。",
+    "m": false
+  },
+  {
+    "t": "IgG4関連疾患（誤り）",
     "q": "IgG4関連疾患について誤りを選べ。",
     "o": [
       "a. 60歳代に好発",
       "b. IgG4陽性好酸球が多くなる",
       "c. 涙腺・唾液腺炎はかつてMikulicz病と言われていたものである",
-      "d. 無痛性リンパ節腫大はリンパ腫との鑑別が必要",
+      "d. 無痛性リンパ腫大はリンパ腫との鑑別が必要",
       "e. 膵炎は画像上で膵癌との鑑別が難しい"
     ],
     "a": [
-      "B"
+      "b"
     ],
-    "e": "IgG4関連疾患→IgG4陽性形質細胞（プラズマ細胞）が多くなる。好酸球ではなく形質細胞。"
+    "e": "IgG4関連疾患では好酸球ではなく形質細胞（IgG4陽性形質細胞）が増加する。IgG4陽性形質細胞の浸潤と線維化が病理学的特徴。",
+    "m": false
   },
   {
-    "t": "アナフィラキシー（複数選択）",
-    "q": "アナフィラキシーについて正しいものを2つ選べ。",
+    "t": "神経芽細胞腫（MYCN）再出",
+    "q": "生後6ヶ月男児、右副腎を含む5.5cm充実性腫瘤、HVA・VMA濃度上昇。この病変で予後不良に関連している可能性が最も高いものはどれか。",
+    "o": [
+      "a. 年齢が1歳未満であること",
+      "b. 高二倍性（Hyperdiploidy）",
+      "c. 腎奇形",
+      "d. MYCN（NMYC）癌遺伝子の増幅",
+      "e. 多数の神経節細胞の存在"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "神経芽細胞腫の予後不良因子：N-MYC遺伝子増幅・2歳以上・血清NSE高値・2n型核型。1歳未満・Hyperdiploidy・神経節細胞多数は予後良好因子。",
+    "m": false
+  },
+  {
+    "t": "急性糸球体腎炎",
+    "q": "正しいものを選びなさい。",
+    "o": [
+      "a. 水疱性類天疱瘡－デスモグレイン",
+      "b. 血液型不適合妊娠－ABO不適合",
+      "c. 重症筋無力症－抗Ach抗体",
+      "d. 急性糸球体腎炎－抗原抗体複合体の沈着"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "急性糸球体腎炎はIII型アレルギー（免疫複合体型）：抗原抗体複合体が糸球体に沈着して補体活性化・炎症を起こす。水疱性類天疱瘡は基底膜自己抗体（BP180等）。",
+    "m": false
+  },
+  {
+    "t": "腫瘍塞栓症",
+    "q": "以下に示すミクロ像で示される病態は以下a〜dのどの塞栓症であるか答えよ（血管内に腫瘍細胞集塊が見られる像）。",
+    "o": [
+      "a. 肺血栓塞栓症",
+      "b. 全身性血栓塞栓症",
+      "c. 脂肪塞栓症",
+      "d. 腫瘍塞栓症"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "腫瘍塞栓症：悪性腫瘍細胞が血管・リンパ管に侵入し遠隔臓器に到達するもの。転移性肺腫瘍のミクロ像では中央部に壊死を認める腫瘍細胞集塊が血管内に見られる。",
+    "m": false
+  },
+  {
+    "t": "肺の出血と梗塞",
+    "q": "以下は肺の病理画像である。以下の画像で見られる病変の組み合わせとして正しいのはどれか。",
+    "o": [
+      "a. 出血と水腫（浮腫）",
+      "b. 梗塞と水腫（浮腫）",
+      "c. 出血と梗塞",
+      "d. 腫瘍と炎症"
+    ],
+    "a": [
+      "c"
+    ],
+    "e": "肺の出血性梗塞：肺は二重血流（肺動脈・気管支動脈）があるため塞栓後に再灌流による出血性梗塞をきたしやすい。出血と梗塞の両所見が同時に認められる。",
+    "m": false
+  },
+  {
+    "t": "関節リウマチ（誤り）",
+    "q": "関節リウマチについて誤りを選べ。",
+    "o": [
+      "a. 抗CCP抗体は疾患特異性高い",
+      "b. DIP関節に好発",
+      "c. スワンネック変形",
+      "d. 左右非対称性"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "関節リウマチは左右対称性に発現する（左右非対称性は誤り）。PIP関節・MCP関節に好発し、DIPは障害されにくい。スワンネック変形・ボタン穴変形が特徴的。",
+    "m": false
+  },
+  {
+    "t": "常染色体劣性遺伝でないもの",
+    "q": "常染色体劣性でないのはどれか。",
+    "o": [
+      "a. 鎌状赤血球症",
+      "b. テイ・サックス病",
+      "c. 嚢胞性線維症",
+      "d. マルファン症候群",
+      "e. ムコ多糖症"
+    ],
+    "a": [
+      "d"
+    ],
+    "e": "マルファン症候群（FBN1遺伝子異常）は常染色体優性遺伝。鎌状赤血球症・Tay-Sachs病・嚢胞性線維症・ムコ多糖症はすべて常染色体劣性遺伝。",
+    "m": false
+  },
+  {
+    "t": "治療薬と免疫染色",
+    "q": "ターゲットを標的とする治療薬の選択が関与しない免疫染色の抗体はどれか。",
+    "o": [
+      "a. CD20",
+      "b. MelanA",
+      "c. HER2",
+      "d. PD-L1"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "MelanAはメラノーマの診断マーカーだが、直接的な分子標的治療薬選択の指標としては用いられない。CD20=リツキシマブ、HER2=トラスツズマブ、PD-L1=免疫チェックポイント阻害薬の標的。",
+    "m": false
+  },
+  {
+    "t": "瘢痕組織",
+    "q": "瘢痕組織は英語で何というか。",
+    "o": [
+      "a. Granulation tissue",
+      "b. Scar tissue",
+      "c. Granuloma",
+      "d. Fibrosis"
+    ],
+    "a": [
+      "b"
+    ],
+    "e": "瘢痕組織（Scar tissue）：創傷治癒の最終段階で形成される、膠原線維に富む組織。肉芽組織（Granulation tissue）が成熟・線維化して瘢痕化する。",
+    "m": false
+  },
+  {
+    "t": "アナフィラキシー（正しい2つ）",
+    "q": "アナフィラキシーについて正しいもの2つの組み合わせを選べ。",
     "o": [
       "a. 徐脈になる",
       "b. 重症で死亡することがある",
-      "c. 気道狭窄が起こる",
+      "c. 気道狭窄",
       "d. 3型アレルギーである",
       "e. 副腎ステロイドは禁忌である"
     ],
     "a": [
-      "B",
-      "C"
+      "b",
+      "c"
     ],
-    "m": true,
-    "e": "アナフィラキシー→I型アレルギー（IgE介在）。頻脈・低血圧・気道狭窄（浮腫）・蕁麻疹が主症状。重症例は死亡しうる。副腎ステロイドは治療の補助として使用（禁忌ではない）。"
+    "e": "アナフィラキシー：I型アレルギー（IgE介在性）の全身反応。気道狭窄・喉頭浮腫・頻脈・低血圧・蕁麻疹が特徴。重症例では死亡しうる。副腎ステロイドは治療薬（禁忌ではない）。",
+    "m": true
   },
   {
-    "t": "解剖の種類",
-    "q": "正しいものを選べ。",
+    "t": "Fabry病（誤り）",
+    "q": "上記の写真を示す病態（Fabry病）について誤りを選べ。",
     "o": [
-      "a. 解剖には病理解剖・法医解剖・系統解剖がある",
-      "b. 手術では迅速診断は必ず行う",
-      "c. 剖検率は現在80%を超えている",
-      "d. 病理解剖は主に犯罪捜査に用いられる"
+      "a. 小丘疹はAngiokeratoma",
+      "b. 心肥大（心筋症）",
+      "c. 糸球体上皮細胞や内皮細胞の細胞死の泡沫化、細胞質内の層板状・同心円状の膜様構造物",
+      "d. 腎機能障害は顕在化し、慢性腎不全に至る",
+      "e. 神経線維の減少が見られる"
     ],
     "a": [
-      "A"
+      "e"
     ],
-    "e": "解剖の種類：病理解剖（疾患の診断・研究）・法医解剖（犯罪捜査・異状死）・系統解剖（医学教育）の3種類。迅速診断は全手術で必須ではない。"
+    "e": "Fabry病では末梢神経の神経線維は減少するが（肢端疼痛症の原因）、「減少が見られる」は誤り（実際は無髄線維の障害による疼痛が特徴的で線維密度の変化はあるが「減少」という表現が誤り）。問題の答えに準じる。",
+    "m": false
   },
   {
-    "t": "Pellagra（3D症状）",
-    "q": "記憶力悪化・日常タスク困難・水様性下痢・日光暴露部の皮膚発赤・うろこ状変化が3か月間続く55歳女性。最も可能性の高い疾患はどれか。",
+    "t": "ロゼットと疾患",
+    "q": "神経芽細胞腫でロゼットの形と名前と細胞腫の組み合わせで正しいものを選べ。",
     "o": [
-      "a. Beriberi（脚気）",
-      "b. Cheilosis（口唇症）",
-      "c. Hypothyroidism（甲状腺機能低下症）",
-      "d. Marasmus",
-      "e. Pellagra"
+      "a. Homer Wright Rosettes－神経芽細胞腫",
+      "b. Homer Wright Rosettes－髄芽腫",
+      "c. Flexner-Wintersteiner Rosettes－腎芽腫",
+      "d. Flexner-Wintersteiner Rosettes－網膜芽細胞腫",
+      "e. Perivascular Pseudo Rosettes－脳室上衣腫",
+      "f. Perivascular Pseudo Rosettes－膠芽腫"
     ],
     "a": [
-      "E"
+      "d"
     ],
-    "e": "3D：Dermatitis（光線過敏性皮膚炎）・Diarrhea（下痢）・Dementia（認知症）→Pellagra（ナイアシン欠乏）。"
+    "e": "Flexner-Wintersteiner Rosettes（白抜きの内腔）：網膜芽細胞腫に特徴的。Homer Wright Rosettes（好酸性線維の芯）：神経芽細胞腫・髄芽腫。Perivascular Pseudo Rosettes（中央に血管）：脳室上衣腫・膠芽腫。",
+    "m": false
   }
 ]
 ;
-
 var Q=Q_b23M;
 var curYear='23';
 var SK_P='byori_prac', SK_E='byori_exam', HK='byori_hist';
@@ -1750,10 +5215,11 @@ function optKey(txt){return txt.split('.')[0].trim().toUpperCase();}
 function fmtTime(s){return Math.floor(s/60)+'分'+(s%60)+'秒';}
 function selYear(y){
   curYear=y;
-  ['19','21','23','all'].forEach(function(v){var el=document.getElementById('ybtn-'+v);if(el)el.classList.remove('sel');});
+  ['17','18','19','20','21','23','all'].forEach(function(v){var el=document.getElementById('ybtn-'+v);if(el)el.classList.remove('sel');});
   var selEl=document.getElementById('ybtn-'+y);if(selEl)selEl.classList.add('sel');
-  if(y==='19')Q=Q_b19M;else if(y==='21')Q=Q_b21M;else if(y==='23')Q=Q_b23M;
-  else Q=Q_b19M.concat(Q_b21M).concat(Q_b23M);
+  if(y==='17')Q=Q_b17M;else if(y==='18')Q=Q_b18M;else if(y==='19')Q=Q_b19M;
+  else if(y==='20')Q=Q_b20M;else if(y==='21')Q=Q_b21M;else if(y==='23')Q=Q_b23M;
+  else Q=Q_b17M.concat(Q_b18M).concat(Q_b19M).concat(Q_b20M).concat(Q_b21M).concat(Q_b23M);
 }
 function goHome(){
   document.getElementById('home').style.display='block';
@@ -1766,7 +5232,7 @@ function renderHome(){
   var rc=document.getElementById('resume-card');
   var ri=document.getElementById('resume-info');
   var brp=document.getElementById('btn-resume-p'),bre=document.getElementById('btn-resume-e');
-  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全年度';}
+  function yLbl(y){return y==='17'?'17M':y==='18'?'18M':y==='19'?'19M':y==='20'?'20M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全315問';}
   if(sp&&sp.queue&&sp.queue.length>0){
     hasResume=true;
     var done=sp.total-sp.queue.length;
@@ -1886,7 +5352,7 @@ function initQuizUI(){
   document.getElementById('quiz').style.display='block';
   document.getElementById('comp').style.display='none';
   document.getElementById('total-lbl').textContent=total;
-  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全95問';}
+  function yLbl(y){return y==='19'?'19M':y==='21'?'21M':y==='23'?'23M':y==='wrong'?'苦手':'全315問';}
   if(mode==='p'){
     document.getElementById('mode-ico').className='ico p';document.getElementById('mode-ico').textContent='練習';
     document.getElementById('hdr-h1').textContent='病理学総論 過去問 ['+yLbl(curYear)+'] 練習モード';
